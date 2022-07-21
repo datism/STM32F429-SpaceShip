@@ -1,0 +1,110 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "main",
+        "Components": [
+          {
+            "Type": "AnimatedImage",
+            "Name": "ship",
+            "X": 90,
+            "Y": 275,
+            "Width": 61,
+            "Height": 45,
+            "FileNameFirst": "ship01.png",
+            "FileNameLast": "ship03.png",
+            "UpdateTicksInterval": 200,
+            "StartOnLoad": true,
+            "ReverseEnabled": true,
+            "LoopEnabled": true
+          },
+          {
+            "Type": "Image",
+            "Name": "bullet1",
+            "X": 71,
+            "Y": 359,
+            "Width": 6,
+            "Height": 18,
+            "RelativeFilename": "bullet.png",
+            "Moveable": true
+          },
+          {
+            "Type": "Image",
+            "Name": "bullet2",
+            "X": 90,
+            "Y": 359,
+            "Width": 6,
+            "Height": 18,
+            "RelativeFilename": "bullet.png",
+            "Moveable": true
+          },
+          {
+            "Type": "Image",
+            "Name": "bullet3",
+            "X": 120,
+            "Y": 359,
+            "Width": 6,
+            "Height": 18,
+            "RelativeFilename": "bullet.png",
+            "Moveable": true
+          }
+        ],
+        "Interactions": []
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "SpaceShip",
+    "Resolution": {
+      "Width": 240,
+      "Height": 320
+    },
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "main",
+    "SelectedStartupLanguage": "GB",
+    "Skin": "Blue",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      16
+    ],
+    "AvailableLCDs": {
+      "16": "LCD16bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 240,
+        "Height": 320
+      }
+    ],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD16bpp": {
+        "Id": "LCD16bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommandOverride": "make -f ../gcc/Makefile -j8",
+    "FlashTargetCommandOverride": "make -f ../gcc/Makefile flash",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Portrait",
+    "Family": "STM32F4",
+    "Platform": "m4",
+    "ProjectFile": "../STM32F429I_DISCO_REV_E01.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": []
+  },
+  "Version": "4.20.0",
+  "CreatedBy": "4.20.0"
+}
