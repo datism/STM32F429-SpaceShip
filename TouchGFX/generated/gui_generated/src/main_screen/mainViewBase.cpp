@@ -11,25 +11,35 @@ mainViewBase::mainViewBase()
     __background.setPosition(0, 0, 240, 320);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
+    space.setXY(0, 0);
+    space.setBitmaps(BITMAP_SPACE01_ID, BITMAP_SPACE06_ID);
+    space.setUpdateTicksInterval(6);
+    space.startAnimation(false, true, true);
+
     ship.setXY(90, 275);
     ship.setBitmaps(BITMAP_SHIP01_ID, BITMAP_SHIP03_ID);
     ship.setUpdateTicksInterval(12);
     ship.startAnimation(true, true, true);
 
-    bullet1.setXY(71, 359);
+    bullet1.setXY(120, 346);
     bullet1.setBitmap(touchgfx::Bitmap(BITMAP_BULLET_ID));
 
-    bullet2.setXY(90, 359);
+    bullet2.setXY(120, 346);
     bullet2.setBitmap(touchgfx::Bitmap(BITMAP_BULLET_ID));
 
-    bullet3.setXY(120, 359);
+    bullet3.setXY(120, 346);
     bullet3.setBitmap(touchgfx::Bitmap(BITMAP_BULLET_ID));
 
+    bullet4.setXY(120, 346);
+    bullet4.setBitmap(touchgfx::Bitmap(BITMAP_BULLET_ID));
+
     add(__background);
+    add(space);
     add(ship);
     add(bullet1);
     add(bullet2);
     add(bullet3);
+    add(bullet4);
 }
 
 void mainViewBase::setupScreen()

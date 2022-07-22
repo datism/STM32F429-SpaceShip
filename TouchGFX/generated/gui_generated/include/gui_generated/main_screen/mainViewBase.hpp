@@ -29,10 +29,12 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
+    touchgfx::AnimatedImage space;
     touchgfx::AnimatedImage ship;
     touchgfx::MoveAnimator< touchgfx::Image > bullet1;
     touchgfx::MoveAnimator< touchgfx::Image > bullet2;
     touchgfx::MoveAnimator< touchgfx::Image > bullet3;
+    touchgfx::MoveAnimator< touchgfx::Image > bullet4;
 
 private:
 

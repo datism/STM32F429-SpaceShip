@@ -10,6 +10,12 @@ const uint16_t BITMAP_BULLET_ID = 0;
 const uint16_t BITMAP_SHIP01_ID = 1;
 const uint16_t BITMAP_SHIP02_ID = 2;
 const uint16_t BITMAP_SHIP03_ID = 3;
+const uint16_t BITMAP_SPACE01_ID = 4;
+const uint16_t BITMAP_SPACE02_ID = 5;
+const uint16_t BITMAP_SPACE03_ID = 6;
+const uint16_t BITMAP_SPACE04_ID = 7;
+const uint16_t BITMAP_SPACE05_ID = 8;
+const uint16_t BITMAP_SPACE06_ID = 9;
 
 namespace BitmapDatabase
 {

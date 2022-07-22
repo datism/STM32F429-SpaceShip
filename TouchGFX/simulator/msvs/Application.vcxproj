@@ -24,6 +24,8 @@
     <ClCompile Include="..\..\generated\gui_generated\src\main_screen\mainViewBase.cpp"/>
     <ClCompile Include="..\..\gui\src\model\Model.cpp"/>
     <ClCompile Include="..\..\generated\simulator\src\video\SoftwareMJPEGDecoder.cpp"/>
+    <ClCompile Include="..\..\gui\src\containers\Ship.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\ShipBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -177,6 +179,8 @@
     <ClInclude Include="..\..\gui\include\gui\model\ModelListener.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\common\SimConstants.hpp"/>
     <ClInclude Include="..\..\generated\simulator\include\simulator\video\SoftwareMJPEGDecoder.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\containers\Ship.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\ShipBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

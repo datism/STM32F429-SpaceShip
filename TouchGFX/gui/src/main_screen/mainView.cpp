@@ -5,11 +5,9 @@
 extern osMessageQueueId_t Queue1Handle;
 
 mainView::mainView()
-	: bulletMoveAnimationEndedCallback(this, &mainView::bulletMoveAnimationEndedHandler)
 	{}
 
-void mainView::setupScreen()
-{
+void mainView::setupScreen() {
 	localImgX = 240 / 2 - ship.getWidth() / 2;
 	localImgY = 320 - ship.getHeight();
 
@@ -21,29 +19,29 @@ void mainView::setupScreen()
     bulletList[0] = &bullet1;
     bulletList[1] = &bullet2;
     bulletList[2] = &bullet3;
-
-    bullet1.setMoveAnimationEndedAction(bulletMoveAnimationEndedCallback);
-    bullet2.setMoveAnimationEndedAction(bulletMoveAnimationEndedCallback);
-    bullet3.setMoveAnimationEndedAction(bulletMoveAnimationEndedCallback);
+    bulletList[3] = &bullet4;
 }
 
-void mainView::tearDownScreen()
-{
+void mainView::tearDownScreen() {
     mainViewBase::tearDownScreen();
 }
 
 void mainView::handleTickEvent() {
 	tickCount++;
 
-	if (tickCount == 1) {
-		for (int i = 0; i < 3; i++) {
-			bulletList[i]->setXY(ship.getX() + ship.getWidth() / 2 - bulletList[i]->getWidth() / 2,
-					 ship.getY() - bulletList[i]->getHeight());
-			bulletList[i]->startMoveAnimation(bulletList[i]->getX(), 0 - bulletList[i]->getY(), 200);
-			bulletList[i]->setMoveAnimationDelay( (i + 1) * 50);
-			bulletList[i]->invalidate();
+	if (tickCount % INTERVAL_BULLET == 0) {
+		uint8_t i = tickCount / INTERVAL_BULLET - 1;
+
+		if (!bulletList[i]->isMoveAnimationRunning()) {
+			//Set the bullet middle of the ship
+			bulletList[i]->setXY(localImgX + ship.getWidth()/2 - bulletList[i]->getWidth()/2, localImgY);
+			//The bullet will travel 320 pixel
+			bulletList[i]->startMoveAnimation(bulletList[i]->getX(), -(320 - bulletList[i]->getY()), BULLET_TIME);
 		}
 	}
+
+	if (tickCount > BULLET_TIME)
+		tickCount = 0;
 
 
 	uint8_t res = 0;
@@ -51,10 +49,10 @@ void mainView::handleTickEvent() {
 			osMessageQueueGet(Queue1Handle, &res, NULL, osWaitForever) == osOK) {
 
 		switch (res) {
-		case 'U': localImgY += 2; break;
-		case 'D': localImgY -= 2; break;
-		case 'R': localImgX += 2; break;
-		case 'L': localImgX -= 2; break;
+		case 'U': localImgY += SHIP_SPEED; break;
+		case 'D': localImgY -= SHIP_SPEED; break;
+		case 'R': localImgX += SHIP_SPEED; break;
+		case 'L': localImgX -= SHIP_SPEED; break;
 		}
 
 		if (localImgX < 0)
@@ -71,19 +69,4 @@ void mainView::handleTickEvent() {
 
 		ship.invalidate();
 	}
-}
-
-void mainView::bulletMoveAnimationEndedHandler(const touchgfx::MoveAnimator<touchgfx::Image>& bullet) {
-	touchgfx::MoveAnimator<touchgfx::Image> *b;
-
-	if (&bullet == &bullet1)
-		b = &bullet1;
-	else if (&bullet == &bullet2)
-		b = &bullet2;
-	else if (&bullet == &bullet3)
-		b = &bullet3;
-	b->setXY(ship.getX() + ship.getWidth() / 2 - b->getWidth() / 2,
-					 ship.getY() - b->getHeight());
-	b->startMoveAnimation(b->getX(), 0 - b->getY(), 200);
-	b->invalidate();
 }

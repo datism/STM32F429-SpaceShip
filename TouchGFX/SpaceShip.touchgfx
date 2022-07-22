@@ -6,6 +6,17 @@
         "Components": [
           {
             "Type": "AnimatedImage",
+            "Name": "space",
+            "Width": 240,
+            "Height": 320,
+            "FileNameFirst": "space01.png",
+            "FileNameLast": "space06.png",
+            "UpdateTicksInterval": 100,
+            "StartOnLoad": true,
+            "LoopEnabled": true
+          },
+          {
+            "Type": "AnimatedImage",
             "Name": "ship",
             "X": 90,
             "Y": 275,
@@ -21,8 +32,8 @@
           {
             "Type": "Image",
             "Name": "bullet1",
-            "X": 71,
-            "Y": 359,
+            "X": 120,
+            "Y": 346,
             "Width": 6,
             "Height": 18,
             "RelativeFilename": "bullet.png",
@@ -31,8 +42,8 @@
           {
             "Type": "Image",
             "Name": "bullet2",
-            "X": 90,
-            "Y": 359,
+            "X": 120,
+            "Y": 346,
             "Width": 6,
             "Height": 18,
             "RelativeFilename": "bullet.png",
@@ -42,7 +53,17 @@
             "Type": "Image",
             "Name": "bullet3",
             "X": 120,
-            "Y": 359,
+            "Y": 346,
+            "Width": 6,
+            "Height": 18,
+            "RelativeFilename": "bullet.png",
+            "Moveable": true
+          },
+          {
+            "Type": "Image",
+            "Name": "bullet4",
+            "X": 120,
+            "Y": 346,
             "Width": 6,
             "Height": 18,
             "RelativeFilename": "bullet.png",
@@ -52,7 +73,28 @@
         "Interactions": []
       }
     ],
-    "CustomContainerDefinitions": [],
+    "CustomContainerDefinitions": [
+      {
+        "Name": "Ship",
+        "Width": 61,
+        "Height": 45,
+        "Components": [
+          {
+            "Type": "AnimatedImage",
+            "Name": "animatedImage",
+            "Width": 61,
+            "Height": 45,
+            "FileNameFirst": "ship01.png",
+            "FileNameLast": "ship03.png",
+            "UpdateTicksInterval": 200,
+            "StartOnLoad": true,
+            "ReverseEnabled": true,
+            "LoopEnabled": true
+          }
+        ],
+        "Interactions": []
+      }
+    ],
     "Name": "SpaceShip",
     "Resolution": {
       "Width": 240,
