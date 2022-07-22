@@ -18,6 +18,10 @@ void mainView::setupScreen()
     ship.setX(localImgX);
     ship.setY(localImgY);
 
+    bulletList[0] = &bullet1;
+    bulletList[1] = &bullet2;
+    bulletList[2] = &bullet3;
+
     bullet1.setMoveAnimationEndedAction(bulletMoveAnimationEndedCallback);
     bullet2.setMoveAnimationEndedAction(bulletMoveAnimationEndedCallback);
     bullet3.setMoveAnimationEndedAction(bulletMoveAnimationEndedCallback);
@@ -31,11 +35,14 @@ void mainView::tearDownScreen()
 void mainView::handleTickEvent() {
 	tickCount++;
 
-	if (tickCount == 5) {
-		bullet1.setXY(ship.getX() + ship.getWidth() / 2 - bullet1.getWidth() / 2,
-				 ship.getY() - bullet1.getHeight());
-		bullet1.startMoveAnimation(bullet1.getX(), 0 - bullet1.getY(), 200);
-		bullet1.invalidate();
+	if (tickCount == 1) {
+		for (int i = 0; i < 3; i++) {
+			bulletList[i]->setXY(ship.getX() + ship.getWidth() / 2 - bulletList[i]->getWidth() / 2,
+					 ship.getY() - bulletList[i]->getHeight());
+			bulletList[i]->startMoveAnimation(bulletList[i]->getX(), 0 - bulletList[i]->getY(), 200);
+			bulletList[i]->setMoveAnimationDelay( (i + 1) * 50);
+			bulletList[i]->invalidate();
+		}
 	}
 
 
@@ -69,10 +76,12 @@ void mainView::handleTickEvent() {
 void mainView::bulletMoveAnimationEndedHandler(const touchgfx::MoveAnimator<touchgfx::Image>& bullet) {
 	touchgfx::MoveAnimator<touchgfx::Image> *b;
 
-	if (&bullet == &bullet1) {
+	if (&bullet == &bullet1)
 		b = &bullet1;
-	}
-
+	else if (&bullet == &bullet2)
+		b = &bullet2;
+	else if (&bullet == &bullet3)
+		b = &bullet3;
 	b->setXY(ship.getX() + ship.getWidth() / 2 - b->getWidth() / 2,
 					 ship.getY() - b->getHeight());
 	b->startMoveAnimation(b->getX(), 0 - b->getY(), 200);
