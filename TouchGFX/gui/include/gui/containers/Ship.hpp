@@ -10,6 +10,7 @@ public:
     virtual ~Ship() {}
     virtual void initialize();
     virtual void handleTickEvent();
+    Rect getBodyArea();
 protected:
     int16_t localX;
     int16_t localY;

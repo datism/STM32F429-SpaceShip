@@ -16,18 +16,13 @@
             "LoopEnabled": true
           },
           {
-            "Type": "AnimatedImage",
+            "Type": "CustomContainerInstance",
             "Name": "ship",
             "X": 90,
             "Y": 275,
             "Width": 61,
             "Height": 45,
-            "FileNameFirst": "ship01.png",
-            "FileNameLast": "ship03.png",
-            "UpdateTicksInterval": 200,
-            "StartOnLoad": true,
-            "ReverseEnabled": true,
-            "LoopEnabled": true
+            "CustomContainerDefinitionName": "Ship"
           },
           {
             "Type": "Image",

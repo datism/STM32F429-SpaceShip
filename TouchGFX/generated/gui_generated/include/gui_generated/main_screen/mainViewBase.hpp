@@ -9,6 +9,7 @@
 #include <gui/main_screen/mainPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/AnimatedImage.hpp>
+#include <gui/containers/Ship.hpp>
 #include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/EasingEquations.hpp>
 #include <touchgfx/mixins/MoveAnimator.hpp>
@@ -30,7 +31,7 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::AnimatedImage space;
-    touchgfx::AnimatedImage ship;
+    Ship ship;
     touchgfx::MoveAnimator< touchgfx::Image > bullet1;
     touchgfx::MoveAnimator< touchgfx::Image > bullet2;
     touchgfx::MoveAnimator< touchgfx::Image > bullet3;

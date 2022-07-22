@@ -17,9 +17,6 @@ mainViewBase::mainViewBase()
     space.startAnimation(false, true, true);
 
     ship.setXY(90, 275);
-    ship.setBitmaps(BITMAP_SHIP01_ID, BITMAP_SHIP03_ID);
-    ship.setUpdateTicksInterval(12);
-    ship.startAnimation(true, true, true);
 
     bullet1.setXY(120, 346);
     bullet1.setBitmap(touchgfx::Bitmap(BITMAP_BULLET_ID));
@@ -44,5 +41,5 @@ mainViewBase::mainViewBase()
 
 void mainViewBase::setupScreen()
 {
-
+    ship.initialize();
 }

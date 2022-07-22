@@ -3,10 +3,7 @@
 
 #include <gui_generated/main_screen/mainViewBase.hpp>
 #include <gui/main_screen/mainPresenter.hpp>
-#include <touchgfx/mixins/MoveAnimator.hpp>
 
-/* Speed of the ship (pixels/tick)*/
-#define SHIP_SPEED 1
 /* Speed of a bullet (pixels/tick)*/
 #define BULLET_SPEED 4
 /* Ticks which a bullet take in move aniamtion */
@@ -25,8 +22,6 @@ public:
     virtual void tearDownScreen();
     virtual void handleTickEvent();
 protected:
-    int16_t localImgX;
-    int16_t localImgY;
     uint32_t tickCount;
     touchgfx::MoveAnimator< touchgfx::Image >* bulletList[NBR_BULLET];
 };
