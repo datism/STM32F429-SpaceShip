@@ -4,14 +4,11 @@
 #include <gui_generated/main_screen/mainViewBase.hpp>
 #include <gui/main_screen/mainPresenter.hpp>
 
-/* Speed of a bullet (pixels/tick)*/
-#define BULLET_SPEED 4
-/* Ticks which a bullet take in move aniamtion */
-#define BULLET_TIME 320 / BULLET_SPEED
 /* Number of bullet */
 #define NBR_BULLET 4
-/* Ticks which ship take to fire a bullet */
-#define INTERVAL_BULLET (int)(BULLET_TIME / NBR_BULLET)
+
+/* Number of enemy 0 */
+#define NBR_ENEMY0 10
 
 class mainView : public mainViewBase
 {
@@ -21,9 +18,15 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
     virtual void handleTickEvent();
+    void checkCollision();
+
+    void bulletMoveAnimationEndedHandler(const touchgfx::MoveAnimator<touchgfx::Image>& comp);
 protected:
     uint32_t tickCount;
-    touchgfx::MoveAnimator< touchgfx::Image >* bulletList[NBR_BULLET];
+    touchgfx::MoveAnimator< touchgfx::Image >* bullets[NBR_BULLET];
+    Enemy0* enemies0[NBR_ENEMY0];
+
+    Callback <mainView, const touchgfx::MoveAnimator<touchgfx::Image>& > bulletMoveAnimationEndedCallback;
 };
 
 #endif // MAINVIEW_HPP

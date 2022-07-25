@@ -11,6 +11,7 @@
 #include <touchgfx/widgets/AnimatedImage.hpp>
 #include <gui/containers/Ship.hpp>
 #include <touchgfx/widgets/Image.hpp>
+#include <gui/containers/Enemy0.hpp>
 #include <touchgfx/EasingEquations.hpp>
 #include <touchgfx/mixins/MoveAnimator.hpp>
 
@@ -36,6 +37,17 @@ protected:
     touchgfx::MoveAnimator< touchgfx::Image > bullet2;
     touchgfx::MoveAnimator< touchgfx::Image > bullet3;
     touchgfx::MoveAnimator< touchgfx::Image > bullet4;
+    touchgfx::Image enemy10;
+    Enemy0 enemy00;
+    Enemy0 enemy01;
+    Enemy0 enemy02;
+    Enemy0 enemy03;
+    Enemy0 enemy04;
+    Enemy0 enemy05;
+    Enemy0 enemy06;
+    Enemy0 enemy07;
+    Enemy0 enemy08;
+    Enemy0 enemy09;
 
 private:
 

@@ -13,22 +13,45 @@ mainViewBase::mainViewBase()
 
     space.setXY(0, 0);
     space.setBitmaps(BITMAP_SPACE01_ID, BITMAP_SPACE06_ID);
-    space.setUpdateTicksInterval(6);
+    space.setUpdateTicksInterval(3);
     space.startAnimation(false, true, true);
 
-    ship.setXY(90, 275);
+    ship.setXY(90, 281);
 
-    bullet1.setXY(120, 346);
+    bullet1.setXY(117, 333);
     bullet1.setBitmap(touchgfx::Bitmap(BITMAP_BULLET_ID));
 
-    bullet2.setXY(120, 346);
+    bullet2.setXY(117, 333);
     bullet2.setBitmap(touchgfx::Bitmap(BITMAP_BULLET_ID));
 
-    bullet3.setXY(120, 346);
+    bullet3.setXY(117, 333);
     bullet3.setBitmap(touchgfx::Bitmap(BITMAP_BULLET_ID));
 
-    bullet4.setXY(120, 346);
+    bullet4.setXY(117, 333);
     bullet4.setBitmap(touchgfx::Bitmap(BITMAP_BULLET_ID));
+
+    enemy10.setXY(-160, 88);
+    enemy10.setBitmap(touchgfx::Bitmap(BITMAP_ENEMY1_ID));
+
+    enemy00.setXY(210, -26);
+
+    enemy01.setXY(210, -26);
+
+    enemy02.setXY(210, -26);
+
+    enemy03.setXY(105, -26);
+
+    enemy04.setXY(105, -26);
+
+    enemy05.setXY(105, -26);
+
+    enemy06.setXY(105, -26);
+
+    enemy07.setXY(0, -26);
+
+    enemy08.setXY(0, -26);
+
+    enemy09.setXY(0, -26);
 
     add(__background);
     add(space);
@@ -37,9 +60,30 @@ mainViewBase::mainViewBase()
     add(bullet2);
     add(bullet3);
     add(bullet4);
+    add(enemy10);
+    add(enemy00);
+    add(enemy01);
+    add(enemy02);
+    add(enemy03);
+    add(enemy04);
+    add(enemy05);
+    add(enemy06);
+    add(enemy07);
+    add(enemy08);
+    add(enemy09);
 }
 
 void mainViewBase::setupScreen()
 {
     ship.initialize();
+    enemy00.initialize();
+    enemy01.initialize();
+    enemy02.initialize();
+    enemy03.initialize();
+    enemy04.initialize();
+    enemy05.initialize();
+    enemy06.initialize();
+    enemy07.initialize();
+    enemy08.initialize();
+    enemy09.initialize();
 }

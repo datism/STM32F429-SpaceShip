@@ -45,8 +45,12 @@ build/MINGW32_NT-6.2/gui/src/main_screen/mainPresenter.o: \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AnimatedImage.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/EasingEquations.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/MoveAnimator.hpp
+ gui/include/gui/containers/Ship.hpp \
+ generated/gui_generated/include/gui_generated/containers/ShipBase.hpp \
+ gui/include/gui/containers/Enemy0.hpp \
+ generated/gui_generated/include/gui_generated/containers/Enemy0Base.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/MoveAnimator.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/EasingEquations.hpp
 
 gui/include/gui/main_screen/mainView.hpp:
 
@@ -138,6 +142,14 @@ gui/include/gui/model/ModelListener.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:
 
-../Middlewares/ST/touchgfx/framework/include/touchgfx/EasingEquations.hpp:
+gui/include/gui/containers/Ship.hpp:
+
+generated/gui_generated/include/gui_generated/containers/ShipBase.hpp:
+
+gui/include/gui/containers/Enemy0.hpp:
+
+generated/gui_generated/include/gui_generated/containers/Enemy0Base.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/MoveAnimator.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/EasingEquations.hpp:

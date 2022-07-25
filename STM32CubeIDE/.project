@@ -300,6 +300,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/common/FrontendApplication.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/gui/Enemy0.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/containers/Enemy0.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/gui/Ship.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/containers/Ship.cpp</locationURI>
@@ -395,6 +400,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/Enemy0Base.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/containers/Enemy0Base.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/ShipBase.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/containers/ShipBase.cpp</locationURI>
@@ -415,19 +425,69 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_bullet.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_ship01.cpp</name>
+			<name>Application/User/generated/image_enemy0.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_ship01.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_enemy0.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_ship02.cpp</name>
+			<name>Application/User/generated/image_enemy1.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_ship02.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_enemy1.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_ship03.cpp</name>
+			<name>Application/User/generated/image_explosion0.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_ship03.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_explosion0.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_explosion1.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_explosion1.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_explosion2.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_explosion2.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_explosion3.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_explosion3.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_explosion4.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_explosion4.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_explosion5.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_explosion5.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_explosion6.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_explosion6.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_explosion7.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_explosion7.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_ship0.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_ship0.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_ship1.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_ship1.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_ship2.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_ship2.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_space01.cpp</name>

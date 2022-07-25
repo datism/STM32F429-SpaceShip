@@ -6,14 +6,24 @@
 class Ship : public ShipBase
 {
 public:
+	enum State {
+		ALIVE,
+		DEAD
+	};
+
     Ship();
     virtual ~Ship() {}
     virtual void initialize();
     virtual void handleTickEvent();
-    Rect getBodyArea();
+
+    void setState(State state);
+    State getState();
+//    Rect getBodyArea();
 protected:
-    int16_t localX;
-    int16_t localY;
+    uint32_t tickCounter;
+    State state;
+
+    void reset();
 };
 
 #endif // SHIP_HPP
