@@ -8,7 +8,9 @@ class Enemy0 : public MoveAnimator<Enemy0Base>
 {
 public:
 	enum State {
-		ALIVE,
+		OOB,
+		ENTER,
+		RETREAT,
 		DEAD
 	};
 

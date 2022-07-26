@@ -16,6 +16,7 @@ public:
     virtual void initialize();
     virtual void handleTickEvent();
 
+    void retreat();
     void setState(State state);
     State getState();
 //    Rect getBodyArea();
