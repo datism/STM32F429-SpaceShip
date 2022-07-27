@@ -3,6 +3,7 @@
 
 #include <gui_generated/main_screen/mainViewBase.hpp>
 #include <gui/main_screen/mainPresenter.hpp>
+#include <gui/containers/Enemy.hpp>
 #include <touchgfx/hal/Types.hpp>
 
 /* Number of bullet */
@@ -31,13 +32,14 @@ public:
 protected:
     uint32_t tickCount;
     State state;
-    touchgfx::Vector<Enemy0*, NBR_ENEMY0> enemies;
+    touchgfx::Vector<Enemy *, NBR_ENEMY0> enemies;
     touchgfx::MoveAnimator< touchgfx::Image >* bullets[NBR_BULLET];
 
     void checkCollision();
     void setUpPhase1();
     void setUpPhase2();
-    void resetBullets();
+    void enableBullets();
+    void disableBullets();
     void setState(State state);
     Callback <mainView, const touchgfx::MoveAnimator<touchgfx::Image>& > bulletMoveAnimationEndedCallback;
 };

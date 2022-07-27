@@ -4,7 +4,7 @@
 
 
 Enemy0::Enemy0()
-	:state(OOB) {
+	:Enemy(OOB) {
 	Application::getInstance()->registerTimerWidget(this);
 }
 
@@ -21,9 +21,9 @@ void Enemy0::handleTickEvent() {
 	case ENTER:
 		if (tickCounter == 1) {
 			//move to outside screen
-			moveTo(startPosX, startPosY);
+			moveTo(startX, startY);
 			//move to standing position
-			startMoveAnimation(enterPosX, enterPosY, 100, EasingEquations::cubicEaseOut, EasingEquations::expoEaseOut);
+			startMoveAnimation(endX, endY, 100, EasingEquations::cubicEaseOut, EasingEquations::expoEaseOut);
 		}
 		break;
 	case RETREAT:
@@ -45,47 +45,51 @@ void Enemy0::handleTickEvent() {
 	}
 }
 
+const Rect& Enemy0::getHitBox() {
+	return getRect();
+}
+
 void Enemy0::reset() {
 	state = OOB;
 	animatedImage.setBitmaps(BITMAP_ENEMY0_ID, BITMAP_ENEMY0_ID);
-	moveTo(startPosX, startPosY);
+	moveTo(startX, startY);
 }
 
-void Enemy0::setStartPos(int16_t x, int16_t y) {
-	startPosX = x;
-	startPosY = y;
-
-	if (startPosY == 0) {
-		startPosY = 1;
-	}
-}
-
-void Enemy0::setEnterPos(int16_t x, int16_t y) {
-	enterPosX = x;
-	enterPosY = y;
-}
-
-int16_t Enemy0::getStartX() {
-	return startPosX;
-}
-
-int16_t Enemy0::getStartY() {
-	return startPosY;
-}
-
-int16_t Enemy0::getEnterX() {
-	return enterPosX;
-}
-
-int16_t Enemy0::getEnterY() {
-	return enterPosY;
-}
-
-void Enemy0::setState(State state) {
-	tickCounter = 0;
-	this->state = state;
-}
-
-Enemy0::State Enemy0::getState() {
-	return state;
-}
+//void Enemy0::setStartPos(int16_t x, int16_t y) {
+//	startPosX = x;
+//	startPosY = y;
+//
+//	if (startPosY == 0) {
+//		startPosY = 1;
+//	}
+//}
+//
+//void Enemy0::setEnterPos(int16_t x, int16_t y) {
+//	enterPosX = x;
+//	enterPosY = y;
+//}
+//
+//int16_t Enemy0::getStartX() {
+//	return startPosX;
+//}
+//
+//int16_t Enemy0::getStartY() {
+//	return startPosY;
+//}
+//
+//int16_t Enemy0::getEnterX() {
+//	return enterPosX;
+//}
+//
+//int16_t Enemy0::getEnterY() {
+//	return enterPosY;
+//}
+//
+//void Enemy0::setState(State state) {
+//	tickCounter = 0;
+//	this->state = state;
+//}
+//
+//Enemy0::State Enemy0::getState() {
+//	return state;
+//}

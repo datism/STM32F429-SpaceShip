@@ -28,51 +28,6 @@ mainView::mainView()
 
 void mainView::setupScreen() {
     mainViewBase::setupScreen();
-
-//    uint8_t i;
-//    uint16_t gap = (240 - enemy00.getWidth() * 4) / (4 + 1);
-//    uint16_t line3 = 35;
-//    uint16_t line2 = line3 + enemy00.getHeight() + 10;
-//    uint16_t line1 = line2 + enemy00.getHeight() + 10;
-//    int16_t startY = -enemy00.getHeight();
-
-
-//    for (i = 3; i < 7 ; i++) {
-//    	if (i == 3) {
-//			enemies[i]->centerX();
-//			enemies[i]->setStartPos(enemies[i]->getX(), startY);
-//			enemies[i]->setEnterPos(gap, line2);
-//    	}
-//    	else {
-//    		enemies[i]->setStartPos(enemies[i - 1]->getStartX(), startY);
-//    		enemies[i]->setEnterPos(enemies[i - 1]->getEnterX() +  enemy00.getWidth() + gap , line2);
-//    	}
-//
-//    }
-//
-//    for (i = 0; i < 3; i++) {
-//    	enemies[i]->setStartPos(320 - enemy00.getWidth(), startY);
-//    	enemies[i]->setEnterPos(enemies[i + 3]->getEnterX() + enemy00.getWidth(), line1);
-//    }
-//
-//    for (i = 7; i < 10 ;i++) {
-//		enemies[i]->setStartPos(0, startY);
-//		enemies[i]->setEnterPos(enemies[i - 7]->getEnterX(), line3);
-//    }
-
-//    for (i = 0; i < NBR_ENEMY0; i++) {
-//    	 enemies[i]->startMoveAnimation(enemies[i]->getEnterX(), enemies[i]->getEnterY(), 100, EasingEquations::cubicEaseOut, EasingEquations::expoEaseOut);
-//    	 enemies[i]->setMoveAnimationDelay(i * 10);
-//    }
-//
-//    for(i = 0; i < NBR_BULLET; ++i) {
-//    	bullets[i]->setVisible(0);
-//		bullets[i]->setMoveAnimationEndedAction(bulletMoveAnimationEndedCallback);
-//		bullets[i]->setMoveAnimationDelay(i * BULLET_INTERVAL);
-//		//The bullet will travel 320 pixel
-//		bullets[i]->startMoveAnimation(bullets[i]->getX(), -(320 - bullets[i]->getY()), BULLET_TIME);
-//    }
-
 }
 
 void mainView::tearDownScreen() {
@@ -101,12 +56,9 @@ void mainView::handleTickEvent() {
 			setState(PHASE2);
 		break;
 	case PHASE2:
-		//cancel all bullet and start phase pop up
+		//disable all bullet and start phase pop up
 		if (tickCount == 1) {
-			for (uint8_t i = 0; i < 4; ++i) {
-				bullets[i]->setY(320);
-				bullets[i]->cancelMoveAnimation();
-			}
+			disableBullets();
 		}
 		//start phase 2
 		else if (tickCount == 50)
@@ -125,27 +77,31 @@ void mainView::checkCollision() {
 
 	while (i < enemies.size()) {
 		//ship not dead && ship intersect enemy
-		if (ship.getState() != Ship::DEAD && ship.getRect().intersect(enemies[i]->getRect())) {
+		if (ship.getState() != Ship::DEAD && ship.getRect().intersect(enemies[i]->getHitBox())) {
 			ship.setState(Ship::DEAD);
 			enemies[i]->setState(Enemy0::DEAD);
 			enemies.removeAt(i);
 			continue;
 		}
+		i++;
+	}
 
 
-		for (j = 0; j < NBR_BULLET; ++j) {
-			if (bullets[j]->getRect().bottom() > 0									//bullet in screen
-					&& bullets[j]->isVisible()										//bullet is visible
-					&& bullets[j]->getRect().intersect(enemies[i]->getRect())) 	//bullet intersect enemy
-			{
+	for (j = 0; j < NBR_BULLET; ++j) {
+		if (bullets[j]->getRect().bottom() < 0 ||  !bullets[j]->isVisible())
+			continue;
+
+		for (i = 0; i < enemies.size();) {
+			//bullet intersect enemy
+			if (bullets[j]->getRect().intersect(enemies[i]->getHitBox())) {
 				bullets[j]->setVisible(0);
 				enemies[i]->setState(Enemy0::DEAD);
 				enemies.removeAt(i);
 				continue;
 			}
-		}
 
-		i++;
+			i++;
+		}
 	}
 }
 
@@ -160,19 +116,18 @@ void mainView::setUpPhase1() {
 	//line 2, 4 enemy
 	for (uint8_t i = 0; i < 4; i++) {
 		if (i == 0) {
-			enemies[i]->centerX();
-			enemies[i]->setStartPos(enemies[i]->getX(), -enemy00.getHeight());
-			enemies[i]->setEnterPos(ENEMY_GAP, ENEMY_LINE2);
+			enemies[i]->setStartPos(120 - enemy00.getWidth() / 2, -enemy00.getHeight());
+			enemies[i]->setEndPos(ENEMY_GAP, ENEMY_LINE2);
 		}
 		else {
 			enemies[i]->setStartPos(enemies[i - 1]->getStartX(), (i >= 2) ?  enemies[3 - i]->getStartY() : enemies[i - 1]->getStartY() - 50 );
-			enemies[i]->setEnterPos(enemies[i - 1]->getEnterX() +  enemy00.getWidth() + ENEMY_GAP , ENEMY_LINE2);
+			enemies[i]->setEndPos(enemies[i - 1]->getEndX() +  enemy00.getWidth() + ENEMY_GAP , ENEMY_LINE2);
 		}
 
 		enemies[i]->setState(Enemy0::ENTER);
 	}
 
-	resetBullets();
+	enableBullets();
 }
 
 void mainView::setUpPhase2() {
@@ -196,26 +151,25 @@ void mainView::setUpPhase2() {
 	//line2, 4 enemy
 	for (i = 3; i < 7; i++) {
 		if (i == 3) {
-			enemies[i]->centerX();
-			enemies[i]->setStartPos(enemies[i]->getX(), -eHeight * (i + 1));
-			enemies[i]->setEnterPos(ENEMY_GAP, ENEMY_LINE2);
+			enemies[i]->setStartPos(120 - eWidth, -eHeight * (i + 1));
+			enemies[i]->setEndPos(ENEMY_GAP, ENEMY_LINE2);
 		}
 		else {
 			enemies[i]->setStartPos(enemies[i - 1]->getStartX(), -eHeight * i);
-			enemies[i]->setEnterPos(enemies[i - 1]->getEnterX() +  eWidth + ENEMY_GAP, ENEMY_LINE2);
+			enemies[i]->setEndPos(enemies[i - 1]->getEndX() +  eWidth + ENEMY_GAP, ENEMY_LINE2);
 		}
 	}
 
 	//line1, 3 enemy
 	for (i = 0; i < 3; ++i) {
 		enemies[i]->setStartPos(240 - eWidth, -eHeight * (i + 1));
-		enemies[i]->setEnterPos(enemies[i + 3]->getEnterX() + eWidth + 5, ENEMY_LINE1);
+		enemies[i]->setEndPos(enemies[i + 3]->getEndX() + eWidth + 5, ENEMY_LINE1);
 	}
 
 	//line3, 3 enemy
 	for (i = 7; i < 10; ++i) {
 		enemies[i]->setStartPos(0, -eHeight * (i + 1));
-		enemies[i]->setEnterPos(enemies[i - 7]->getEnterX(), ENEMY_LINE3);
+		enemies[i]->setEndPos(enemies[i - 7]->getEndX(), ENEMY_LINE3);
 	}
 
 	for (i =  0; i < 10; ++i) {
@@ -223,11 +177,18 @@ void mainView::setUpPhase2() {
 	}
 
 
-	resetBullets();
+	enableBullets();
 }
 
 
-void mainView::resetBullets() {
+void mainView::disableBullets() {
+	for (uint8_t i = 0; i < 4; ++i) {
+		bullets[i]->setY(320);
+		bullets[i]->cancelMoveAnimation();
+	}
+}
+
+void mainView::enableBullets() {
 	for(uint8_t i = 0; i < NBR_BULLET; ++i) {
 		bullets[i]->setVisible(0);
 		bullets[i]->setMoveAnimationEndedAction(bulletMoveAnimationEndedCallback);
