@@ -300,9 +300,24 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/common/FrontendApplication.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/gui/Boss.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/containers/Boss.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/Enemy.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/containers/Enemy.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/gui/Enemy0.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/containers/Enemy0.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/Enemy1.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/containers/Enemy1.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/gui/Ship.cpp</name>
@@ -400,9 +415,19 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/BossBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/containers/BossBase.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/Enemy0Base.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/containers/Enemy0Base.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Enemy1Base.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/containers/Enemy1Base.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/ShipBase.cpp</name>
@@ -420,9 +445,54 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/BitmapDatabase.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_bullet.cpp</name>
+			<name>Application/User/generated/image_boss.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_bullet.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_boss.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_bossBullet00.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_bossBullet00.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_bossBullet01.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_bossBullet01.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_bossBullet02.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_bossBullet02.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_bossBullet03.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_bossBullet03.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_bossBullet04.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_bossBullet04.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_bossBullet05.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_bossBullet05.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_bossBullet06.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_bossBullet06.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_bossBullet07.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_bossBullet07.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_bossBullet1.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_bossBullet1.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_enemy0.cpp</name>
@@ -433,6 +503,16 @@
 			<name>Application/User/generated/image_enemy1.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_enemy1.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_enemy1bullet.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_enemy1bullet.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_enemy2.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_enemy2.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_explosion0.cpp</name>
@@ -488,6 +568,11 @@
 			<name>Application/User/generated/image_ship2.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_ship2.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_shipBullet.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_shipBullet.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_space01.cpp</name>

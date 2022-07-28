@@ -6,26 +6,38 @@
 #include <touchgfx/hal/Types.hpp>
 #include <touchgfx/Bitmap.hpp>
 
-const uint16_t BITMAP_BULLET_ID = 0;
-const uint16_t BITMAP_ENEMY0_ID = 1;
-const uint16_t BITMAP_ENEMY1_ID = 2;
-const uint16_t BITMAP_EXPLOSION0_ID = 3;
-const uint16_t BITMAP_EXPLOSION1_ID = 4;
-const uint16_t BITMAP_EXPLOSION2_ID = 5;
-const uint16_t BITMAP_EXPLOSION3_ID = 6;
-const uint16_t BITMAP_EXPLOSION4_ID = 7;
-const uint16_t BITMAP_EXPLOSION5_ID = 8;
-const uint16_t BITMAP_EXPLOSION6_ID = 9;
-const uint16_t BITMAP_EXPLOSION7_ID = 10;
-const uint16_t BITMAP_SHIP0_ID = 11;
-const uint16_t BITMAP_SHIP1_ID = 12;
-const uint16_t BITMAP_SHIP2_ID = 13;
-const uint16_t BITMAP_SPACE01_ID = 14;
-const uint16_t BITMAP_SPACE02_ID = 15;
-const uint16_t BITMAP_SPACE03_ID = 16;
-const uint16_t BITMAP_SPACE04_ID = 17;
-const uint16_t BITMAP_SPACE05_ID = 18;
-const uint16_t BITMAP_SPACE06_ID = 19;
+const uint16_t BITMAP_BOSS_ID = 0;
+const uint16_t BITMAP_BOSSBULLET00_ID = 1;
+const uint16_t BITMAP_BOSSBULLET01_ID = 2;
+const uint16_t BITMAP_BOSSBULLET02_ID = 3;
+const uint16_t BITMAP_BOSSBULLET03_ID = 4;
+const uint16_t BITMAP_BOSSBULLET04_ID = 5;
+const uint16_t BITMAP_BOSSBULLET05_ID = 6;
+const uint16_t BITMAP_BOSSBULLET06_ID = 7;
+const uint16_t BITMAP_BOSSBULLET07_ID = 8;
+const uint16_t BITMAP_BOSSBULLET1_ID = 9;
+const uint16_t BITMAP_ENEMY0_ID = 10;
+const uint16_t BITMAP_ENEMY1_ID = 11;
+const uint16_t BITMAP_ENEMY1BULLET_ID = 12;
+const uint16_t BITMAP_ENEMY2_ID = 13;
+const uint16_t BITMAP_EXPLOSION0_ID = 14;
+const uint16_t BITMAP_EXPLOSION1_ID = 15;
+const uint16_t BITMAP_EXPLOSION2_ID = 16;
+const uint16_t BITMAP_EXPLOSION3_ID = 17;
+const uint16_t BITMAP_EXPLOSION4_ID = 18;
+const uint16_t BITMAP_EXPLOSION5_ID = 19;
+const uint16_t BITMAP_EXPLOSION6_ID = 20;
+const uint16_t BITMAP_EXPLOSION7_ID = 21;
+const uint16_t BITMAP_SHIP0_ID = 22;
+const uint16_t BITMAP_SHIP1_ID = 23;
+const uint16_t BITMAP_SHIP2_ID = 24;
+const uint16_t BITMAP_SHIPBULLET_ID = 25;
+const uint16_t BITMAP_SPACE01_ID = 26;
+const uint16_t BITMAP_SPACE02_ID = 27;
+const uint16_t BITMAP_SPACE03_ID = 28;
+const uint16_t BITMAP_SPACE04_ID = 29;
+const uint16_t BITMAP_SPACE05_ID = 30;
+const uint16_t BITMAP_SPACE06_ID = 31;
 
 namespace BitmapDatabase
 {

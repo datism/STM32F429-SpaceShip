@@ -4,13 +4,14 @@
 #include <gui_generated/main_screen/mainViewBase.hpp>
 #include <gui/main_screen/mainPresenter.hpp>
 #include <gui/containers/Enemy.hpp>
-#include <touchgfx/hal/Types.hpp>
 
 /* Number of bullet */
 #define NBR_BULLET 4
 
+#define NBR_ENEMY_BULLET 8
+
 /* Number of enemy 0 */
-#define NBR_ENEMY0 10
+#define NBR_ENEMY 13
 
 class mainView : public mainViewBase
 {
@@ -28,20 +29,26 @@ public:
     virtual void tearDownScreen();
     virtual void handleTickEvent();
 
-    void bulletMoveAnimationEndedHandler(const touchgfx::MoveAnimator<touchgfx::Image>& comp);
 protected:
     uint32_t tickCount;
+    uint8_t enemyCount;
     State state;
-    touchgfx::Vector<Enemy *, NBR_ENEMY0> enemies;
-    touchgfx::MoveAnimator< touchgfx::Image >* bullets[NBR_BULLET];
+    Enemy* enemies[NBR_ENEMY];
+    touchgfx::MoveAnimator< touchgfx::Image >* shipBullets[NBR_BULLET];
+    touchgfx::MoveAnimator< touchgfx::Image >* enemyBullets[NBR_ENEMY_BULLET];
 
-    void checkCollision();
+    virtual void shipFireBullet();
+    virtual void bossFireBullet0();
+    virtual void bossFireBullet1();
+    virtual void enmy10FireBullet();
+    virtual void enmy11FireBullet();
+
     void setUpPhase1();
     void setUpPhase2();
-    void enableBullets();
-    void disableBullets();
+    void setUpPhase3();
+    void checkCollision();
+    void cancelShipBullet();
     void setState(State state);
-    Callback <mainView, const touchgfx::MoveAnimator<touchgfx::Image>& > bulletMoveAnimationEndedCallback;
 };
 
 #endif // MAINVIEW_HPP

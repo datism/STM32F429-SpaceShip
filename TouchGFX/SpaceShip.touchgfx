@@ -16,66 +16,45 @@
             "LoopEnabled": true
           },
           {
+            "Type": "Image",
+            "Name": "shipBullet3",
+            "X": 117,
+            "Y": 333,
+            "Width": 6,
+            "Height": 18,
+            "RelativeFilename": "shipBullet.png",
+            "Moveable": true
+          },
+          {
             "Type": "CustomContainerInstance",
-            "Name": "ship",
-            "X": 90,
-            "Y": 281,
-            "Width": 61,
-            "Height": 39,
-            "CustomContainerDefinitionName": "Ship"
+            "Name": "boss",
+            "X": 66,
+            "Y": -116,
+            "Width": 115,
+            "Height": 116,
+            "CustomContainerDefinitionName": "Boss"
           },
           {
-            "Type": "Image",
-            "Name": "bullet1",
-            "X": 117,
-            "Y": 333,
-            "Width": 6,
-            "Height": 18,
-            "RelativeFilename": "bullet.png",
-            "Moveable": true
-          },
-          {
-            "Type": "Image",
-            "Name": "bullet2",
-            "X": 117,
-            "Y": 333,
-            "Width": 6,
-            "Height": 18,
-            "RelativeFilename": "bullet.png",
-            "Moveable": true
-          },
-          {
-            "Type": "Image",
-            "Name": "bullet3",
-            "X": 117,
-            "Y": 333,
-            "Width": 6,
-            "Height": 18,
-            "RelativeFilename": "bullet.png",
-            "Moveable": true
-          },
-          {
-            "Type": "Image",
-            "Name": "bullet4",
-            "X": 117,
-            "Y": 333,
-            "Width": 6,
-            "Height": 18,
-            "RelativeFilename": "bullet.png",
-            "Moveable": true
-          },
-          {
-            "Type": "Image",
+            "Type": "CustomContainerInstance",
             "Name": "enemy10",
-            "X": -160,
-            "Y": 88,
-            "Width": 30,
+            "X": 181,
+            "Y": -28,
+            "Width": 29,
             "Height": 28,
-            "RelativeFilename": "enemy1.png"
+            "CustomContainerDefinitionName": "Enemy1"
           },
           {
             "Type": "CustomContainerInstance",
-            "Name": "enemy00",
+            "Name": "enemy11",
+            "X": 181,
+            "Y": -27,
+            "Width": 29,
+            "Height": 28,
+            "CustomContainerDefinitionName": "Enemy1"
+          },
+          {
+            "Type": "CustomContainerInstance",
+            "Name": "enemy09",
             "X": 210,
             "Y": -26,
             "Width": 30,
@@ -84,7 +63,52 @@
           },
           {
             "Type": "CustomContainerInstance",
-            "Name": "enemy01",
+            "Name": "enemy08",
+            "X": 210,
+            "Y": -26,
+            "Width": 30,
+            "Height": 26,
+            "CustomContainerDefinitionName": "Enemy0"
+          },
+          {
+            "Type": "CustomContainerInstance",
+            "Name": "enemy07",
+            "X": 210,
+            "Y": -26,
+            "Width": 30,
+            "Height": 26,
+            "CustomContainerDefinitionName": "Enemy0"
+          },
+          {
+            "Type": "CustomContainerInstance",
+            "Name": "enemy06",
+            "X": 210,
+            "Y": -26,
+            "Width": 30,
+            "Height": 26,
+            "CustomContainerDefinitionName": "Enemy0"
+          },
+          {
+            "Type": "CustomContainerInstance",
+            "Name": "enemy05",
+            "X": 210,
+            "Y": -26,
+            "Width": 30,
+            "Height": 26,
+            "CustomContainerDefinitionName": "Enemy0"
+          },
+          {
+            "Type": "CustomContainerInstance",
+            "Name": "enemy04",
+            "X": 210,
+            "Y": -26,
+            "Width": 30,
+            "Height": 26,
+            "CustomContainerDefinitionName": "Enemy0"
+          },
+          {
+            "Type": "CustomContainerInstance",
+            "Name": "enemy03",
             "X": 210,
             "Y": -26,
             "Width": 30,
@@ -102,8 +126,8 @@
           },
           {
             "Type": "CustomContainerInstance",
-            "Name": "enemy03",
-            "X": 105,
+            "Name": "enemy01",
+            "X": 210,
             "Y": -26,
             "Width": 30,
             "Height": 26,
@@ -111,8 +135,8 @@
           },
           {
             "Type": "CustomContainerInstance",
-            "Name": "enemy04",
-            "X": 105,
+            "Name": "enemy00",
+            "X": 210,
             "Y": -26,
             "Width": 30,
             "Height": 26,
@@ -120,48 +144,194 @@
           },
           {
             "Type": "CustomContainerInstance",
-            "Name": "enemy05",
-            "X": 105,
-            "Y": -26,
-            "Width": 30,
-            "Height": 26,
-            "CustomContainerDefinitionName": "Enemy0"
+            "Name": "ship",
+            "X": 93,
+            "Y": 281,
+            "Width": 61,
+            "Height": 39,
+            "CustomContainerDefinitionName": "Ship"
           },
           {
-            "Type": "CustomContainerInstance",
-            "Name": "enemy06",
-            "X": 105,
-            "Y": -26,
-            "Width": 30,
-            "Height": 26,
-            "CustomContainerDefinitionName": "Enemy0"
+            "Type": "Image",
+            "Name": "shipBullet0",
+            "X": 117,
+            "Y": 333,
+            "Width": 6,
+            "Height": 18,
+            "RelativeFilename": "shipBullet.png",
+            "Moveable": true
           },
           {
-            "Type": "CustomContainerInstance",
-            "Name": "enemy07",
-            "Y": -26,
-            "Width": 30,
-            "Height": 26,
-            "CustomContainerDefinitionName": "Enemy0"
+            "Type": "Image",
+            "Name": "shipBullet1",
+            "X": 117,
+            "Y": 333,
+            "Width": 6,
+            "Height": 18,
+            "RelativeFilename": "shipBullet.png",
+            "Moveable": true
           },
           {
-            "Type": "CustomContainerInstance",
-            "Name": "enemy08",
-            "Y": -26,
-            "Width": 30,
-            "Height": 26,
-            "CustomContainerDefinitionName": "Enemy0"
+            "Type": "Image",
+            "Name": "shipBullet2",
+            "X": 117,
+            "Y": 333,
+            "Width": 6,
+            "Height": 18,
+            "RelativeFilename": "shipBullet.png",
+            "Moveable": true
           },
           {
-            "Type": "CustomContainerInstance",
-            "Name": "enemy09",
-            "Y": -26,
-            "Width": 30,
+            "Type": "AnimatedImage",
+            "Name": "bossBullet00",
+            "X": 146,
+            "Y": 329,
+            "Width": 17,
             "Height": 26,
-            "CustomContainerDefinitionName": "Enemy0"
+            "FileNameFirst": "bossBullet00.png",
+            "FileNameLast": "bossBullet07.png",
+            "UpdateTicksInterval": 100,
+            "StartOnLoad": true,
+            "LoopEnabled": true,
+            "Moveable": true
+          },
+          {
+            "Type": "AnimatedImage",
+            "Name": "bossBullet01",
+            "X": 146,
+            "Y": 329,
+            "Width": 17,
+            "Height": 26,
+            "FileNameFirst": "bossBullet00.png",
+            "FileNameLast": "bossBullet07.png",
+            "UpdateTicksInterval": 100,
+            "StartOnLoad": true,
+            "LoopEnabled": true,
+            "Moveable": true
+          },
+          {
+            "Type": "Image",
+            "Name": "enemy10Bullet",
+            "X": 131,
+            "Y": 336,
+            "Width": 4,
+            "Height": 13,
+            "RelativeFilename": "enemy1bullet.png",
+            "Moveable": true
+          },
+          {
+            "Type": "Image",
+            "Name": "enemy11Bullet",
+            "X": 131,
+            "Y": 336,
+            "Width": 4,
+            "Height": 13,
+            "RelativeFilename": "enemy1bullet.png",
+            "Moveable": true
+          },
+          {
+            "Type": "Image",
+            "Name": "bossBullet13",
+            "X": 171,
+            "Y": 342,
+            "Width": 10,
+            "Height": 11,
+            "RelativeFilename": "bossBullet1.png",
+            "Moveable": true
+          },
+          {
+            "Type": "Image",
+            "Name": "bossBullet12",
+            "X": 171,
+            "Y": 342,
+            "Width": 10,
+            "Height": 11,
+            "RelativeFilename": "bossBullet1.png",
+            "Moveable": true
+          },
+          {
+            "Type": "Image",
+            "Name": "bossBullet11",
+            "X": 171,
+            "Y": 342,
+            "Width": 10,
+            "Height": 11,
+            "RelativeFilename": "bossBullet1.png",
+            "Moveable": true
+          },
+          {
+            "Type": "Image",
+            "Name": "bossBullet10",
+            "X": 171,
+            "Y": 341,
+            "Width": 10,
+            "Height": 11,
+            "RelativeFilename": "bossBullet1.png",
+            "Moveable": true
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "BossFireBullet1Interaction",
+            "Trigger": {
+              "Type": "TriggerCustom",
+              "TriggerCustomTypeName": "Boss fireBullet1Trigger happens",
+              "TriggerComponent": "boss"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "bossFireBullet1"
+            }
+          },
+          {
+            "InteractionName": "BossFireBullet0Interaction",
+            "Trigger": {
+              "Type": "TriggerCustom",
+              "TriggerCustomTypeName": "Boss fireBullet0Trigger happens",
+              "TriggerComponent": "boss"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "bossFireBullet0"
+            }
+          },
+          {
+            "InteractionName": "ShipFireBulletInteraction",
+            "Trigger": {
+              "Type": "TriggerCustom",
+              "TriggerCustomTypeName": "Ship fireBulletTrigger happens",
+              "TriggerComponent": "ship"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "shipFireBullet"
+            }
+          },
+          {
+            "InteractionName": "Enmy10FireBulletInteraction",
+            "Trigger": {
+              "Type": "TriggerCustom",
+              "TriggerCustomTypeName": "Enemy1 fireBulletTrigger happens",
+              "TriggerComponent": "enemy10"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "enmy10FireBullet"
+            }
+          },
+          {
+            "InteractionName": "Enmy11FireBulletInteraction",
+            "Trigger": {
+              "Type": "TriggerCustom",
+              "TriggerCustomTypeName": "Enemy1 fireBulletTrigger happens",
+              "TriggerComponent": "enemy11"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "enmy11FireBullet"
+            }
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [
@@ -183,7 +353,12 @@
             "LoopEnabled": true
           }
         ],
-        "Interactions": []
+        "Interactions": [],
+        "CustomTriggers": [
+          {
+            "Name": "fireBulletTrigger"
+          }
+        ]
       },
       {
         "Name": "Enemy0",
@@ -201,6 +376,53 @@
           }
         ],
         "Interactions": []
+      },
+      {
+        "Name": "Enemy1",
+        "Width": 29,
+        "Height": 28,
+        "Components": [
+          {
+            "Type": "AnimatedImage",
+            "Name": "animatedImage",
+            "Width": 29,
+            "Height": 28,
+            "FileNameFirst": "enemy1.png",
+            "FileNameLast": "enemy1.png",
+            "UpdateTicksInterval": 10
+          }
+        ],
+        "Interactions": [],
+        "CustomTriggers": [
+          {
+            "Name": "fireBulletTrigger"
+          }
+        ]
+      },
+      {
+        "Name": "Boss",
+        "Width": 115,
+        "Height": 116,
+        "Components": [
+          {
+            "Type": "AnimatedImage",
+            "Name": "animatedImage",
+            "Width": 115,
+            "Height": 116,
+            "FileNameFirst": "boss.png",
+            "FileNameLast": "boss.png",
+            "UpdateTicksInterval": 10
+          }
+        ],
+        "Interactions": [],
+        "CustomTriggers": [
+          {
+            "Name": "fireBullet1Trigger"
+          },
+          {
+            "Name": "fireBullet0Trigger"
+          }
+        ]
       }
     ],
     "Name": "SpaceShip",

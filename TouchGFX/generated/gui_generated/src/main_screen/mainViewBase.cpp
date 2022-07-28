@@ -5,7 +5,12 @@
 #include <touchgfx/Color.hpp>
 #include <BitmapDatabase.hpp>
 
-mainViewBase::mainViewBase()
+mainViewBase::mainViewBase() :
+    bossFireBullet1TriggerCallback(this, &mainViewBase::bossFireBullet1TriggerCallbackHandler),
+    bossFireBullet0TriggerCallback(this, &mainViewBase::bossFireBullet0TriggerCallbackHandler),
+    shipFireBulletTriggerCallback(this, &mainViewBase::shipFireBulletTriggerCallbackHandler),
+    enemy10FireBulletTriggerCallback(this, &mainViewBase::enemy10FireBulletTriggerCallbackHandler),
+    enemy11FireBulletTriggerCallback(this, &mainViewBase::enemy11FireBulletTriggerCallbackHandler)
 {
 
     __background.setPosition(0, 0, 240, 320);
@@ -16,74 +21,163 @@ mainViewBase::mainViewBase()
     space.setUpdateTicksInterval(3);
     space.startAnimation(false, true, true);
 
-    ship.setXY(90, 281);
+    shipBullet3.setXY(117, 333);
+    shipBullet3.setBitmap(touchgfx::Bitmap(BITMAP_SHIPBULLET_ID));
 
-    bullet1.setXY(117, 333);
-    bullet1.setBitmap(touchgfx::Bitmap(BITMAP_BULLET_ID));
+    boss.setXY(66, -116);
+    boss.setFireBullet1TriggerCallback(bossFireBullet1TriggerCallback);
+    boss.setFireBullet0TriggerCallback(bossFireBullet0TriggerCallback);
 
-    bullet2.setXY(117, 333);
-    bullet2.setBitmap(touchgfx::Bitmap(BITMAP_BULLET_ID));
+    enemy10.setXY(181, -28);
+    enemy10.setFireBulletTriggerCallback(enemy10FireBulletTriggerCallback);
 
-    bullet3.setXY(117, 333);
-    bullet3.setBitmap(touchgfx::Bitmap(BITMAP_BULLET_ID));
+    enemy11.setXY(181, -27);
+    enemy11.setFireBulletTriggerCallback(enemy11FireBulletTriggerCallback);
 
-    bullet4.setXY(117, 333);
-    bullet4.setBitmap(touchgfx::Bitmap(BITMAP_BULLET_ID));
+    enemy09.setXY(210, -26);
 
-    enemy10.setXY(-160, 88);
-    enemy10.setBitmap(touchgfx::Bitmap(BITMAP_ENEMY1_ID));
+    enemy08.setXY(210, -26);
 
-    enemy00.setXY(210, -26);
+    enemy07.setXY(210, -26);
 
-    enemy01.setXY(210, -26);
+    enemy06.setXY(210, -26);
+
+    enemy05.setXY(210, -26);
+
+    enemy04.setXY(210, -26);
+
+    enemy03.setXY(210, -26);
 
     enemy02.setXY(210, -26);
 
-    enemy03.setXY(105, -26);
+    enemy01.setXY(210, -26);
 
-    enemy04.setXY(105, -26);
+    enemy00.setXY(210, -26);
 
-    enemy05.setXY(105, -26);
+    ship.setXY(93, 281);
+    ship.setFireBulletTriggerCallback(shipFireBulletTriggerCallback);
 
-    enemy06.setXY(105, -26);
+    shipBullet0.setXY(117, 333);
+    shipBullet0.setBitmap(touchgfx::Bitmap(BITMAP_SHIPBULLET_ID));
 
-    enemy07.setXY(0, -26);
+    shipBullet1.setXY(117, 333);
+    shipBullet1.setBitmap(touchgfx::Bitmap(BITMAP_SHIPBULLET_ID));
 
-    enemy08.setXY(0, -26);
+    shipBullet2.setXY(117, 333);
+    shipBullet2.setBitmap(touchgfx::Bitmap(BITMAP_SHIPBULLET_ID));
 
-    enemy09.setXY(0, -26);
+    bossBullet00.setXY(146, 329);
+    bossBullet00.setBitmaps(BITMAP_BOSSBULLET00_ID, BITMAP_BOSSBULLET07_ID);
+    bossBullet00.setUpdateTicksInterval(6);
+    bossBullet00.startAnimation(false, true, true);
+
+    bossBullet01.setXY(146, 329);
+    bossBullet01.setBitmaps(BITMAP_BOSSBULLET00_ID, BITMAP_BOSSBULLET07_ID);
+    bossBullet01.setUpdateTicksInterval(6);
+    bossBullet01.startAnimation(false, true, true);
+
+    enemy10Bullet.setXY(131, 336);
+    enemy10Bullet.setBitmap(touchgfx::Bitmap(BITMAP_ENEMY1BULLET_ID));
+
+    enemy11Bullet.setXY(131, 336);
+    enemy11Bullet.setBitmap(touchgfx::Bitmap(BITMAP_ENEMY1BULLET_ID));
+
+    bossBullet13.setXY(171, 342);
+    bossBullet13.setBitmap(touchgfx::Bitmap(BITMAP_BOSSBULLET1_ID));
+
+    bossBullet12.setXY(171, 342);
+    bossBullet12.setBitmap(touchgfx::Bitmap(BITMAP_BOSSBULLET1_ID));
+
+    bossBullet11.setXY(171, 342);
+    bossBullet11.setBitmap(touchgfx::Bitmap(BITMAP_BOSSBULLET1_ID));
+
+    bossBullet10.setXY(171, 341);
+    bossBullet10.setBitmap(touchgfx::Bitmap(BITMAP_BOSSBULLET1_ID));
 
     add(__background);
     add(space);
-    add(ship);
-    add(bullet1);
-    add(bullet2);
-    add(bullet3);
-    add(bullet4);
+    add(shipBullet3);
+    add(boss);
     add(enemy10);
-    add(enemy00);
-    add(enemy01);
-    add(enemy02);
-    add(enemy03);
-    add(enemy04);
-    add(enemy05);
-    add(enemy06);
-    add(enemy07);
-    add(enemy08);
+    add(enemy11);
     add(enemy09);
+    add(enemy08);
+    add(enemy07);
+    add(enemy06);
+    add(enemy05);
+    add(enemy04);
+    add(enemy03);
+    add(enemy02);
+    add(enemy01);
+    add(enemy00);
+    add(ship);
+    add(shipBullet0);
+    add(shipBullet1);
+    add(shipBullet2);
+    add(bossBullet00);
+    add(bossBullet01);
+    add(enemy10Bullet);
+    add(enemy11Bullet);
+    add(bossBullet13);
+    add(bossBullet12);
+    add(bossBullet11);
+    add(bossBullet10);
 }
 
 void mainViewBase::setupScreen()
 {
-    ship.initialize();
-    enemy00.initialize();
-    enemy01.initialize();
-    enemy02.initialize();
-    enemy03.initialize();
-    enemy04.initialize();
-    enemy05.initialize();
-    enemy06.initialize();
-    enemy07.initialize();
-    enemy08.initialize();
+    boss.initialize();
+    enemy10.initialize();
+    enemy11.initialize();
     enemy09.initialize();
+    enemy08.initialize();
+    enemy07.initialize();
+    enemy06.initialize();
+    enemy05.initialize();
+    enemy04.initialize();
+    enemy03.initialize();
+    enemy02.initialize();
+    enemy01.initialize();
+    enemy00.initialize();
+    ship.initialize();
+}
+
+void mainViewBase::bossFireBullet1TriggerCallbackHandler()
+{
+    //BossFireBullet1Interaction
+    //When boss fireBullet1Trigger call virtual function
+    //Call bossFireBullet1
+    bossFireBullet1();
+}
+
+void mainViewBase::bossFireBullet0TriggerCallbackHandler()
+{
+    //BossFireBullet0Interaction
+    //When boss fireBullet0Trigger call virtual function
+    //Call bossFireBullet0
+    bossFireBullet0();
+}
+
+void mainViewBase::shipFireBulletTriggerCallbackHandler()
+{
+    //ShipFireBulletInteraction
+    //When ship fireBulletTrigger call virtual function
+    //Call shipFireBullet
+    shipFireBullet();
+}
+
+void mainViewBase::enemy10FireBulletTriggerCallbackHandler()
+{
+    //Enmy10FireBulletInteraction
+    //When enemy10 fireBulletTrigger call virtual function
+    //Call enmy10FireBullet
+    enmy10FireBullet();
+}
+
+void mainViewBase::enemy11FireBulletTriggerCallbackHandler()
+{
+    //Enmy11FireBulletInteraction
+    //When enemy11 fireBulletTrigger call virtual function
+    //Call enmy11FireBullet
+    enmy11FireBullet();
 }

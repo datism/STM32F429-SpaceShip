@@ -10,20 +10,20 @@ public:
 		OOB,
 		ENTER,
 		RETREAT,
+		ATTACK,
 		DEAD
 	};
 
     ~Enemy() {}
 
-    void setState(State);
     void setStartPos(int16_t, int16_t);
     void setEndPos(int16_t, int16_t);
-    State getState();
     int16_t getStartX();
     int16_t getStartY();
     int16_t getEndX();
     int16_t getEndY();
-
+    void setState(State);
+    State getState();
     virtual const touchgfx::Rect& getHitBox() = 0;
 
 protected:

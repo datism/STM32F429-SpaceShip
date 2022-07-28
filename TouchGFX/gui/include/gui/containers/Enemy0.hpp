@@ -8,38 +8,15 @@
 class Enemy0 : public MoveAnimator<Enemy0Base>, public Enemy
 {
 public:
-//	enum State {
-//		OOB,
-//		ENTER,
-//		RETREAT,
-//		DEAD
-//	};
-
     Enemy0();
     virtual ~Enemy0() {}
     virtual void initialize();
     virtual void handleTickEvent();
 
-    const Rect& getHitBox();
+    virtual const Rect& getHitBox();
 
-//    void setState(State state);
-//    State getState();
-//    void setStartPos(int16_t x, int16_t y);
-//    void setEnterPos(int16_t x, int16_t y);
-//    int16_t getStartX();
-//    int16_t getStartY();
-//    int16_t getEnterX();
-//    int16_t getEnterY();
 protected:
-//    State state;
-//    int16_t startPosX;
-//    int16_t startPosY;
-//    int16_t enterPosX;
-//    int16_t enterPosY;
-//    uint32_t tickCounter;
-
-
-    void reset();
+    virtual void reset();
 };
 
 #endif // ENEMY0_HPP

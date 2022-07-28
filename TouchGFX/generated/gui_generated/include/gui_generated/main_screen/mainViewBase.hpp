@@ -9,9 +9,11 @@
 #include <gui/main_screen/mainPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/AnimatedImage.hpp>
-#include <gui/containers/Ship.hpp>
 #include <touchgfx/widgets/Image.hpp>
+#include <gui/containers/Boss.hpp>
+#include <gui/containers/Enemy1.hpp>
 #include <gui/containers/Enemy0.hpp>
+#include <gui/containers/Ship.hpp>
 #include <touchgfx/EasingEquations.hpp>
 #include <touchgfx/mixins/MoveAnimator.hpp>
 
@@ -21,6 +23,34 @@ public:
     mainViewBase();
     virtual ~mainViewBase() {}
     virtual void setupScreen();
+
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void bossFireBullet1()
+    {
+        // Override and implement this function in main
+    }
+
+    virtual void bossFireBullet0()
+    {
+        // Override and implement this function in main
+    }
+
+    virtual void shipFireBullet()
+    {
+        // Override and implement this function in main
+    }
+
+    virtual void enmy10FireBullet()
+    {
+        // Override and implement this function in main
+    }
+
+    virtual void enmy11FireBullet()
+    {
+        // Override and implement this function in main
+    }
 
 protected:
     FrontendApplication& application() {
@@ -32,24 +62,52 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::AnimatedImage space;
-    Ship ship;
-    touchgfx::MoveAnimator< touchgfx::Image > bullet1;
-    touchgfx::MoveAnimator< touchgfx::Image > bullet2;
-    touchgfx::MoveAnimator< touchgfx::Image > bullet3;
-    touchgfx::MoveAnimator< touchgfx::Image > bullet4;
-    touchgfx::Image enemy10;
-    Enemy0 enemy00;
-    Enemy0 enemy01;
-    Enemy0 enemy02;
-    Enemy0 enemy03;
-    Enemy0 enemy04;
-    Enemy0 enemy05;
-    Enemy0 enemy06;
-    Enemy0 enemy07;
-    Enemy0 enemy08;
+    touchgfx::MoveAnimator< touchgfx::Image > shipBullet3;
+    Boss boss;
+    Enemy1 enemy10;
+    Enemy1 enemy11;
     Enemy0 enemy09;
+    Enemy0 enemy08;
+    Enemy0 enemy07;
+    Enemy0 enemy06;
+    Enemy0 enemy05;
+    Enemy0 enemy04;
+    Enemy0 enemy03;
+    Enemy0 enemy02;
+    Enemy0 enemy01;
+    Enemy0 enemy00;
+    Ship ship;
+    touchgfx::MoveAnimator< touchgfx::Image > shipBullet0;
+    touchgfx::MoveAnimator< touchgfx::Image > shipBullet1;
+    touchgfx::MoveAnimator< touchgfx::Image > shipBullet2;
+    touchgfx::MoveAnimator< touchgfx::AnimatedImage > bossBullet00;
+    touchgfx::MoveAnimator< touchgfx::AnimatedImage > bossBullet01;
+    touchgfx::MoveAnimator< touchgfx::Image > enemy10Bullet;
+    touchgfx::MoveAnimator< touchgfx::Image > enemy11Bullet;
+    touchgfx::MoveAnimator< touchgfx::Image > bossBullet13;
+    touchgfx::MoveAnimator< touchgfx::Image > bossBullet12;
+    touchgfx::MoveAnimator< touchgfx::Image > bossBullet11;
+    touchgfx::MoveAnimator< touchgfx::Image > bossBullet10;
 
 private:
+
+    /*
+     * Callback Declarations
+     */
+    touchgfx::Callback<mainViewBase> bossFireBullet1TriggerCallback;
+    touchgfx::Callback<mainViewBase> bossFireBullet0TriggerCallback;
+    touchgfx::Callback<mainViewBase> shipFireBulletTriggerCallback;
+    touchgfx::Callback<mainViewBase> enemy10FireBulletTriggerCallback;
+    touchgfx::Callback<mainViewBase> enemy11FireBulletTriggerCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void bossFireBullet1TriggerCallbackHandler();
+    void bossFireBullet0TriggerCallbackHandler();
+    void shipFireBulletTriggerCallbackHandler();
+    void enemy10FireBulletTriggerCallbackHandler();
+    void enemy11FireBulletTriggerCallbackHandler();
 
 };
 

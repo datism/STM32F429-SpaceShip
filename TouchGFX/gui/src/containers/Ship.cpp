@@ -22,7 +22,14 @@ void Ship::initialize()
 void Ship::handleTickEvent() {
 	tickCounter++;
 
-	if (state == State::DEAD) {
+	switch (state) {
+	case ALIVE:
+		if (tickCounter % 40 == 0)
+			 emitFireBulletTriggerCallback();
+		break;
+	case IMMUNE:
+		break;
+	case DEAD:
 		if (tickCounter == 1) {
 			animatedImage.setBitmaps(BITMAP_EXPLOSION0_ID, BITMAP_EXPLOSION7_ID);
 			animatedImage.setUpdateTicksInterval(5);
@@ -31,6 +38,7 @@ void Ship::handleTickEvent() {
 		else if (tickCounter > 30)
 			reset();
 		return;
+	default: break;
 	}
 
 	uint8_t res = 0;

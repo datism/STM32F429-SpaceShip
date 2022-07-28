@@ -28,6 +28,11 @@
     <ClCompile Include="..\..\generated\gui_generated\src\containers\ShipBase.cpp"/>
     <ClCompile Include="..\..\gui\src\containers\Enemy0.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\containers\Enemy0Base.cpp"/>
+    <ClCompile Include="..\..\gui\src\containers\Enemy.cpp"/>
+    <ClCompile Include="..\..\gui\src\containers\Enemy1.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\Enemy1Base.cpp"/>
+    <ClCompile Include="..\..\gui\src\containers\Boss.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\BossBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -185,6 +190,11 @@
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\ShipBase.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\containers\Enemy0.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\Enemy0Base.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\containers\Enemy.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\containers\Enemy1.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\Enemy1Base.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\containers\Boss.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\BossBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

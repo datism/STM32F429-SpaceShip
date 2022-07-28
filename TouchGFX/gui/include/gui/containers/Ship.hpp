@@ -8,6 +8,7 @@ class Ship : public ShipBase
 public:
 	enum State {
 		ALIVE,
+		IMMUNE,
 		DEAD
 	};
 
@@ -16,7 +17,6 @@ public:
     virtual void initialize();
     virtual void handleTickEvent();
 
-    void retreat();
     void setState(State state);
     State getState();
 //    Rect getBodyArea();

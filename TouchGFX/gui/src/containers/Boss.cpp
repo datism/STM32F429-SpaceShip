@@ -1,19 +1,20 @@
-#include <gui/containers/Enemy0.hpp>
+#include <gui/containers/Boss.hpp>
 #include <BitmapDatabase.hpp>
 
-Enemy0::Enemy0()
+
+Boss::Boss()
 	:Enemy(OOB) {
 	Application::getInstance()->registerTimerWidget(this);
 }
 
-void Enemy0::initialize()
+void Boss::initialize()
 {
-    Enemy0Base::initialize();
+    BossBase::initialize();
 }
 
-void Enemy0::handleTickEvent() {
+void Boss::handleTickEvent() {
 	tickCounter++;
-	MoveAnimator<Enemy0Base>::handleTickEvent();
+	MoveAnimator<BossBase>::handleTickEvent();
 
 	switch(state) {
 	case ENTER:
@@ -21,22 +22,20 @@ void Enemy0::handleTickEvent() {
 			//move to outside screen
 			moveTo(startX, startY);
 			//move to standing position
-			startMoveAnimation(endX, endY, 100, EasingEquations::cubicEaseOut, EasingEquations::expoEaseOut);
+			startMoveAnimation(endX, endY, 100);
 		}
-		break;
-	case RETREAT:
-		if (tickCounter == 1)
-			//go straight up
-			startMoveAnimation(getX(), -getHeight(), 100);
-		if (tickCounter == 100)
-			reset();
-		break;
-	case ATTACK:
-		if (tickCounter == 1) {
-			startMoveAnimation(getX(), getY() + 320, 100);
+		else if (tickCounter == 124) {
+			startMoveAnimation(0, getY(), 126);
 		}
-		else if (tickCounter == 200)
-			reset();
+		else if (tickCounter % 250 == 0) {
+			startMoveAnimation((tickCounter % 500 == 250) ? 125 : 0, getY(), 250);
+		}
+		else if (tickCounter > 250 && tickCounter % 125 == 0)
+			emitFireBullet1TriggerCallback();
+		else if (tickCounter % 300 == 0) {
+			emitFireBullet0TriggerCallback();
+		}
+
 		break;
 	case DEAD:
 		if (tickCounter == 1) {
@@ -52,11 +51,11 @@ void Enemy0::handleTickEvent() {
 	}
 }
 
-const Rect& Enemy0::getHitBox() {
+const Rect& Boss::getHitBox() {
 	return getRect();
 }
 
-void Enemy0::reset() {
+void Boss::reset() {
 	state = OOB;
 	animatedImage.setBitmaps(BITMAP_ENEMY0_ID, BITMAP_ENEMY0_ID);
 	moveTo(startX, startY);
