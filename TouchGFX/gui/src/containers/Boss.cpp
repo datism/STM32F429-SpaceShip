@@ -1,6 +1,6 @@
 #include <gui/containers/Boss.hpp>
+#include <gui/Constraint.hpp>
 #include <BitmapDatabase.hpp>
-
 
 Boss::Boss()
 	:Enemy(OOB) {
@@ -22,29 +22,35 @@ void Boss::handleTickEvent() {
 			//move to outside screen
 			moveTo(startX, startY);
 			//move to standing position
-			startMoveAnimation(endX, endY, 100);
+			startMoveAnimation(endX, endY, BOSS_MOVE_DURATION / 2);
 		}
-		else if (tickCounter == 124) {
-			startMoveAnimation(0, getY(), 126);
+		else if (tickCounter == BOSS_MOVE_DURATION / 2) {
+			startMoveAnimation(0, getY(), BOSS_MOVE_DURATION / 2);
 		}
-		else if (tickCounter % 250 == 0) {
-			startMoveAnimation((tickCounter % 500 == 250) ? 125 : 0, getY(), 250);
+		else if (tickCounter % BOSS_MOVE_DURATION == 0) {
+			startMoveAnimation((tickCounter % (BOSS_MOVE_DURATION * 2) == BOSS_MOVE_DURATION) ? 125 : 0, getY(), BOSS_MOVE_DURATION);
 		}
-		else if (tickCounter > 250 && tickCounter % 125 == 0)
+
+
+		if (tickCounter > BOSS_MOVE_DURATION && tickCounter % BOSS_BULLET1_INTERVAL == 0)
+			//Fire bullet1 every BOSS_BULLET1_INTERVAL ticks
 			emitFireBullet1TriggerCallback();
-		else if (tickCounter % 300 == 0) {
+
+		if (tickCounter > BOSS_MOVE_DURATION && tickCounter % BOSS_BULLET0_INTERVAL == 0) {
+			//Fire bullet1 every BOSS_BULLET0_INTERVAL ticks
 			emitFireBullet0TriggerCallback();
 		}
 
 		break;
 	case DEAD:
 		if (tickCounter == 1) {
+			//Start explode animation
 			animatedImage.setBitmaps(BITMAP_EXPLOSION0_ID, BITMAP_EXPLOSION7_ID);
 			animatedImage.setUpdateTicksInterval(5);
 			animatedImage.startAnimation(false, true, false);
 			cancelMoveAnimation();
 		}
-		else if (tickCounter == 40)
+		else if (tickCounter == EXPLODE_DURATION)
 			reset();
 		break;
 	default: break;

@@ -19,11 +19,11 @@ public:
 
     void setState(State state);
     State getState();
-//    Rect getBodyArea();
 protected:
     uint32_t tickCounter;
     State state;
 
+    //Reset ship to default state
     void reset();
 };
 

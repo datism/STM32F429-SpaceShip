@@ -1,17 +1,14 @@
 #include <gui/containers/Ship.hpp>
+#include <gui/Constraint.hpp>
 #include <BitmapDatabase.hpp>
 #include "cmsis_os.h"
-
-/* Speed of the ship (pixels/tick)*/
-#define SHIP_SPEED 1
-#define STARTPOS 240 / 2 - getWidth() / 2, 320 - getHeight()
 
 extern osMessageQueueId_t Queue1Handle;
 
 Ship::Ship() {
 	Application::getInstance()->registerTimerWidget(this);
 
-	setXY(STARTPOS);
+	setXY(240 / 2 - getWidth() / 2, 320 - getHeight());
 }
 
 void Ship::initialize()
@@ -24,18 +21,21 @@ void Ship::handleTickEvent() {
 
 	switch (state) {
 	case ALIVE:
-		if (tickCounter % 40 == 0)
+		//Fire bullet every SHIP_BULLET_INTERVAL ticks
+		if (tickCounter % SHIP_BULLET_INTERVAL == 0)
 			 emitFireBulletTriggerCallback();
 		break;
 	case IMMUNE:
 		break;
 	case DEAD:
 		if (tickCounter == 1) {
+			//Start explode animation
 			animatedImage.setBitmaps(BITMAP_EXPLOSION0_ID, BITMAP_EXPLOSION7_ID);
 			animatedImage.setUpdateTicksInterval(5);
 			animatedImage.startAnimation(false, true, false);
 		}
-		else if (tickCounter > 30)
+		else if (tickCounter == EXPLODE_DURATION)
+			//Restart after explode animation end
 			reset();
 		return;
 	default: break;
@@ -48,13 +48,14 @@ void Ship::handleTickEvent() {
 		int16_t x = getX(), y = getY();
 
 		switch (res) {
-		case 'U': y += SHIP_SPEED; break;
-		case 'D': y -= SHIP_SPEED; break;
-		case 'R': x += SHIP_SPEED; break;
-		case 'L': x -= SHIP_SPEED; break;
+		case 'U': y += SHIP_SPEED; break;		//Move up
+		case 'D': y -= SHIP_SPEED; break;		//Move down
+		case 'R': x += SHIP_SPEED; break;		//Move right
+		case 'L': x -= SHIP_SPEED; break;		//Move left
 		default: return;
 		}
 
+		//The ship stay in screen
 		if (x < 0)
 			x = 0;
 		else if (x > 240 - getWidth())
@@ -66,14 +67,13 @@ void Ship::handleTickEvent() {
 			y = 320 - getHeight();
 
 		moveTo(x, y);
-
 		animatedImage.invalidate();
 	}
 }
 
 void Ship::reset() {
 	state = ALIVE;
-	setXY(STARTPOS);
+	setXY(240 / 2 - getWidth() / 2, 320 - getHeight());
 	animatedImage.setBitmaps(BITMAP_SHIP0_ID, BITMAP_SHIP2_ID);
 }
 
@@ -85,7 +85,3 @@ void Ship::setState(State state) {
 Ship::State Ship::getState() {
 	return state;
 }
-
-//Rect Ship::getBodyArea() {
-//	return animatedImage.getRect();
-//}

@@ -1,7 +1,6 @@
 #include <gui/containers/Enemy1.hpp>
+#include <gui/Constraint.hpp>
 #include <BitmapDatabase.hpp>
-
-#define MOVE_DURATION  40
 
 Enemy1::Enemy1()
 	:Enemy(OOB) {
@@ -22,35 +21,45 @@ void Enemy1::handleTickEvent() {
 		if (tickCounter == 1) {
 			//move to outside screen
 			moveTo(startX, startY);
-			//move to standing position
-			startMoveAnimation(endX, endY, MOVE_DURATION);
+
+			endX = startX + movX;
+			endY = startY + movY;
+			startMoveAnimation(endX, endY, movDuration);
 		}
-		else if (tickCounter % MOVE_DURATION == 0) {
-			endX = endX + 60 * direction ;
-			endY = endY + 30 * ((tickCounter % (MOVE_DURATION * 2) == 0) ? 1 : -1);
-			startMoveAnimation(endX, endY, MOVE_DURATION);
-		} else if (tickCounter > MOVE_DURATION * 4)
+		else if (tickCounter % movDuration == 0) {
+			//sin movement
+			endX = endX + movX;
+			endY = endY + movY * ((tickCounter % (movDuration * 2) == 0) ? 1 : -1);
+			startMoveAnimation(endX, endY, movDuration);
+		} else if (tickCounter == movDuration  * nbrMov)
 			reset();
 
-		if (tickCounter % 50 == 0)
+		if (tickCounter % ENEMY1_BULLET_INTERVAL == 0)
+			//Fire bullet every ENEMY1_BULLET_INTERVAL ticks
 			emitFireBulletTriggerCallback();
 		break;
 	case DEAD:
 		if (tickCounter == 1) {
+			//Start explode animation
 			cancelMoveAnimation();
 			animatedImage.setBitmaps(BITMAP_EXPLOSION0_ID, BITMAP_EXPLOSION7_ID);
 			animatedImage.setUpdateTicksInterval(5);
 			animatedImage.startAnimation(false, true, false);
 		}
-		else if (tickCounter > 40)
+		else if (tickCounter == EXPLODE_DURATION)
 			reset();
 		break;
 	default: break;
 	}
 }
 
-void Enemy1::setDirection(int8_t direction) {
-	this->direction = direction;
+void Enemy1::setZigzagMovement(uint16_t period, int8_t nbrPeriod, int8_t direction) {
+	nbrMov = nbrPeriod * 2;
+
+	movDuration = period / 2;
+
+	movX = direction * (240 + 30) / nbrMov;
+	movY = movX / direction;
 }
 
 const Rect& Enemy1::getHitBox() {

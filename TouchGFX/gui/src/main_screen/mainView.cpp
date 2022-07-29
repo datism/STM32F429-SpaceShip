@@ -1,20 +1,5 @@
 #include <gui/main_screen/mainView.hpp>
 
-/* Speed of a bullet (pixels/tick)*/
-#define BULLET_SPEED 4
-/* Ticks which a bullet take in move aniamtion */
-#define BULLET_TIME 320 / BULLET_SPEED
-/* Ticks which ship take to fire a bullet */
-#define BULLET_INTERVAL (int)(BULLET_TIME / NBR_BULLET)
-
-
-#define ENEMY_GAP 24
-#define ENEMY_LINE0 35
-#define ENEMY_LINE1 ENEMY_LINE0 + 30
-#define ENEMY_LINE2 ENEMY_LINE1 + 30
-#define ENEMY_LINE3 ENEMY_LINE2 + 40
-#define ENEMY_LINE4 ENEMY_LINE3 + 40
-
 mainView::mainView()
 	: state(PHASE1)
 {
@@ -55,15 +40,17 @@ void mainView::handleTickEvent() {
 		//start phase pop up
 		if (tickCount == 1) {
 			setUpPhase1();
+			//cancelShipBullet();
 			ship.setState(Ship::ALIVE);
 		}
 		else if (tickCount == 100) {
-			enemy10.setDirection(-1);
+			//enmy10 fly right to left
 			enemy10.setStartPos(240, ENEMY_LINE3);
-			enemy10.setEndPos(240 - 60 - enemy10.getWidth() / 2, ENEMY_LINE3 + 30);
+			enemy10.setZigzagMovement(100, 2, -1);
 			enemy10.setState(Enemy::ENTER);
 		}
 		else if (tickCount == 500) {
+			//remains enemy go straight up
 			for(uint8_t i = 0; i < NBR_ENEMY; ++i) {
 				if(enemies[i]->getState() == Enemy::ENTER) {
 					enemies[i]->setState(Enemy::RETREAT);
@@ -76,59 +63,66 @@ void mainView::handleTickEvent() {
 		}
 
 		if (tickCount > 1 && enemyCount == 0) {
+			//start phase 2 if there arent any enemies left
 			setState(PHASE2);
 		}
 
 		break;
 	case PHASE2:
+		//start phase pop up
 		if (tickCount == 1) {
 			cancelShipBullet();
 			ship.setState(Ship::IMMUNE);
 		}
 		else if (tickCount == 50) {
+			//start phase 2
 			setUpPhase2();
 			ship.setState(Ship::ALIVE);
 		}
 		else if (tickCount == 150) {
-			enemy10.setDirection(-1);
+			//enmy10 fly right to left
 			enemy10.setStartPos(240, ENEMY_LINE3);
-			enemy10.setEndPos(240 - 60 - enemy10.getWidth() / 2, ENEMY_LINE3 + 30);
+			enemy10.setZigzagMovement(100, 2, -1);
 			enemy10.setState(Enemy::ENTER);
 
-			enemy11.setDirection(1);
+			//enmy11 fly left to right
 			enemy11.setStartPos(0 - enemy11.getWidth(), ENEMY_LINE4);
-			enemy11.setEndPos(60 - enemy11.getWidth() / 2, ENEMY_LINE4 + 30);
+			enemy11.setZigzagMovement(100, 2, 1);
 			enemy11.setState(Enemy::ENTER);
 		}
 		else if (tickCount == 800) {
-			//attack when time run out
+			//remains enemy go straight down
 			for(uint8_t i = 0; i < NBR_ENEMY; ++i) {
 				if(enemies[i]->getState() == Enemy::ENTER)
 					enemies[i]->setState(Enemy::ATTACK);
 			}
 		}
 		else if (tickCount == 900) {
+			//start phase 3 after attack
 			setState(PHASE3);
 		}
 
 		if (tickCount > 50 && enemyCount == 0) {
+			//start phase 3 if there arent any enemies left
 			setState(PHASE3);
 		}
 
 		break;
 	case PHASE3:
+		//start phase pop up
 		if (tickCount == 1) {
 			cancelShipBullet();
 			ship.setState(Ship::IMMUNE);
 		}
 		else if (tickCount == 50) {
+			//start phase 3
 			setUpPhase3();
 			ship.setState(Ship::ALIVE);
 		}
-		else if (tickCount % 900 == 0) {
-			enemy10.setDirection(-1);
-			enemy10.setStartPos(240, ENEMY_LINE4);
-			enemy10.setEndPos(240 - 60 - enemy10.getWidth() / 2, ENEMY_LINE4 + 30);
+		else if (tickCount % 600 == 0) {
+			//enem10 fly right to left every 900 tick
+			enemy10.setStartPos(240, ENEMY_LINE3);
+			enemy10.setZigzagMovement(60, 3, -1);
 			enemy10.setState(Enemy::ENTER);
 		}
 		break;
@@ -140,8 +134,8 @@ void mainView::handleTickEvent() {
 void mainView::checkCollision() {
 	uint8_t i = 0, j = 0;
 
-	//ship not dead
 	if (ship.getState() != Ship::DEAD) {
+		//Check if enemy bullet hit ship
 		for (i = 0; i < NBR_ENEMY_BULLET; ++i) {
 			if (enemyBullets[i]->getX() < 240 && enemyBullets[i]->isVisible()
 					&& enemyBullets[i]->getRect().intersect(ship.getRect())) {
@@ -150,6 +144,7 @@ void mainView::checkCollision() {
 			}
 		}
 
+		//Check enemy and ship collision
 		for (i = 0; i < NBR_ENEMY; ++i) {
 			if (enemies[i]->getState() == Enemy::OOB || enemies[i]->getState() == Enemy::DEAD)
 				continue;
@@ -162,6 +157,7 @@ void mainView::checkCollision() {
 		}
 	}
 
+	//Check if ship bullet hit enemy, count alive, in screen enemy
 	enemyCount = NBR_ENEMY;
 	for (i = 0; i < NBR_ENEMY; ++i) {
 		if (enemies[i]->getState() == Enemy::OOB || enemies[i]->getState() == Enemy::DEAD) {
@@ -169,7 +165,7 @@ void mainView::checkCollision() {
 			continue;
 		}
 
-		for (j = 0; j < NBR_BULLET; ++j) {
+		for (j = 0; j < NBR_SHIP_BULLET; ++j) {
 			if (shipBullets[j]->getRect().bottom() < 0 ||  !shipBullets[j]->isVisible())
 				continue;
 			//bullet intersect enemy
@@ -234,19 +230,23 @@ void mainView::setUpPhase2() {
 }
 
 void mainView::setUpPhase3() {
+	//set boss
 	boss.setStartPos(120 - boss.getWidth() / 2, -boss.getHeight());
 	boss.setEndPos(boss.getStartX(), 10);
 	boss.setState(Enemy::ENTER);
 }
 
+//determine which bullet is fired
 static uint8_t bulletIndex = 0;
 void  mainView::shipFireBullet() {
 	shipBullets[bulletIndex]->setVisible(1);
+	//move bullets to top center of the ship
 	shipBullets[bulletIndex]->setXY(ship.getX() + ship.getWidth()/2 - shipBullet0.getWidth()/2, ship.getY());
+	//bullet go straight 320 pixel
 	shipBullets[bulletIndex]->startMoveAnimation(shipBullets[bulletIndex]->getX(),
-			-(320 - shipBullets[bulletIndex]->getY()), BULLET_TIME);
+			-(320 - shipBullets[bulletIndex]->getY()), SHIP_BULLET_DURATION);
 
-	if (++bulletIndex == NBR_BULLET)
+	if (++bulletIndex == NBR_SHIP_BULLET)
 		bulletIndex = 0;
 }
 
@@ -261,11 +261,15 @@ void mainView::bossFireBullet0() {
 	bossBullet00.setVisible(1);
 	bossBullet01.setVisible(1);
 
+	//move bullet to the right hand of boss
 	bossBullet00.moveTo(boss.getX() + 15, boss.getY() + 93);
-	bossBullet00.startMoveAnimation(bossBullet00.getX(), bossBullet00.getY() + 320, 160);
+	//bullet go straight down 320 pixel
+	bossBullet00.startMoveAnimation(bossBullet00.getX(), bossBullet00.getY() + 320, BOSS_BULLET0_DURATION);
 
+	//move bullet to the left hand of boss
 	bossBullet01.moveTo(boss.getX() + 82, boss.getY() + 93);
-	bossBullet01.startMoveAnimation(bossBullet01.getX(), bossBullet01.getY() + 320, 160);
+	//bullet go straight down 320 pixel
+	bossBullet01.startMoveAnimation(bossBullet01.getX(), bossBullet01.getY() + 320, BOSS_BULLET0_DURATION);
 }
 
 void mainView::bossFireBullet1() {
@@ -282,20 +286,25 @@ void mainView::bossFireBullet1() {
 	bossBullet12.moveTo(bossCenterX, bossCenterY);
 	bossBullet13.moveTo(bossCenterX, bossCenterY);
 
-	bossBullet10.startMoveAnimation(-168, 420, 320);
-	bossBullet11.startMoveAnimation(21, 420, 320);
-	bossBullet12.startMoveAnimation(196, 420, 320);
-	bossBullet13.startMoveAnimation(398, 420, 320);
+	//bullets go in different direction
+	bossBullet10.startMoveAnimation(-168, 420, BOSS_BULLET1_DURATION);
+	bossBullet11.startMoveAnimation(21, 420, BOSS_BULLET1_DURATION);
+	bossBullet12.startMoveAnimation(196, 420, BOSS_BULLET1_DURATION);
+	bossBullet13.startMoveAnimation(398, 420, BOSS_BULLET1_DURATION);
 }
 
 void mainView::enmy10FireBullet() {
+	//move bullet to bottom center of enemy10
 	enemy10Bullet.moveTo(enemy10.getX() + enemy10.getWidth() / 2, enemy10.getY() + enemy10.getHeight());
-	enemy10Bullet.startMoveAnimation(enemy10Bullet.getX(), enemy10Bullet.getY() + 200, 50);
+	//bullet go straight down 200 pixel
+	enemy10Bullet.startMoveAnimation(enemy10Bullet.getX(), enemy10Bullet.getY() + 200, ENEMY1_BULLET_DURATION);
 }
 
 void mainView::enmy11FireBullet() {
+	//move bullet to bottom center of enemy11
 	enemy11Bullet.moveTo(enemy11.getX() + enemy11.getWidth() / 2, enemy11.getY() + enemy11.getHeight());
-	enemy11Bullet.startMoveAnimation(enemy11Bullet.getX(), enemy11Bullet.getY() + 200, 50);
+	//bullet go straight down 200 pixel
+	enemy11Bullet.startMoveAnimation(enemy11Bullet.getX(), enemy11Bullet.getY() + 200, ENEMY1_BULLET_DURATION);
 }
 
 void mainView::setState(State state) {

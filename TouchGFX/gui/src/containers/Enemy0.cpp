@@ -1,5 +1,7 @@
 #include <gui/containers/Enemy0.hpp>
+#include <gui/Constraint.hpp>
 #include <BitmapDatabase.hpp>
+
 
 Enemy0::Enemy0()
 	:Enemy(OOB) {
@@ -21,31 +23,33 @@ void Enemy0::handleTickEvent() {
 			//move to outside screen
 			moveTo(startX, startY);
 			//move to standing position
-			startMoveAnimation(endX, endY, 100, EasingEquations::cubicEaseOut, EasingEquations::expoEaseOut);
+			startMoveAnimation(endX, endY, ENEMY0_MOVE_DURATION, EasingEquations::cubicEaseOut, EasingEquations::expoEaseOut);
 		}
 		break;
 	case RETREAT:
 		if (tickCounter == 1)
 			//go straight up
-			startMoveAnimation(getX(), -getHeight(), 100);
-		if (tickCounter == 100)
+			startMoveAnimation(getX(), -getHeight(), ENEMY0_MOVE_DURATION);
+		if (tickCounter == ENEMY0_MOVE_DURATION)
 			reset();
 		break;
 	case ATTACK:
 		if (tickCounter == 1) {
-			startMoveAnimation(getX(), getY() + 320, 100);
+			//Go straight down
+			startMoveAnimation(getX(), getY() + 320, ENEMY0_MOVE_DURATION);
 		}
-		else if (tickCounter == 200)
+		else if (tickCounter == ENEMY0_MOVE_DURATION)
 			reset();
 		break;
 	case DEAD:
 		if (tickCounter == 1) {
+			//Start explode animation
 			animatedImage.setBitmaps(BITMAP_EXPLOSION0_ID, BITMAP_EXPLOSION7_ID);
 			animatedImage.setUpdateTicksInterval(5);
 			animatedImage.startAnimation(false, true, false);
 			cancelMoveAnimation();
 		}
-		else if (tickCounter == 40)
+		else if (tickCounter == EXPLODE_DURATION)
 			reset();
 		break;
 	default: break;

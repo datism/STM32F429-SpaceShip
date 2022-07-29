@@ -4,14 +4,7 @@
 #include <gui_generated/main_screen/mainViewBase.hpp>
 #include <gui/main_screen/mainPresenter.hpp>
 #include <gui/containers/Enemy.hpp>
-
-/* Number of bullet */
-#define NBR_BULLET 4
-
-#define NBR_ENEMY_BULLET 8
-
-/* Number of enemy 0 */
-#define NBR_ENEMY 13
+#include <gui/Constraint.hpp>
 
 class mainView : public mainViewBase
 {
@@ -31,23 +24,36 @@ public:
 
 protected:
     uint32_t tickCount;
+    //Count of alive, in screen enemies
     uint8_t enemyCount;
+    //State of the game
     State state;
+    //Array of enemies
     Enemy* enemies[NBR_ENEMY];
-    touchgfx::MoveAnimator< touchgfx::Image >* shipBullets[NBR_BULLET];
+    //Array of ship's bullets
+    touchgfx::MoveAnimator< touchgfx::Image >* shipBullets[NBR_SHIP_BULLET];
+    //Array of enemy's bullets
     touchgfx::MoveAnimator< touchgfx::Image >* enemyBullets[NBR_ENEMY_BULLET];
 
+    //Call by emitFireBulletTriggerCallback() by ship
     virtual void shipFireBullet();
+    //Call by emitFireBullet0TriggerCallback() by boss
     virtual void bossFireBullet0();
+    //Call bt emitFireBullet1TriggerCallback() by boss
     virtual void bossFireBullet1();
+    //Call by emitFireBulletTriggerCallback() by enemy10
     virtual void enmy10FireBullet();
+    //Call by emitFireBulletTriggerCallback() by enemy11
     virtual void enmy11FireBullet();
+
+    //Check objects's collisions
+    void checkCollision();
+    //Remove ship's bullets from screens
+    void cancelShipBullet();
 
     void setUpPhase1();
     void setUpPhase2();
     void setUpPhase3();
-    void checkCollision();
-    void cancelShipBullet();
     void setState(State state);
 };
 
