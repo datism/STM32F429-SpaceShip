@@ -742,6 +742,9 @@
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\BossBase.hpp">
       <Filter>Header Files\generated\gui_generated\containers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\Constraint.hpp">
+      <Filter>Header Files\gui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc">

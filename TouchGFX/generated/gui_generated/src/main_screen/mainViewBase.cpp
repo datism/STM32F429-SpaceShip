@@ -66,16 +66,6 @@ mainViewBase::mainViewBase() :
     shipBullet2.setXY(117, 333);
     shipBullet2.setBitmap(touchgfx::Bitmap(BITMAP_SHIPBULLET_ID));
 
-    bossBullet00.setXY(146, 329);
-    bossBullet00.setBitmaps(BITMAP_BOSSBULLET00_ID, BITMAP_BOSSBULLET07_ID);
-    bossBullet00.setUpdateTicksInterval(6);
-    bossBullet00.startAnimation(false, true, true);
-
-    bossBullet01.setXY(146, 329);
-    bossBullet01.setBitmaps(BITMAP_BOSSBULLET00_ID, BITMAP_BOSSBULLET07_ID);
-    bossBullet01.setUpdateTicksInterval(6);
-    bossBullet01.startAnimation(false, true, true);
-
     enemy10Bullet.setXY(131, 336);
     enemy10Bullet.setBitmap(touchgfx::Bitmap(BITMAP_ENEMY1BULLET_ID));
 
@@ -93,6 +83,12 @@ mainViewBase::mainViewBase() :
 
     bossBullet10.setXY(171, 341);
     bossBullet10.setBitmap(touchgfx::Bitmap(BITMAP_BOSSBULLET1_ID));
+
+    bossBullet01.setXY(146, 336);
+    bossBullet01.setBitmap(touchgfx::Bitmap(BITMAP_BOSSBULLET00_ID));
+
+    bossBullet00.setXY(146, 336);
+    bossBullet00.setBitmap(touchgfx::Bitmap(BITMAP_BOSSBULLET00_ID));
 
     add(__background);
     add(space);
@@ -114,14 +110,14 @@ mainViewBase::mainViewBase() :
     add(shipBullet0);
     add(shipBullet1);
     add(shipBullet2);
-    add(bossBullet00);
-    add(bossBullet01);
     add(enemy10Bullet);
     add(enemy11Bullet);
     add(bossBullet13);
     add(bossBullet12);
     add(bossBullet11);
     add(bossBullet10);
+    add(bossBullet01);
+    add(bossBullet00);
 }
 
 void mainViewBase::setupScreen()

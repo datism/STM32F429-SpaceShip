@@ -80,14 +80,14 @@ protected:
     touchgfx::MoveAnimator< touchgfx::Image > shipBullet0;
     touchgfx::MoveAnimator< touchgfx::Image > shipBullet1;
     touchgfx::MoveAnimator< touchgfx::Image > shipBullet2;
-    touchgfx::MoveAnimator< touchgfx::AnimatedImage > bossBullet00;
-    touchgfx::MoveAnimator< touchgfx::AnimatedImage > bossBullet01;
     touchgfx::MoveAnimator< touchgfx::Image > enemy10Bullet;
     touchgfx::MoveAnimator< touchgfx::Image > enemy11Bullet;
     touchgfx::MoveAnimator< touchgfx::Image > bossBullet13;
     touchgfx::MoveAnimator< touchgfx::Image > bossBullet12;
     touchgfx::MoveAnimator< touchgfx::Image > bossBullet11;
     touchgfx::MoveAnimator< touchgfx::Image > bossBullet10;
+    touchgfx::MoveAnimator< touchgfx::Image > bossBullet01;
+    touchgfx::MoveAnimator< touchgfx::Image > bossBullet00;
 
 private:
 

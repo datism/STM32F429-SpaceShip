@@ -17,6 +17,7 @@ public:
 
 protected:
     virtual void reset();
+    virtual void startDamagedAnimation();
 };
 
 #endif // BOSS_HPP

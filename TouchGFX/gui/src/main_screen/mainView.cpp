@@ -22,6 +22,15 @@ mainView::mainView()
 	enemies[10] = &enemy10;
 	enemies[11] = &enemy11;
 	enemies[12] = &boss;
+
+	enemyBullets[0] = &enemy10Bullet;
+	enemyBullets[1] = &enemy11Bullet;
+	enemyBullets[2] = &bossBullet00;
+	enemyBullets[3] = &bossBullet01;
+	enemyBullets[4] = &bossBullet10;
+	enemyBullets[5] = &bossBullet11;
+	enemyBullets[6] = &bossBullet12;
+	enemyBullets[7] = &bossBullet13;
 }
 
 void mainView::setupScreen() {
@@ -35,6 +44,8 @@ void mainView::tearDownScreen() {
 void mainView::handleTickEvent() {
 	tickCount++;
 
+	checkCollision();
+
 	switch (state) {
 	case PHASE1:
 		//start phase pop up
@@ -45,8 +56,8 @@ void mainView::handleTickEvent() {
 		}
 		else if (tickCount == 100) {
 			//enmy10 fly right to left
-			enemy10.setStartPos(240, ENEMY_LINE3);
-			enemy10.setZigzagMovement(100, 2, -1);
+			enemy10.setStartPos(240, ENEMY_LINE4);
+			enemy10.setDirection(-1);
 			enemy10.setState(Enemy::ENTER);
 		}
 		else if (tickCount == 500) {
@@ -81,13 +92,13 @@ void mainView::handleTickEvent() {
 		}
 		else if (tickCount == 150) {
 			//enmy10 fly right to left
-			enemy10.setStartPos(240, ENEMY_LINE3);
-			enemy10.setZigzagMovement(100, 2, -1);
+			enemy10.setStartPos(240, ENEMY_LINE4);
+			enemy10.setDirection(-1);
 			enemy10.setState(Enemy::ENTER);
 
 			//enmy11 fly left to right
 			enemy11.setStartPos(0 - enemy11.getWidth(), ENEMY_LINE4);
-			enemy11.setZigzagMovement(100, 2, 1);
+			enemy11.setDirection(1);
 			enemy11.setState(Enemy::ENTER);
 		}
 		else if (tickCount == 800) {
@@ -97,7 +108,7 @@ void mainView::handleTickEvent() {
 					enemies[i]->setState(Enemy::ATTACK);
 			}
 		}
-		else if (tickCount == 900) {
+		else if (tickCount == 800 + ENEMY0_MOVE_DURATION * 2) {
 			//start phase 3 after attack
 			setState(PHASE3);
 		}
@@ -121,30 +132,31 @@ void mainView::handleTickEvent() {
 		}
 		else if (tickCount % 600 == 0) {
 			//enem10 fly right to left every 900 tick
-			enemy10.setStartPos(240, ENEMY_LINE3);
-			enemy10.setZigzagMovement(60, 3, -1);
+			enemy10.setStartPos(240, ENEMY_LINE4);
+			enemy10.setDirection(-1);
 			enemy10.setState(Enemy::ENTER);
 		}
 		break;
 	}
-
-	checkCollision();
 }
 
 void mainView::checkCollision() {
 	uint8_t i = 0, j = 0;
 
+	//Check if enemy bullet hit ship
 	if (ship.getState() != Ship::DEAD) {
-		//Check if enemy bullet hit ship
 		for (i = 0; i < NBR_ENEMY_BULLET; ++i) {
 			if (enemyBullets[i]->getX() < 240 && enemyBullets[i]->isVisible()
 					&& enemyBullets[i]->getRect().intersect(ship.getRect())) {
 				ship.setState(Ship::DEAD);
-				shipBullets[j]->setVisible(0);
+				enemyBullets[i]->setVisible(0);
+				break;
 			}
 		}
+	}
 
-		//Check enemy and ship collision
+	//Check enemy and ship collision
+	if (ship.getState() != Ship::DEAD) {
 		for (i = 0; i < NBR_ENEMY; ++i) {
 			if (enemies[i]->getState() == Enemy::OOB || enemies[i]->getState() == Enemy::DEAD)
 				continue;
@@ -152,7 +164,7 @@ void mainView::checkCollision() {
 			if (ship.getRect().intersect(enemies[i]->getHitBox())) {
 				ship.setState(Ship::DEAD);
 				enemies[i]->setState(Enemy0::DEAD);
-				continue;
+				break;
 			}
 		}
 	}
@@ -171,8 +183,9 @@ void mainView::checkCollision() {
 			//bullet intersect enemy
 			if (shipBullets[j]->getRect().intersect(enemies[i]->getHitBox())) {
 				shipBullets[j]->setVisible(0);
-				enemies[i]->setState(Enemy0::DEAD);
-				--enemyCount;
+				enemies[i]->handleDamage(1);
+//				enemies[i]->setState(Enemy0::DEAD);
+//				--enemyCount;
 				break;
 			}
 		}
@@ -251,7 +264,7 @@ void  mainView::shipFireBullet() {
 }
 
 void mainView::cancelShipBullet() {
-	for (uint8_t i = 0; i < 4; ++i) {
+	for (uint8_t i = 0; i < NBR_SHIP_BULLET; ++i) {
 		shipBullets[i]->setY(320);
 		shipBullets[i]->cancelMoveAnimation();
 	}

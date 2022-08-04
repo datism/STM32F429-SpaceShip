@@ -14,14 +14,12 @@ public:
     virtual void handleTickEvent();
 
     virtual const Rect& getHitBox();
-    void setZigzagMovement(uint16_t period, int8_t nbrPeriod, int8_t direction);
+    void setDirection(int8_t d);
 protected:
     virtual void reset();
+    virtual void startDamagedAnimation();
 
-    int16_t movX;
-    int16_t movY;
-    uint16_t movDuration;
-    uint8_t nbrMov;
+    int8_t direction;
 };
 
 #endif // ENEMY1_HPP

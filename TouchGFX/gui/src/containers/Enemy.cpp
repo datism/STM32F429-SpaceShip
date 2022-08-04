@@ -1,7 +1,22 @@
 #include <gui/containers/Enemy.hpp>
 
-Enemy::Enemy(State s)
-	:state(s) {}
+Enemy::Enemy(int16_t h)
+	:state(OOB), damaged(0), health(h), damagedTick(0) {}
+
+void Enemy::handleDamage(uint16_t damage) {
+	health -= damage;
+	damaged = 1;
+
+	if (health <= 0)
+		setState(DEAD);
+
+}
+
+void Enemy::reset() {
+	state = OOB;
+	damaged = 0;
+	damagedTick = 0;
+}
 
 void Enemy::setState(State state) {
     this->state = state;

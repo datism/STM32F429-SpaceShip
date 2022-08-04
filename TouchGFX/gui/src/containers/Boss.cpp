@@ -3,7 +3,7 @@
 #include <BitmapDatabase.hpp>
 
 Boss::Boss()
-	:Enemy(OOB) {
+	:Enemy(BOSS_HEALTH) {
 	Application::getInstance()->registerTimerWidget(this);
 }
 
@@ -15,6 +15,10 @@ void Boss::initialize()
 void Boss::handleTickEvent() {
 	tickCounter++;
 	MoveAnimator<BossBase>::handleTickEvent();
+
+	if (damaged) {
+		startDamagedAnimation();
+	}
 
 	switch(state) {
 	case ENTER:
@@ -44,6 +48,8 @@ void Boss::handleTickEvent() {
 		break;
 	case DEAD:
 		if (tickCounter == 1) {
+			damaged = 0;
+			animatedImage.setAlpha(255);
 			//Start explode animation
 			animatedImage.setBitmaps(BITMAP_EXPLOSION0_ID, BITMAP_EXPLOSION7_ID);
 			animatedImage.setUpdateTicksInterval(5);
@@ -62,7 +68,26 @@ const Rect& Boss::getHitBox() {
 }
 
 void Boss::reset() {
-	state = OOB;
+	Enemy::reset();
+	health = BOSS_HEALTH;
+
+	animatedImage.setAlpha(255);
 	animatedImage.setBitmaps(BITMAP_ENEMY0_ID, BITMAP_ENEMY0_ID);
 	moveTo(startX, startY);
 }
+
+void Boss::startDamagedAnimation() {
+	if (damagedTick == 0) {
+		damagedTick = tickCounter;
+	}
+
+	if (tickCounter > damagedTick + DAMAGED_DURATION) {
+		damaged = 0;
+		damagedTick = 0;
+		animatedImage.setAlpha(255);
+	}
+	else if ((tickCounter - damagedTick) % DAMAGED_TICK_INTERVAL == 0){
+		animatedImage.setAlpha((tickCounter - damagedTick) % (DAMAGED_TICK_INTERVAL * 2) == 0 ? 255 : 0);
+	}
+}
+

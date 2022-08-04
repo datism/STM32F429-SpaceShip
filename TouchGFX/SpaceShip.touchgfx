@@ -182,34 +182,6 @@
             "Moveable": true
           },
           {
-            "Type": "AnimatedImage",
-            "Name": "bossBullet00",
-            "X": 146,
-            "Y": 329,
-            "Width": 17,
-            "Height": 26,
-            "FileNameFirst": "bossBullet00.png",
-            "FileNameLast": "bossBullet07.png",
-            "UpdateTicksInterval": 100,
-            "StartOnLoad": true,
-            "LoopEnabled": true,
-            "Moveable": true
-          },
-          {
-            "Type": "AnimatedImage",
-            "Name": "bossBullet01",
-            "X": 146,
-            "Y": 329,
-            "Width": 17,
-            "Height": 26,
-            "FileNameFirst": "bossBullet00.png",
-            "FileNameLast": "bossBullet07.png",
-            "UpdateTicksInterval": 100,
-            "StartOnLoad": true,
-            "LoopEnabled": true,
-            "Moveable": true
-          },
-          {
             "Type": "Image",
             "Name": "enemy10Bullet",
             "X": 131,
@@ -267,6 +239,26 @@
             "Width": 10,
             "Height": 11,
             "RelativeFilename": "bossBullet1.png",
+            "Moveable": true
+          },
+          {
+            "Type": "Image",
+            "Name": "bossBullet01",
+            "X": 146,
+            "Y": 336,
+            "Width": 17,
+            "Height": 26,
+            "RelativeFilename": "bossBullet00.png",
+            "Moveable": true
+          },
+          {
+            "Type": "Image",
+            "Name": "bossBullet00",
+            "X": 146,
+            "Y": 336,
+            "Width": 17,
+            "Height": 26,
+            "RelativeFilename": "bossBullet00.png",
             "Moveable": true
           }
         ],

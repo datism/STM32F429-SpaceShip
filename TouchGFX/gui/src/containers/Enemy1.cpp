@@ -1,9 +1,10 @@
 #include <gui/containers/Enemy1.hpp>
+#include <math.h>
 #include <gui/Constraint.hpp>
 #include <BitmapDatabase.hpp>
 
 Enemy1::Enemy1()
-	:Enemy(OOB) {
+	:Enemy(ENEMY1_HEALTH) {
 	Application::getInstance()->registerTimerWidget(this);
 }
 
@@ -14,25 +15,26 @@ void Enemy1::initialize()
 
 void Enemy1::handleTickEvent() {
 	tickCounter++;
-	MoveAnimator<Enemy1Base>::handleTickEvent();
+
+	if (damaged) {
+		startDamagedAnimation();
+	}
+
 
 	switch(state) {
 	case ENTER:
 		if (tickCounter == 1) {
 			//move to outside screen
+			endX = startX;
 			moveTo(startX, startY);
-
-			endX = startX + movX;
-			endY = startY + movY;
-			startMoveAnimation(endX, endY, movDuration);
 		}
-		else if (tickCounter % movDuration == 0) {
-			//sin movement
-			endX = endX + movX;
-			endY = endY + movY * ((tickCounter % (movDuration * 2) == 0) ? 1 : -1);
-			startMoveAnimation(endX, endY, movDuration);
-		} else if (tickCounter == movDuration  * nbrMov)
+		else if (tickCounter == 270)
 			reset();
+		else {
+			endY = startY + direction * 30 * sin(6.28/135 * tickCounter);
+			endX = endX + direction * 2;
+			moveTo(endX, endY);
+		}
 
 		if (tickCounter % ENEMY1_BULLET_INTERVAL == 0)
 			//Fire bullet every ENEMY1_BULLET_INTERVAL ticks
@@ -40,6 +42,8 @@ void Enemy1::handleTickEvent() {
 		break;
 	case DEAD:
 		if (tickCounter == 1) {
+			damaged = 0;
+			animatedImage.setAlpha(255);
 			//Start explode animation
 			cancelMoveAnimation();
 			animatedImage.setBitmaps(BITMAP_EXPLOSION0_ID, BITMAP_EXPLOSION7_ID);
@@ -53,13 +57,23 @@ void Enemy1::handleTickEvent() {
 	}
 }
 
-void Enemy1::setZigzagMovement(uint16_t period, int8_t nbrPeriod, int8_t direction) {
-	nbrMov = nbrPeriod * 2;
+void  Enemy1::setDirection(int8_t d) {
+	direction = d;
+}
 
-	movDuration = period / 2;
+void  Enemy1::startDamagedAnimation() {
+	if (damagedTick == 0) {
+		damagedTick = tickCounter;
+	}
 
-	movX = direction * (240 + 30) / nbrMov;
-	movY = movX / direction;
+	if (tickCounter > damagedTick + DAMAGED_DURATION) {
+		damaged = 0;
+		damagedTick = 0;
+		animatedImage.setAlpha(255);
+	}
+	else if ((tickCounter - damagedTick) % DAMAGED_TICK_INTERVAL == 0){
+		animatedImage.setAlpha((tickCounter - damagedTick) % (DAMAGED_TICK_INTERVAL * 2) == 0 ? 255 : 0);
+	}
 }
 
 const Rect& Enemy1::getHitBox() {
@@ -67,7 +81,10 @@ const Rect& Enemy1::getHitBox() {
 }
 
 void Enemy1::reset() {
-	state = OOB;
+	Enemy::reset();
+	health = ENEMY1_HEALTH;
+
+	animatedImage.setAlpha(255);
 	animatedImage.setBitmaps(BITMAP_ENEMY1_ID, BITMAP_ENEMY1_ID);
 	moveTo(startX, startY);
 }
