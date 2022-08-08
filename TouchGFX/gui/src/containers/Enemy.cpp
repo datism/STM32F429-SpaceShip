@@ -1,7 +1,7 @@
 #include <gui/containers/Enemy.hpp>
 
-Enemy::Enemy(int16_t h)
-	:state(OOB), damaged(0), health(h), damagedTick(0) {}
+Enemy::Enemy(int16_t h, uint32_t p)
+	:state(OOB), damaged(0), health(h),  point(p), damagedTick(0) {}
 
 void Enemy::handleDamage(uint16_t damage) {
 	health -= damage;
@@ -13,7 +13,6 @@ void Enemy::handleDamage(uint16_t damage) {
 }
 
 void Enemy::reset() {
-	state = OOB;
 	damaged = 0;
 	damagedTick = 0;
 }
@@ -51,4 +50,8 @@ int16_t Enemy::getEndX() {
 
 int16_t Enemy::getEndY() {
     return endY;
+}
+
+uint32_t Enemy::getPoint() {
+	return point;
 }

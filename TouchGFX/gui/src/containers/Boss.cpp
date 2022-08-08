@@ -3,7 +3,7 @@
 #include <BitmapDatabase.hpp>
 
 Boss::Boss()
-	:Enemy(BOSS_HEALTH) {
+	:Enemy(BOSS_HEALTH, BOSS_POINT) {
 	Application::getInstance()->registerTimerWidget(this);
 }
 
@@ -23,6 +23,7 @@ void Boss::handleTickEvent() {
 	switch(state) {
 	case ENTER:
 		if (tickCounter == 1) {
+			reset();
 			//move to outside screen
 			moveTo(startX, startY);
 			//move to standing position
@@ -36,9 +37,10 @@ void Boss::handleTickEvent() {
 		}
 
 
-		if (tickCounter > BOSS_MOVE_DURATION && tickCounter % BOSS_BULLET1_INTERVAL == 0)
+		if (tickCounter > BOSS_MOVE_DURATION && tickCounter % BOSS_BULLET1_INTERVAL == 0) {
 			//Fire bullet1 every BOSS_BULLET1_INTERVAL ticks
 			emitFireBullet1TriggerCallback();
+		}
 
 		if (tickCounter > BOSS_MOVE_DURATION && tickCounter % BOSS_BULLET0_INTERVAL == 0) {
 			//Fire bullet1 every BOSS_BULLET0_INTERVAL ticks
@@ -51,13 +53,16 @@ void Boss::handleTickEvent() {
 			damaged = 0;
 			animatedImage.setAlpha(255);
 			//Start explode animation
-			animatedImage.setBitmaps(BITMAP_EXPLOSION0_ID, BITMAP_EXPLOSION7_ID);
-			animatedImage.setUpdateTicksInterval(5);
+			animatedImage.setBitmaps(BITMAP_EXPLOSION10_ID, BITMAP_EXPLOSION17_ID);
+			animatedImage.setUpdateTicksInterval(6);
 			animatedImage.startAnimation(false, true, false);
 			cancelMoveAnimation();
 		}
-		else if (tickCounter == EXPLODE_DURATION)
+		else if (tickCounter == EXPLODE_DURATION) {
 			reset();
+			setState(OOB);
+			moveTo(startX, startY);
+		}
 		break;
 	default: break;
 	}
@@ -72,8 +77,7 @@ void Boss::reset() {
 	health = BOSS_HEALTH;
 
 	animatedImage.setAlpha(255);
-	animatedImage.setBitmaps(BITMAP_ENEMY0_ID, BITMAP_ENEMY0_ID);
-	moveTo(startX, startY);
+	animatedImage.setBitmaps(BITMAP_BOSS_ID, BITMAP_BOSS_ID);
 }
 
 void Boss::startDamagedAnimation() {

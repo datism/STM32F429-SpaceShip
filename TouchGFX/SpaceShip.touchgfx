@@ -20,8 +20,8 @@
             "Name": "shipBullet3",
             "X": 117,
             "Y": 333,
-            "Width": 6,
-            "Height": 18,
+            "Width": 4,
+            "Height": 12,
             "RelativeFilename": "shipBullet.png",
             "Moveable": true
           },
@@ -29,7 +29,7 @@
             "Type": "CustomContainerInstance",
             "Name": "boss",
             "X": 66,
-            "Y": -116,
+            "Y": -115,
             "Width": 115,
             "Height": 116,
             "CustomContainerDefinitionName": "Boss"
@@ -145,10 +145,10 @@
           {
             "Type": "CustomContainerInstance",
             "Name": "ship",
-            "X": 93,
-            "Y": 281,
-            "Width": 61,
-            "Height": 39,
+            "X": 99,
+            "Y": 272,
+            "Width": 48,
+            "Height": 48,
             "CustomContainerDefinitionName": "Ship"
           },
           {
@@ -156,8 +156,8 @@
             "Name": "shipBullet0",
             "X": 117,
             "Y": 333,
-            "Width": 6,
-            "Height": 18,
+            "Width": 4,
+            "Height": 12,
             "RelativeFilename": "shipBullet.png",
             "Moveable": true
           },
@@ -165,9 +165,9 @@
             "Type": "Image",
             "Name": "shipBullet1",
             "X": 117,
-            "Y": 333,
-            "Width": 6,
-            "Height": 18,
+            "Y": 334,
+            "Width": 4,
+            "Height": 12,
             "RelativeFilename": "shipBullet.png",
             "Moveable": true
           },
@@ -176,8 +176,8 @@
             "Name": "shipBullet2",
             "X": 117,
             "Y": 333,
-            "Width": 6,
-            "Height": 18,
+            "Width": 4,
+            "Height": 12,
             "RelativeFilename": "shipBullet.png",
             "Moveable": true
           },
@@ -254,7 +254,7 @@
           {
             "Type": "Image",
             "Name": "bossBullet00",
-            "X": 146,
+            "X": 147,
             "Y": 336,
             "Width": 17,
             "Height": 26,
@@ -329,16 +329,16 @@
     "CustomContainerDefinitions": [
       {
         "Name": "Ship",
-        "Width": 61,
-        "Height": 39,
+        "Width": 48,
+        "Height": 48,
         "Components": [
           {
             "Type": "AnimatedImage",
             "Name": "animatedImage",
-            "Width": 61,
-            "Height": 45,
-            "FileNameFirst": "ship0.png",
-            "FileNameLast": "ship2.png",
+            "Width": 48,
+            "Height": 48,
+            "FileNameFirst": "ship.png",
+            "FileNameLast": "ship.png",
             "UpdateTicksInterval": 200,
             "StartOnLoad": true,
             "ReverseEnabled": true,

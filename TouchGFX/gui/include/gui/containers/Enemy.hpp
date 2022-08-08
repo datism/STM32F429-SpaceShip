@@ -27,6 +27,7 @@ public:
     int16_t getStartY();
     int16_t getEndX();
     int16_t getEndY();
+    uint32_t getPoint();
 
     virtual const touchgfx::Rect& getHitBox() = 0;
 
@@ -34,6 +35,7 @@ protected:
     State state;
     int8_t damaged;
     int16_t health;
+    uint32_t point;
 
     uint32_t damagedTick;
     uint32_t tickCounter;
@@ -46,7 +48,7 @@ protected:
     virtual void startDamagedAnimation() = 0;
     virtual void reset();
 
-    Enemy(int16_t h);
+    Enemy(int16_t h, uint32_t p);
 };
 
 #endif // ENEMY_HPP

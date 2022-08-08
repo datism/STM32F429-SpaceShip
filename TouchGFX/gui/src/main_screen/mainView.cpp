@@ -51,8 +51,11 @@ void mainView::handleTickEvent() {
 		//start phase pop up
 		if (tickCount == 1) {
 			setUpPhase1();
-			//cancelShipBullet();
-			ship.setState(Ship::ALIVE);
+			ship.setState(Ship::IMMUNE);
+		}
+		else if (enemyCount == 0) {
+			//start phase 2 if there arent any enemies left
+			setState(PHASE2);
 		}
 		else if (tickCount == 100) {
 			//enmy10 fly right to left
@@ -60,7 +63,7 @@ void mainView::handleTickEvent() {
 			enemy10.setDirection(-1);
 			enemy10.setState(Enemy::ENTER);
 		}
-		else if (tickCount == 500) {
+		else if (tickCount == 800) {
 			//remains enemy go straight up
 			for(uint8_t i = 0; i < NBR_ENEMY; ++i) {
 				if(enemies[i]->getState() == Enemy::ENTER) {
@@ -68,13 +71,8 @@ void mainView::handleTickEvent() {
 				}
 			}
 		}
-		else if (tickCount == 600) {
+		else if (tickCount == 800 + ENEMY0_MOVE_DURATION) {
 			//start phase 2 after retreat
-			setState(PHASE2);
-		}
-
-		if (tickCount > 1 && enemyCount == 0) {
-			//start phase 2 if there arent any enemies left
 			setState(PHASE2);
 		}
 
@@ -83,38 +81,35 @@ void mainView::handleTickEvent() {
 		//start phase pop up
 		if (tickCount == 1) {
 			cancelShipBullet();
+			setUpPhase2();
 			ship.setState(Ship::IMMUNE);
 		}
-		else if (tickCount == 50) {
-			//start phase 2
-			setUpPhase2();
-			ship.setState(Ship::ALIVE);
+		else if (enemyCount == 0) {
+			//start phase 3 if there arent any enemies left
+			setState(PHASE3);
 		}
-		else if (tickCount == 150) {
+		else if (tickCount % 500 == 0) {
+
 			//enmy10 fly right to left
 			enemy10.setStartPos(240, ENEMY_LINE4);
 			enemy10.setDirection(-1);
 			enemy10.setState(Enemy::ENTER);
-
+		}
+		else if (tickCount % 650 == 0) {
 			//enmy11 fly left to right
 			enemy11.setStartPos(0 - enemy11.getWidth(), ENEMY_LINE4);
 			enemy11.setDirection(1);
 			enemy11.setState(Enemy::ENTER);
 		}
-		else if (tickCount == 800) {
+		else if (tickCount == 1200) {
 			//remains enemy go straight down
 			for(uint8_t i = 0; i < NBR_ENEMY; ++i) {
 				if(enemies[i]->getState() == Enemy::ENTER)
 					enemies[i]->setState(Enemy::ATTACK);
 			}
 		}
-		else if (tickCount == 800 + ENEMY0_MOVE_DURATION * 2) {
+		else if (tickCount == 1200 + ENEMY0_MOVE_DURATION * 2) {
 			//start phase 3 after attack
-			setState(PHASE3);
-		}
-
-		if (tickCount > 50 && enemyCount == 0) {
-			//start phase 3 if there arent any enemies left
 			setState(PHASE3);
 		}
 
@@ -123,14 +118,10 @@ void mainView::handleTickEvent() {
 		//start phase pop up
 		if (tickCount == 1) {
 			cancelShipBullet();
+			setUpPhase3();
 			ship.setState(Ship::IMMUNE);
 		}
-		else if (tickCount == 50) {
-			//start phase 3
-			setUpPhase3();
-			ship.setState(Ship::ALIVE);
-		}
-		else if (tickCount % 600 == 0) {
+		else if (tickCount % 500 == 0) {
 			//enem10 fly right to left every 900 tick
 			enemy10.setStartPos(240, ENEMY_LINE4);
 			enemy10.setDirection(-1);
@@ -144,7 +135,7 @@ void mainView::checkCollision() {
 	uint8_t i = 0, j = 0;
 
 	//Check if enemy bullet hit ship
-	if (ship.getState() != Ship::DEAD) {
+	if (ship.getState() == Ship::ALIVE) {
 		for (i = 0; i < NBR_ENEMY_BULLET; ++i) {
 			if (enemyBullets[i]->getX() < 240 && enemyBullets[i]->isVisible()
 					&& enemyBullets[i]->getRect().intersect(ship.getRect())) {
@@ -156,7 +147,7 @@ void mainView::checkCollision() {
 	}
 
 	//Check enemy and ship collision
-	if (ship.getState() != Ship::DEAD) {
+	if (ship.getState() == Ship::ALIVE) {
 		for (i = 0; i < NBR_ENEMY; ++i) {
 			if (enemies[i]->getState() == Enemy::OOB || enemies[i]->getState() == Enemy::DEAD)
 				continue;
@@ -268,6 +259,8 @@ void mainView::cancelShipBullet() {
 		shipBullets[i]->setY(320);
 		shipBullets[i]->cancelMoveAnimation();
 	}
+
+	invalidate();
  }
 
 void mainView::bossFireBullet0() {

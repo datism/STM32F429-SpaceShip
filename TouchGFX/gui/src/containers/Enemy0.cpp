@@ -4,7 +4,7 @@
 
 
 Enemy0::Enemy0()
-	:Enemy(ENEMY0_HEALTH) {
+	:Enemy(ENEMY0_HEALTH, ENEMY0_POINT) {
 	Application::getInstance()->registerTimerWidget(this);
 }
 
@@ -22,8 +22,11 @@ void Enemy0::handleTickEvent() {
 	}
 
 	switch(state) {
+	case OOB:
+		break;
 	case ENTER:
 		if (tickCounter == 1) {
+			reset();
 			//move to outside screen
 			moveTo(startX, startY);
 			//move to standing position
@@ -34,29 +37,37 @@ void Enemy0::handleTickEvent() {
 		if (tickCounter == 1)
 			//go straight up
 			startMoveAnimation(getX(), -getHeight(), ENEMY0_MOVE_DURATION);
-		if (tickCounter == ENEMY0_MOVE_DURATION)
+		if (tickCounter == ENEMY0_MOVE_DURATION) {
 			reset();
+			setState(OOB);
+			moveTo(startX, startY);
+		}
 		break;
 	case ATTACK:
 		if (tickCounter == 1) {
 			//Go straight down
 			startMoveAnimation(getX(), getY() + 320, ENEMY0_MOVE_DURATION*2);
 		}
-		else if (tickCounter == ENEMY0_MOVE_DURATION*2)
+		else if (tickCounter == ENEMY0_MOVE_DURATION*2) {
 			reset();
+			setState(OOB);
+			moveTo(startX, startY);
+		}
 		break;
 	case DEAD:
 		if (tickCounter == 1) {
 			damaged = 0;
 			animatedImage.setAlpha(255);
 			//Start explode animation
-			animatedImage.setBitmaps(BITMAP_EXPLOSION0_ID, BITMAP_EXPLOSION7_ID);
+			animatedImage.setBitmaps(BITMAP_EXPLOSION00_ID, BITMAP_EXPLOSION07_ID);
 			animatedImage.setUpdateTicksInterval(5);
 			animatedImage.startAnimation(false, true, false);
-			cancelMoveAnimation();
 		}
-		else if (tickCounter == EXPLODE_DURATION)
+		else if (tickCounter == EXPLODE_DURATION) {
 			reset();
+			setState(OOB);
+			moveTo(startX, startY);
+		}
 		break;
 	default: break;
 	}
@@ -83,7 +94,6 @@ void Enemy0::reset() {
 
 	animatedImage.setAlpha(255);
 	animatedImage.setBitmaps(BITMAP_ENEMY0_ID, BITMAP_ENEMY0_ID);
-	moveTo(startX, startY);
 }
 
 const Rect& Enemy0::getHitBox() {

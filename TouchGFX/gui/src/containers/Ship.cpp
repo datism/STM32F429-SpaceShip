@@ -26,11 +26,19 @@ void Ship::handleTickEvent() {
 			 emitFireBulletTriggerCallback();
 		break;
 	case IMMUNE:
+		if ((tickCounter - 1) % 5 == 0) {
+			animatedImage.setAlpha((tickCounter - 1) % 10 == 0 ? 0 : 255);
+		}
+
+		if (tickCounter > 100) {
+			animatedImage.setAlpha(255);
+			setState(ALIVE);
+		}
 		break;
 	case DEAD:
 		if (tickCounter == 1) {
 			//Start explode animation
-			animatedImage.setBitmaps(BITMAP_EXPLOSION0_ID, BITMAP_EXPLOSION7_ID);
+			animatedImage.setBitmaps(BITMAP_EXPLOSION00_ID, BITMAP_EXPLOSION07_ID);
 			animatedImage.setUpdateTicksInterval(5);
 			animatedImage.startAnimation(false, true, false);
 		}
@@ -72,9 +80,9 @@ void Ship::handleTickEvent() {
 }
 
 void Ship::reset() {
-	state = ALIVE;
+	state = IMMUNE;
 	setXY(240 / 2 - getWidth() / 2, 320 - getHeight());
-	animatedImage.setBitmaps(BITMAP_SHIP0_ID, BITMAP_SHIP2_ID);
+	animatedImage.setBitmaps(BITMAP_SHIP_ID, BITMAP_SHIP_ID);
 }
 
 void Ship::setState(State state) {

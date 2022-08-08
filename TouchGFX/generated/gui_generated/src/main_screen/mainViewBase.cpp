@@ -24,7 +24,7 @@ mainViewBase::mainViewBase() :
     shipBullet3.setXY(117, 333);
     shipBullet3.setBitmap(touchgfx::Bitmap(BITMAP_SHIPBULLET_ID));
 
-    boss.setXY(66, -116);
+    boss.setXY(66, -115);
     boss.setFireBullet1TriggerCallback(bossFireBullet1TriggerCallback);
     boss.setFireBullet0TriggerCallback(bossFireBullet0TriggerCallback);
 
@@ -54,13 +54,13 @@ mainViewBase::mainViewBase() :
 
     enemy00.setXY(210, -26);
 
-    ship.setXY(93, 281);
+    ship.setXY(99, 272);
     ship.setFireBulletTriggerCallback(shipFireBulletTriggerCallback);
 
     shipBullet0.setXY(117, 333);
     shipBullet0.setBitmap(touchgfx::Bitmap(BITMAP_SHIPBULLET_ID));
 
-    shipBullet1.setXY(117, 333);
+    shipBullet1.setXY(117, 334);
     shipBullet1.setBitmap(touchgfx::Bitmap(BITMAP_SHIPBULLET_ID));
 
     shipBullet2.setXY(117, 333);
@@ -87,7 +87,7 @@ mainViewBase::mainViewBase() :
     bossBullet01.setXY(146, 336);
     bossBullet01.setBitmap(touchgfx::Bitmap(BITMAP_BOSSBULLET00_ID));
 
-    bossBullet00.setXY(146, 336);
+    bossBullet00.setXY(147, 336);
     bossBullet00.setBitmap(touchgfx::Bitmap(BITMAP_BOSSBULLET00_ID));
 
     add(__background);

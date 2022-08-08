@@ -4,7 +4,7 @@
 #include <BitmapDatabase.hpp>
 
 Enemy1::Enemy1()
-	:Enemy(ENEMY1_HEALTH) {
+	:Enemy(ENEMY1_HEALTH, ENEMY1_POINT) {
 	Application::getInstance()->registerTimerWidget(this);
 }
 
@@ -24,6 +24,7 @@ void Enemy1::handleTickEvent() {
 	switch(state) {
 	case ENTER:
 		if (tickCounter == 1) {
+			reset();
 			//move to outside screen
 			endX = startX;
 			moveTo(startX, startY);
@@ -46,12 +47,15 @@ void Enemy1::handleTickEvent() {
 			animatedImage.setAlpha(255);
 			//Start explode animation
 			cancelMoveAnimation();
-			animatedImage.setBitmaps(BITMAP_EXPLOSION0_ID, BITMAP_EXPLOSION7_ID);
+			animatedImage.setBitmaps(BITMAP_EXPLOSION00_ID, BITMAP_EXPLOSION07_ID);
 			animatedImage.setUpdateTicksInterval(5);
 			animatedImage.startAnimation(false, true, false);
 		}
-		else if (tickCounter == EXPLODE_DURATION)
+		else if (tickCounter == EXPLODE_DURATION) {
 			reset();
+			setState(OOB);
+			moveTo(startX, startY);
+		}
 		break;
 	default: break;
 	}
@@ -86,5 +90,4 @@ void Enemy1::reset() {
 
 	animatedImage.setAlpha(255);
 	animatedImage.setBitmaps(BITMAP_ENEMY1_ID, BITMAP_ENEMY1_ID);
-	moveTo(startX, startY);
 }

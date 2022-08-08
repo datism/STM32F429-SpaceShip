@@ -65,6 +65,7 @@
                   <listOptionValue builtIn="false" value="../../TouchGFX/generated/texts/include"/>
                   <listOptionValue builtIn="false" value="../../TouchGFX/gui/include"/>
                   <listOptionValue builtIn="false" value="../../TouchGFX/generated/videos/include"/>
+                  <listOptionValue builtIn="false" value="&quot;../..\Drivers\RNG&quot;"/>
                 </option>
                 <option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.languagestandard.1129136718" name="Language standard" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.languagestandard" useByScannerDiscovery="false" value="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.languagestandard.value.gnu11" valueType="enumerated"/>
                 <inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.615025746" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>

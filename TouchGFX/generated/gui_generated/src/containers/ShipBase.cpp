@@ -7,10 +7,10 @@
 ShipBase::ShipBase() :
     fireBulletTriggerCallback(0)
 {
-    setWidth(61);
-    setHeight(39);
+    setWidth(48);
+    setHeight(48);
     animatedImage.setXY(0, 0);
-    animatedImage.setBitmaps(BITMAP_SHIP0_ID, BITMAP_SHIP2_ID);
+    animatedImage.setBitmaps(BITMAP_SHIP_ID, BITMAP_SHIP_ID);
     animatedImage.setUpdateTicksInterval(12);
     animatedImage.startAnimation(true, true, true);
 
