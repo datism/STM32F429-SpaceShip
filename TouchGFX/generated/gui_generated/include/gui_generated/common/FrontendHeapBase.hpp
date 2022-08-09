@@ -12,8 +12,14 @@
 #include <gui/common/FrontendApplication.hpp>
 #include <gui/model/Model.hpp>
 
+#include <gui/menu_screen/MenuView.hpp>
+#include <gui/menu_screen/MenuPresenter.hpp>
 #include <gui/main_screen/mainView.hpp>
 #include <gui/main_screen/mainPresenter.hpp>
+#include <gui/leaderscoreview_screen/LeaderscoreViewView.hpp>
+#include <gui/leaderscoreview_screen/LeaderscoreViewPresenter.hpp>
+#include <gui/newhighscoreview_screen/NewHighScoreViewView.hpp>
+#include <gui/newhighscoreview_screen/NewHighScoreViewPresenter.hpp>
 
 
 /**
@@ -36,8 +42,11 @@ public:
      * A list of all view types. Must end with meta::Nil.
      * @note All view types used in the application MUST be added to this list!
      */
-    typedef touchgfx::meta::TypeList< mainView,
-            touchgfx::meta::Nil
+    typedef touchgfx::meta::TypeList< MenuView,
+            touchgfx::meta::TypeList< mainView,
+            touchgfx::meta::TypeList< LeaderscoreViewView,
+            touchgfx::meta::TypeList< NewHighScoreViewView,
+            touchgfx::meta::Nil > > >
             > GeneratedViewTypes;
 
     /**
@@ -49,8 +58,11 @@ public:
      * A list of all presenter types. Must end with meta::Nil.
      * @note All presenter types used in the application MUST be added to this list!
      */
-    typedef touchgfx::meta::TypeList< mainPresenter,
-            touchgfx::meta::Nil
+    typedef touchgfx::meta::TypeList< MenuPresenter,
+            touchgfx::meta::TypeList< mainPresenter,
+            touchgfx::meta::TypeList< LeaderscoreViewPresenter,
+            touchgfx::meta::TypeList< NewHighScoreViewPresenter,
+            touchgfx::meta::Nil > > >
             > GeneratedPresenterTypes;
 
     /**
@@ -73,7 +85,7 @@ public:
 
     virtual void gotoStartScreen(FrontendApplication& app)
     {
-        app.gotomainScreenNoTransition();
+        app.gotoMenuScreenNoTransition();
     }
 protected:
     FrontendHeapBase(touchgfx::AbstractPartition& presenters, touchgfx::AbstractPartition& views, touchgfx::AbstractPartition& transitions, FrontendApplication& app)

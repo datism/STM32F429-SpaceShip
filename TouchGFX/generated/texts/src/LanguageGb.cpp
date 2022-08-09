@@ -10,5 +10,20 @@ KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE;
 // Remap all strings
 TEXT_LOCATION_FLASH_PRAGMA
 KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE = {
-    0
+    36, // T_LEADERBOARDHEADER: "leaderboard"
+    4,  // T_NEWHIGHSCORE: "NEW HIGH SCORE!!!"
+    2,  // T_ENTEREDTEXT: "<>"
+    2,  // T_LEADERBOARD: "<>"
+    36, // T_LEADERSCORETEXT: "leaderboard"
+    2,  // T_POPUPTEXT: "<>"
+    0,  // T_LIVESTEXT: "<>/<>"
+    2,  // T_POINTTEXT: "<>"
+    22, // T_GAMENAME: "SPACE\nINVADER"
+    48, // T_STARTBUTTONTEXT: "Start"
+    36, // T_LEADERBOARDBUTTONTEXT: "leaderboard"
+    54, // T___SINGLEUSE_75AL: "1."
+    66, // T___SINGLEUSE_LJQM: "5."
+    63, // T___SINGLEUSE_5FKF: "4."
+    60, // T___SINGLEUSE_4TUW: "3."
+    57  // T___SINGLEUSE_FZ8N: "2."
 };

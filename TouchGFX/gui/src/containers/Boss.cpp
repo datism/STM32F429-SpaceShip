@@ -5,6 +5,8 @@
 Boss::Boss()
 	:Enemy(BOSS_HEALTH, BOSS_POINT) {
 	Application::getInstance()->registerTimerWidget(this);
+	startX = 0;
+	startY = -getHeight();
 }
 
 void Boss::initialize()
@@ -21,6 +23,10 @@ void Boss::handleTickEvent() {
 	}
 
 	switch(state) {
+	case OOB:
+		if (tickCounter == 1)
+			moveTo(startX, startY);
+		break;
 	case ENTER:
 		if (tickCounter == 1) {
 			reset();
@@ -51,6 +57,7 @@ void Boss::handleTickEvent() {
 	case DEAD:
 		if (tickCounter == 1) {
 			damaged = 0;
+			cancelMoveAnimation();
 			animatedImage.setAlpha(255);
 			//Start explode animation
 			animatedImage.setBitmaps(BITMAP_EXPLOSION10_ID, BITMAP_EXPLOSION17_ID);

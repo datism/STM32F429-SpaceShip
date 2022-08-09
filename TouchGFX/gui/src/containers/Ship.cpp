@@ -5,10 +5,11 @@
 
 extern osMessageQueueId_t Queue1Handle;
 
-Ship::Ship() {
+Ship::Ship()
+	:state(OOB), lives(SHIP_LIVES) {
+
 	Application::getInstance()->registerTimerWidget(this);
 
-	setXY(240 / 2 - getWidth() / 2, 320 - getHeight());
 }
 
 void Ship::initialize()
@@ -20,15 +21,26 @@ void Ship::handleTickEvent() {
 	tickCounter++;
 
 	switch (state) {
+	case OOB:
+		if (tickCounter == 1)
+			moveTo(240 / 2 - getWidth() / 2, 320);
+		return;
 	case ALIVE:
+		if (tickCounter == 1) {
+			reset();
+		}
 		//Fire bullet every SHIP_BULLET_INTERVAL ticks
 		if (tickCounter % SHIP_BULLET_INTERVAL == 0)
 			 emitFireBulletTriggerCallback();
 		break;
 	case IMMUNE:
-		if ((tickCounter - 1) % 5 == 0) {
-			animatedImage.setAlpha((tickCounter - 1) % 10 == 0 ? 0 : 255);
+		if (tickCounter == 1) {
+			reset();
+			setXY(240 / 2 - getWidth() / 2, 320 - getHeight());
 		}
+
+		if ((tickCounter - 1) % 5 == 0)
+			animatedImage.setAlpha((tickCounter - 1) % 10 == 0 ? 0 : 255);
 
 		if (tickCounter > 100) {
 			animatedImage.setAlpha(255);
@@ -42,9 +54,12 @@ void Ship::handleTickEvent() {
 			animatedImage.setUpdateTicksInterval(5);
 			animatedImage.startAnimation(false, true, false);
 		}
-		else if (tickCounter == EXPLODE_DURATION)
+		else if (tickCounter == EXPLODE_DURATION) {
 			//Restart after explode animation end
 			reset();
+
+			setState(lives == 0 ? OOB : IMMUNE);
+		}
 		return;
 	default: break;
 	}
@@ -80,16 +95,21 @@ void Ship::handleTickEvent() {
 }
 
 void Ship::reset() {
-	state = IMMUNE;
-	setXY(240 / 2 - getWidth() / 2, 320 - getHeight());
 	animatedImage.setBitmaps(BITMAP_SHIP_ID, BITMAP_SHIP_ID);
 }
 
 void Ship::setState(State state) {
 	this->state = state;
 	tickCounter = 0;
+
+	if(state == DEAD)
+		lives--;
 }
 
 Ship::State Ship::getState() {
 	return state;
+}
+
+uint8_t Ship::getLives() {
+	return lives;
 }

@@ -13,16 +13,16 @@ class FlashDataReader;
 
 struct Typography
 {
-    static const touchgfx::FontId DEFAULT = 0;
-    static const touchgfx::FontId LARGE = 1;
+    static const touchgfx::FontId LARGE = 0;
+    static const touchgfx::FontId NORMAL = 1;
     static const touchgfx::FontId SMALL = 2;
 };
 
 struct TypographyFontIndex
 {
-    static const touchgfx::FontId DEFAULT = 0; // verdana_20_4bpp
-    static const touchgfx::FontId LARGE = 1;   // verdana_40_4bpp
-    static const touchgfx::FontId SMALL = 2;   // verdana_10_4bpp
+    static const touchgfx::FontId LARGE = 0;  // ARCADE_N_TTF_20_4bpp
+    static const touchgfx::FontId NORMAL = 1; // ARCADE_N_TTF_9_8bpp
+    static const touchgfx::FontId SMALL = 2;  // ARCADE_N_TTF_5_8bpp
     static const uint16_t NUMBER_OF_FONTS = 3;
 };
 

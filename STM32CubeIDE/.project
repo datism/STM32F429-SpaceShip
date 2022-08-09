@@ -35,11 +35,6 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>Drivers/RNG</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
 			<name>Application/User/freertos.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Core/Src/freertos.c</locationURI>
@@ -68,11 +63,6 @@
 			<name>Drivers/CMSIS/system_stm32f4xx.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Core/Src/system_stm32f4xx.c</locationURI>
-		</link>
-		<link>
-			<name>Drivers/RNG/tm_stm32f4_rng.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Drivers/RNG/tm_stm32f4_rng.c</locationURI>
 		</link>
 		<link>
 			<name>Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal.c</name>
@@ -305,6 +295,11 @@
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/target/generated/TouchGFXGeneratedHAL.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/gui/CustomKeyboard.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/common/CustomKeyboard.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/gui/FrontendApplication.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/common/FrontendApplication.cpp</locationURI>
@@ -335,6 +330,16 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/containers/Ship.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/gui/LeaderscoreViewPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/leaderscoreview_screen/LeaderscoreViewPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/LeaderscoreViewView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/leaderscoreview_screen/LeaderscoreViewView.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/gui/mainPresenter.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/main_screen/mainPresenter.cpp</locationURI>
@@ -345,9 +350,29 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/main_screen/mainView.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/gui/MenuPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/menu_screen/MenuPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/MenuView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/menu_screen/MenuView.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/gui/Model.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/model/Model.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/NewHighScoreViewPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/newhighscoreview_screen/NewHighScoreViewPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/NewHighScoreViewView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/newhighscoreview_screen/NewHighScoreViewView.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/ApplicationFontProvider.cpp</name>
@@ -365,19 +390,19 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/FontCache.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Font_verdana_10_4bpp_0.cpp</name>
+			<name>Application/User/generated/Font_ARCADE_N_TTF_20_4bpp_0.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_verdana_10_4bpp_0.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_ARCADE_N_TTF_20_4bpp_0.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Font_verdana_20_4bpp_0.cpp</name>
+			<name>Application/User/generated/Font_ARCADE_N_TTF_5_8bpp_0.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_verdana_20_4bpp_0.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_ARCADE_N_TTF_5_8bpp_0.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Font_verdana_40_4bpp_0.cpp</name>
+			<name>Application/User/generated/Font_ARCADE_N_TTF_9_8bpp_0.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_verdana_40_4bpp_0.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_ARCADE_N_TTF_9_8bpp_0.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/GeneratedFont.cpp</name>
@@ -385,34 +410,34 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/GeneratedFont.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Kerning_verdana_10_4bpp.cpp</name>
+			<name>Application/User/generated/Kerning_ARCADE_N_TTF_20_4bpp.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_verdana_10_4bpp.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_ARCADE_N_TTF_20_4bpp.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Kerning_verdana_20_4bpp.cpp</name>
+			<name>Application/User/generated/Kerning_ARCADE_N_TTF_5_8bpp.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_verdana_20_4bpp.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_ARCADE_N_TTF_5_8bpp.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Kerning_verdana_40_4bpp.cpp</name>
+			<name>Application/User/generated/Kerning_ARCADE_N_TTF_9_8bpp.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_verdana_40_4bpp.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_ARCADE_N_TTF_9_8bpp.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Table_verdana_10_4bpp.cpp</name>
+			<name>Application/User/generated/Table_ARCADE_N_TTF_20_4bpp.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_verdana_10_4bpp.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_ARCADE_N_TTF_20_4bpp.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Table_verdana_20_4bpp.cpp</name>
+			<name>Application/User/generated/Table_ARCADE_N_TTF_5_8bpp.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_verdana_20_4bpp.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_ARCADE_N_TTF_5_8bpp.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Table_verdana_40_4bpp.cpp</name>
+			<name>Application/User/generated/Table_ARCADE_N_TTF_9_8bpp.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_verdana_40_4bpp.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_ARCADE_N_TTF_9_8bpp.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/UnmappedDataFont.cpp</name>
@@ -445,14 +470,39 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/containers/ShipBase.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/LeaderscoreViewViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/leaderscoreview_screen/LeaderscoreViewViewBase.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/mainViewBase.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/main_screen/mainViewBase.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/MenuViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/menu_screen/MenuViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/NewHighScoreViewViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/newhighscoreview_screen/NewHighScoreViewViewBase.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/BitmapDatabase.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/BitmapDatabase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_ControlKeyPressed.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_ControlKeyPressed.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_KeyboardLayout.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_KeyboardLayout.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_boss.cpp</name>
@@ -568,6 +618,26 @@
 			<name>Application/User/generated/image_explosion17.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_explosion17.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_grayButton.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_grayButton.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_heart.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_heart.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_keyPressed.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_keyPressed.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_redButton.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_redButton.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_ship.cpp</name>

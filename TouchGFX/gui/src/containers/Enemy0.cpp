@@ -6,6 +6,8 @@
 Enemy0::Enemy0()
 	:Enemy(ENEMY0_HEALTH, ENEMY0_POINT) {
 	Application::getInstance()->registerTimerWidget(this);
+	startX = 0;
+	startY = -getHeight();
 }
 
 void Enemy0::initialize()
@@ -23,6 +25,8 @@ void Enemy0::handleTickEvent() {
 
 	switch(state) {
 	case OOB:
+		if (tickCounter == 1)
+			moveTo(startX, startY);
 		break;
 	case ENTER:
 		if (tickCounter == 1) {
@@ -57,6 +61,7 @@ void Enemy0::handleTickEvent() {
 	case DEAD:
 		if (tickCounter == 1) {
 			damaged = 0;
+			cancelMoveAnimation();
 			animatedImage.setAlpha(255);
 			//Start explode animation
 			animatedImage.setBitmaps(BITMAP_EXPLOSION00_ID, BITMAP_EXPLOSION07_ID);

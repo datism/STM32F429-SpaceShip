@@ -26,7 +26,6 @@
 /* USER CODE BEGIN Includes */
 #include "Components/ili9341/ili9341.h"
 #include "Components/i3g4250d/i3g4250d.h"
-#include "tm_stm32f4_rng.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -197,7 +196,7 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
   /* Initialize random number generator */
-  TM_RNG_Init();
+  //TM_RNG_Init();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */

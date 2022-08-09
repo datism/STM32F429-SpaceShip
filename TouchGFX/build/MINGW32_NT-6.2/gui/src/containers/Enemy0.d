@@ -40,8 +40,10 @@ build/MINGW32_NT-6.2/gui/src/containers/Enemy0.o: \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AnimatedImage.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp \
+ gui/include/gui/containers/Enemy.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/MoveAnimator.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/EasingEquations.hpp \
+ gui/include/gui/Constraint.hpp \
  generated/images/include/BitmapDatabase.hpp
 
 gui/include/gui/containers/Enemy0.hpp:
@@ -126,8 +128,12 @@ gui/include/gui/model/Model.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp:
 
+gui/include/gui/containers/Enemy.hpp:
+
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/MoveAnimator.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/EasingEquations.hpp:
+
+gui/include/gui/Constraint.hpp:
 
 generated/images/include/BitmapDatabase.hpp:

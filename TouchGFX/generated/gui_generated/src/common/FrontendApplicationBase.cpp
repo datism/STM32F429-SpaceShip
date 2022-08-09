@@ -9,8 +9,14 @@
 #include <touchgfx/Texts.hpp>
 #include <touchgfx/hal/HAL.hpp>
 #include <platform/driver/lcd/LCD16bpp.hpp>
+#include <gui/menu_screen/MenuView.hpp>
+#include <gui/menu_screen/MenuPresenter.hpp>
 #include <gui/main_screen/mainView.hpp>
 #include <gui/main_screen/mainPresenter.hpp>
+#include <gui/leaderscoreview_screen/LeaderscoreViewView.hpp>
+#include <gui/leaderscoreview_screen/LeaderscoreViewPresenter.hpp>
+#include <gui/newhighscoreview_screen/NewHighScoreViewView.hpp>
+#include <gui/newhighscoreview_screen/NewHighScoreViewPresenter.hpp>
 
 using namespace touchgfx;
 
@@ -21,12 +27,26 @@ FrontendApplicationBase::FrontendApplicationBase(Model& m, FrontendHeap& heap)
       model(m)
 {
     touchgfx::HAL::getInstance()->setDisplayOrientation(touchgfx::ORIENTATION_PORTRAIT);
+    touchgfx::Texts::setLanguage(GB);
     reinterpret_cast<touchgfx::LCD16bpp&>(touchgfx::HAL::lcd()).enableTextureMapperAll();
 }
 
 /*
  * Screen Transition Declarations
  */
+
+// Menu
+
+void FrontendApplicationBase::gotoMenuScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotoMenuScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoMenuScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<MenuView, MenuPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
 
 // main
 
@@ -39,4 +59,17 @@ void FrontendApplicationBase::gotomainScreenNoTransition()
 void FrontendApplicationBase::gotomainScreenNoTransitionImpl()
 {
     touchgfx::makeTransition<mainView, mainPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// NewHighScoreView
+
+void FrontendApplicationBase::gotoNewHighScoreViewScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotoNewHighScoreViewScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoNewHighScoreViewScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<NewHighScoreViewView, NewHighScoreViewPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

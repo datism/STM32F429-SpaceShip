@@ -14,6 +14,7 @@ public:
 		PHASE1,
 		PHASE2,
 		PHASE3,
+		ENDGAME,
 	};
 
 	mainView();
@@ -50,6 +51,8 @@ protected:
     void checkCollision();
     //Remove ship's bullets from screens
     void cancelShipBullet();
+
+    void handleShipDead();
 
     void setUpPhase1();
     void setUpPhase2();

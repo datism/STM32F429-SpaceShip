@@ -4,6 +4,7 @@
 #include <gui_generated/main_screen/mainViewBase.hpp>
 #include <touchgfx/Color.hpp>
 #include <BitmapDatabase.hpp>
+#include <texts/TextKeysAndLanguages.hpp>
 
 mainViewBase::mainViewBase() :
     bossFireBullet1TriggerCallback(this, &mainViewBase::bossFireBullet1TriggerCallbackHandler),
@@ -54,7 +55,7 @@ mainViewBase::mainViewBase() :
 
     enemy00.setXY(210, -26);
 
-    ship.setXY(99, 272);
+    ship.setXY(66, 325);
     ship.setFireBulletTriggerCallback(shipFireBulletTriggerCallback);
 
     shipBullet0.setXY(117, 333);
@@ -90,6 +91,32 @@ mainViewBase::mainViewBase() :
     bossBullet00.setXY(147, 336);
     bossBullet00.setBitmap(touchgfx::Bitmap(BITMAP_BOSSBULLET00_ID));
 
+    heart.setXY(0, 3);
+    heart.setBitmap(touchgfx::Bitmap(BITMAP_HEART_ID));
+
+    pointText.setPosition(4, 15, 44, 11);
+    pointText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    pointText.setLinespacing(0);
+    pointTextBuffer[0] = 0;
+    pointText.setWildcard(pointTextBuffer);
+    pointText.setTypedText(touchgfx::TypedText(T_POINTTEXT));
+
+    lives.setPosition(17, 3, 26, 11);
+    lives.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    lives.setLinespacing(0);
+    livesBuffer1[0] = 0;
+    lives.setWildcard1(livesBuffer1);
+    livesBuffer1[0] = 0;
+    lives.setWildcard2(livesBuffer2);
+    lives.setTypedText(touchgfx::TypedText(T_LIVESTEXT));
+
+    popUp.setPosition(0, 145, 240, 31);
+    popUp.setColor(touchgfx::Color::getColorFromRGB(250, 192, 2));
+    popUp.setLinespacing(0);
+    popUpBuffer[0] = 0;
+    popUp.setWildcard(popUpBuffer);
+    popUp.setTypedText(touchgfx::TypedText(T_POPUPTEXT));
+
     add(__background);
     add(space);
     add(shipBullet3);
@@ -118,6 +145,10 @@ mainViewBase::mainViewBase() :
     add(bossBullet10);
     add(bossBullet01);
     add(bossBullet00);
+    add(heart);
+    add(pointText);
+    add(lives);
+    add(popUp);
 }
 
 void mainViewBase::setupScreen()

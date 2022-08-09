@@ -35,6 +35,15 @@ mainView::mainView()
 
 void mainView::setupScreen() {
     mainViewBase::setupScreen();
+
+    Unicode::snprintf(livesBuffer1, 2, "%d", 5);
+    Unicode::snprintf(livesBuffer2, 2, "%d", 5);
+    lives.invalidateContent();
+
+    Unicode::snprintf(pointTextBuffer, 2, "%d", 0);
+    pointText.invalidateContent();
+
+    setState(PHASE1);
 }
 
 void mainView::tearDownScreen() {
@@ -52,6 +61,13 @@ void mainView::handleTickEvent() {
 		if (tickCount == 1) {
 			setUpPhase1();
 			ship.setState(Ship::IMMUNE);
+
+			Unicode::snprintf(popUpBuffer, POPUP_SIZE, "PHASE-1");
+			popUp.setAlpha(0);
+			popUp.startFadeAnimation(255, 50, EasingEquations::cubicEaseOut);
+		}
+		else if (tickCount == 50) {
+			popUp.startFadeAnimation(0, 50, EasingEquations::cubicEaseIn);
 		}
 		else if (enemyCount == 0) {
 			//start phase 2 if there arent any enemies left
@@ -83,6 +99,13 @@ void mainView::handleTickEvent() {
 			cancelShipBullet();
 			setUpPhase2();
 			ship.setState(Ship::IMMUNE);
+
+			Unicode::snprintf(popUpBuffer, POPUP_SIZE, "PHASE-2");
+			popUp.setAlpha(0);
+			popUp.startFadeAnimation(255, 50, EasingEquations::cubicEaseOut);
+		}
+		else if (tickCount == 50) {
+			popUp.startFadeAnimation(0, 50, EasingEquations::cubicEaseIn);
 		}
 		else if (enemyCount == 0) {
 			//start phase 3 if there arent any enemies left
@@ -120,6 +143,13 @@ void mainView::handleTickEvent() {
 			cancelShipBullet();
 			setUpPhase3();
 			ship.setState(Ship::IMMUNE);
+
+			Unicode::snprintf(popUpBuffer, POPUP_SIZE, "PHASE-3");
+			popUp.setAlpha(0);
+			popUp.startFadeAnimation(255, 50, EasingEquations::cubicEaseOut);
+		}
+		else if (tickCount == 50) {
+			popUp.startFadeAnimation(0, 50, EasingEquations::cubicEaseIn);
 		}
 		else if (tickCount % 500 == 0) {
 			//enem10 fly right to left every 900 tick
@@ -127,7 +157,33 @@ void mainView::handleTickEvent() {
 			enemy10.setDirection(-1);
 			enemy10.setState(Enemy::ENTER);
 		}
+
+		if (boss.getState() == Enemy::DEAD) {
+			setState(ENDGAME);
+		}
+
 		break;
+
+	case ENDGAME:
+		if (tickCount == 1) {
+			if (ship.getLives() == 0)
+				Unicode::snprintf(popUpBuffer, POPUP_SIZE, "YOU-LOSE");
+			else
+				Unicode::snprintf(popUpBuffer, POPUP_SIZE, "YOU-WIN");
+
+			popUp.setAlpha(0);
+			popUp.startFadeAnimation(255, 50, EasingEquations::cubicEaseOut);
+
+			for(uint8_t i = 0; i < NBR_ENEMY; ++i) {
+				enemies[i]->setState(Enemy::OOB);
+			}
+		}
+		else if (tickCount == 50) {
+			popUp.startFadeAnimation(0, 50, EasingEquations::cubicEaseIn);
+		}
+		else if (tickCount == 100) {
+			application().changeToStartScreen();
+		}
 	}
 }
 
@@ -139,7 +195,7 @@ void mainView::checkCollision() {
 		for (i = 0; i < NBR_ENEMY_BULLET; ++i) {
 			if (enemyBullets[i]->getX() < 240 && enemyBullets[i]->isVisible()
 					&& enemyBullets[i]->getRect().intersect(ship.getRect())) {
-				ship.setState(Ship::DEAD);
+				handleShipDead();
 				enemyBullets[i]->setVisible(0);
 				break;
 			}
@@ -153,7 +209,7 @@ void mainView::checkCollision() {
 				continue;
 			//ship intersect enemy
 			if (ship.getRect().intersect(enemies[i]->getHitBox())) {
-				ship.setState(Ship::DEAD);
+				handleShipDead();
 				enemies[i]->setState(Enemy0::DEAD);
 				break;
 			}
@@ -180,6 +236,17 @@ void mainView::checkCollision() {
 				break;
 			}
 		}
+	}
+}
+
+void mainView::handleShipDead() {
+	ship.setState(Ship::DEAD);
+
+	Unicode::snprintf(livesBuffer1, 3, "%d", ship.getLives());
+	lives.invalidateContent();
+
+	if (ship.getLives() == 0) {
+		setState(ENDGAME);
 	}
 }
 

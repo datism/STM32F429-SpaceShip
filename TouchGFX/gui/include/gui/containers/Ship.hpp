@@ -7,6 +7,7 @@ class Ship : public ShipBase
 {
 public:
 	enum State {
+		OOB,
 		ALIVE,
 		IMMUNE,
 		DEAD
@@ -19,9 +20,12 @@ public:
 
     void setState(State state);
     State getState();
+
+    uint8_t getLives();
 protected:
     uint32_t tickCounter;
     State state;
+    uint8_t lives;
 
     //Reset ship to default state
     void reset();

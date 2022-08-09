@@ -4,11 +4,62 @@
     <Language Id="GB" />
   </Languages>
   <Texts>
-    <TextGroup Id="Group1" />
+    <TextGroup Id="UITEXT">
+      <Text Id="leaderboardheader" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">leaderboard</Translation>
+      </Text>
+      <Text Id="newHighScore" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">NEW HIGH SCORE!!!</Translation>
+      </Text>
+      <Text Id="EnteredText" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">&lt;placeholder&gt;</Translation>
+      </Text>
+      <Text Id="leaderboard" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="leaderscoreText" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">leaderboard</Translation>
+      </Text>
+      <Text Id="popUpText" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="livesText" Alignment="Center" TypographyId="Normal">
+        <Translation Language="GB">&lt;curlives&gt;/&lt;maxlives&gt;</Translation>
+      </Text>
+      <Text Id="pointText" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="gameName" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">SPACE&#10;INVADER</Translation>
+      </Text>
+      <Text Id="startButtonText" Alignment="Center" TypographyId="Normal">
+        <Translation Language="GB">Start</Translation>
+      </Text>
+      <Text Id="leaderboardButtonText" Alignment="Center" TypographyId="Normal">
+        <Translation Language="GB">leaderboard</Translation>
+      </Text>
+    </TextGroup>
+    <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_75AL" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">1.</Translation>
+      </Text>
+      <Text Id="__SingleUse_LJQM" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">5.</Translation>
+      </Text>
+      <Text Id="__SingleUse_5FKF" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">4.</Translation>
+      </Text>
+      <Text Id="__SingleUse_4TUW" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">3.</Translation>
+      </Text>
+      <Text Id="__SingleUse_FZ8N" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">2.</Translation>
+      </Text>
+    </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Large" Font="ARCADE_N.TTF" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="-" WildcardCharacterRanges="0-9,A-Z,a-z" />
+    <Typography Id="Normal" Font="ARCADE_N.TTF" Size="9" Bpp="8" Direction="LTR" FallbackCharacter="?" WildcardCharacters="-" WildcardCharacterRanges="a-z,0-9" />
+    <Typography Id="Small" Font="ARCADE_N.TTF" Size="5" Bpp="8" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
   </Typographies>
 </TextDatabase>

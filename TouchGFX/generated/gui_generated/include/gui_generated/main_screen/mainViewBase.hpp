@@ -14,7 +14,9 @@
 #include <gui/containers/Enemy1.hpp>
 #include <gui/containers/Enemy0.hpp>
 #include <gui/containers/Ship.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/EasingEquations.hpp>
+#include <touchgfx/mixins/FadeAnimator.hpp>
 #include <touchgfx/mixins/MoveAnimator.hpp>
 
 class mainViewBase : public touchgfx::View<mainPresenter>
@@ -88,6 +90,22 @@ protected:
     touchgfx::MoveAnimator< touchgfx::Image > bossBullet10;
     touchgfx::MoveAnimator< touchgfx::Image > bossBullet01;
     touchgfx::MoveAnimator< touchgfx::Image > bossBullet00;
+    touchgfx::Image heart;
+    touchgfx::TextAreaWithOneWildcard pointText;
+    touchgfx::TextAreaWithTwoWildcards lives;
+    touchgfx::FadeAnimator< touchgfx::TextAreaWithOneWildcard > popUp;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t POINTTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar pointTextBuffer[POINTTEXT_SIZE];
+    static const uint16_t LIVESBUFFER1_SIZE = 3;
+    touchgfx::Unicode::UnicodeChar livesBuffer1[LIVESBUFFER1_SIZE];
+    static const uint16_t LIVESBUFFER2_SIZE = 3;
+    touchgfx::Unicode::UnicodeChar livesBuffer2[LIVESBUFFER2_SIZE];
+    static const uint16_t POPUP_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar popUpBuffer[POPUP_SIZE];
 
 private:
 

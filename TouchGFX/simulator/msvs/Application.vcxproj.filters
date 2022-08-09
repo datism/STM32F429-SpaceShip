@@ -196,6 +196,42 @@
     <Filter Include="Header Files\generated\gui_generated\containers">
       <UniqueIdentifier>A79A82DB-6A95-72D5-0878-016B1FFD242D</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gui\menu_screen">
+      <UniqueIdentifier>E63B3499-7B0D-17EA-5DCF-F634F72710F4</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\menu_screen">
+      <UniqueIdentifier>68E4945D-AB9A-F92B-1FAD-4C41499CCC20</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\menu_screen">
+      <UniqueIdentifier>74FC0047-5A45-3264-EEBD-E592E9228F25</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\menu_screen">
+      <UniqueIdentifier>C9CF3250-185D-9C57-EFD2-6AE19C1F3DBC</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\leaderscoreview_screen">
+      <UniqueIdentifier>7D329AB1-1B4B-2385-6A7C-A0AAFF09CECD</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\leaderscoreview_screen">
+      <UniqueIdentifier>21B00A52-ADB6-FB51-1E94-3F51CFA0D868</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\newhighscoreview_screen">
+      <UniqueIdentifier>37996CEA-B819-96DF-E8F1-FCD96FB00445</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\newhighscoreview_screen">
+      <UniqueIdentifier>5B13FDCD-45FE-5A24-CA0D-F96B26A37E46</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\newhighscoreview_screen">
+      <UniqueIdentifier>01B0D9DC-A11E-7A64-855C-9A1F7462BD4E</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\newhighscoreview_screen">
+      <UniqueIdentifier>3A113B83-2C4B-D02D-622B-893B15B43845</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\leaderscoreview_screen">
+      <UniqueIdentifier>DAFA85AC-834D-804B-E3DD-271CC2A1A7BB</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\leaderscoreview_screen">
+      <UniqueIdentifier>83C24141-5D98-1172-3757-EC9014823B0C</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -263,6 +299,36 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\containers\BossBase.cpp">
       <Filter>Source Files\generated\gui_generated\containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\menu_screen\MenuPresenter.cpp">
+      <Filter>Source Files\gui\menu_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\menu_screen\MenuView.cpp">
+      <Filter>Source Files\gui\menu_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\menu_screen\MenuViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\menu_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\leaderscoreview_screen\LeaderscoreViewPresenter.cpp">
+      <Filter>Source Files\gui\leaderscoreview_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\leaderscoreview_screen\LeaderscoreViewView.cpp">
+      <Filter>Source Files\gui\leaderscoreview_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\leaderscoreview_screen\LeaderscoreViewViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\leaderscoreview_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\newhighscoreview_screen\NewHighScoreViewPresenter.cpp">
+      <Filter>Source Files\gui\newhighscoreview_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\newhighscoreview_screen\NewHighScoreViewView.cpp">
+      <Filter>Source Files\gui\newhighscoreview_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\newhighscoreview_screen\NewHighScoreViewViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\newhighscoreview_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\common\CustomKeyboard.cpp">
+      <Filter>Source Files\gui\common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -744,6 +810,42 @@
     </ClInclude>
     <ClInclude Include="..\..\gui\include\gui\Constraint.hpp">
       <Filter>Header Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\menu_screen\MenuPresenter.hpp">
+      <Filter>Header Files\gui\menu_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\menu_screen\MenuView.hpp">
+      <Filter>Header Files\gui\menu_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\menu_screen\MenuViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\menu_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\leaderscoreview_screen\LeaderscoreViewPresenter.hpp">
+      <Filter>Header Files\gui\leaderscoreview_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\leaderscoreview_screen\LeaderscoreViewView.hpp">
+      <Filter>Header Files\gui\leaderscoreview_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\leaderscoreview_screen\LeaderscoreViewViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\leaderscoreview_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\newhighscoreview_screen\NewHighScoreViewPresenter.hpp">
+      <Filter>Header Files\gui\newhighscoreview_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\newhighscoreview_screen\NewHighScoreViewView.hpp">
+      <Filter>Header Files\gui\newhighscoreview_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\newhighscoreview_screen\NewHighScoreViewViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\newhighscoreview_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\common\CustomKeyboard.hpp">
+      <Filter>Header Files\gui\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\common\KeyboardKeyMapping.hpp">
+      <Filter>Header Files\gui\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\common\KeyboardLayout.hpp">
+      <Filter>Header Files\gui\common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

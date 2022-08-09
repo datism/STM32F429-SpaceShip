@@ -6,6 +6,8 @@
 Enemy1::Enemy1()
 	:Enemy(ENEMY1_HEALTH, ENEMY1_POINT) {
 	Application::getInstance()->registerTimerWidget(this);
+	startX = 0;
+	startY = -getHeight();
 }
 
 void Enemy1::initialize()
@@ -22,6 +24,10 @@ void Enemy1::handleTickEvent() {
 
 
 	switch(state) {
+	case OOB:
+		if (tickCounter == 1)
+			moveTo(startX, startY);
+		break;
 	case ENTER:
 		if (tickCounter == 1) {
 			reset();
@@ -29,8 +35,11 @@ void Enemy1::handleTickEvent() {
 			endX = startX;
 			moveTo(startX, startY);
 		}
-		else if (tickCounter == 270)
+		else if (tickCounter == 270) {
 			reset();
+			setState(OOB);
+			moveTo(startX, startY);
+		}
 		else {
 			endY = startY + direction * 30 * sin(6.28/135 * tickCounter);
 			endX = endX + direction * 2;

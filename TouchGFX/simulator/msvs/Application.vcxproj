@@ -33,6 +33,16 @@
     <ClCompile Include="..\..\generated\gui_generated\src\containers\Enemy1Base.cpp"/>
     <ClCompile Include="..\..\gui\src\containers\Boss.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\containers\BossBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\menu_screen\MenuPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\menu_screen\MenuView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\menu_screen\MenuViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\leaderscoreview_screen\LeaderscoreViewPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\leaderscoreview_screen\LeaderscoreViewView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\leaderscoreview_screen\LeaderscoreViewViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\newhighscoreview_screen\NewHighScoreViewPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\newhighscoreview_screen\NewHighScoreViewView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\newhighscoreview_screen\NewHighScoreViewViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\common\CustomKeyboard.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -196,6 +206,18 @@
     <ClInclude Include="..\..\gui\include\gui\containers\Boss.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\BossBase.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\Constraint.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\menu_screen\MenuPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\menu_screen\MenuView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\menu_screen\MenuViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\leaderscoreview_screen\LeaderscoreViewPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\leaderscoreview_screen\LeaderscoreViewView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\leaderscoreview_screen\LeaderscoreViewViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\newhighscoreview_screen\NewHighScoreViewPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\newhighscoreview_screen\NewHighScoreViewView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\newhighscoreview_screen\NewHighScoreViewViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\common\CustomKeyboard.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\common\KeyboardKeyMapping.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\common\KeyboardLayout.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>
