@@ -23,11 +23,14 @@ public:
     // Menu
     void gotoMenuScreenNoTransition();
 
-    // main
-    void gotomainScreenNoTransition();
+    // Main
+    void gotoMainScreenNoTransition();
 
-    // NewHighScoreView
-    void gotoNewHighScoreViewScreenNoTransition();
+    // Leaderboard
+    void gotoLeaderboardScreenNoTransition();
+
+    // NewHighScore
+    void gotoNewHighScoreScreenNoTransition();
 
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
@@ -37,11 +40,14 @@ protected:
     // Menu
     void gotoMenuScreenNoTransitionImpl();
 
-    // main
-    void gotomainScreenNoTransitionImpl();
+    // Main
+    void gotoMainScreenNoTransitionImpl();
 
-    // NewHighScoreView
-    void gotoNewHighScoreViewScreenNoTransitionImpl();
+    // Leaderboard
+    void gotoLeaderboardScreenNoTransitionImpl();
+
+    // NewHighScore
+    void gotoNewHighScoreScreenNoTransitionImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

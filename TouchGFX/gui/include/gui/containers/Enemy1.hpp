@@ -5,7 +5,7 @@
 #include <gui/containers/Enemy.hpp>
 #include <touchgfx/mixins/MoveAnimator.hpp>
 
-class Enemy1 : public MoveAnimator<Enemy1Base>,  public Enemy
+class Enemy1 : public Enemy1Base,  public Enemy
 {
 public:
     Enemy1();

@@ -1,17 +1,17 @@
-#ifndef LEADERSCOREVIEWPRESENTER_HPP
-#define LEADERSCOREVIEWPRESENTER_HPP
+#ifndef LEADERSCOREPRESENTER_HPP
+#define LEADERSCOREPRESENTER_HPP
 
 #include <gui/model/ModelListener.hpp>
 #include <mvp/Presenter.hpp>
 
 using namespace touchgfx;
 
-class LeaderscoreViewView;
+class LeaderscoreView;
 
-class LeaderscoreViewPresenter : public touchgfx::Presenter, public ModelListener
+class LeaderscorePresenter : public touchgfx::Presenter, public ModelListener
 {
 public:
-    LeaderscoreViewPresenter(LeaderscoreViewView& v);
+    LeaderscorePresenter(LeaderscoreView& v);
 
     /**
      * The activate function is called automatically when this screen is "switched in"
@@ -25,12 +25,13 @@ public:
      */
     virtual void deactivate();
 
-    virtual ~LeaderscoreViewPresenter() {};
+    void getHighScore(touchgfx::Unicode::UnicodeChar names[5][6], uint32_t points[5]);
+    virtual ~LeaderscorePresenter() {};
 
 private:
-    LeaderscoreViewPresenter();
+    LeaderscorePresenter();
 
-    LeaderscoreViewView& view;
+    LeaderscoreView& view;
 };
 
-#endif // LEADERSCOREVIEWPRESENTER_HPP
+#endif // LEADERSCOREPRESENTER_HPP

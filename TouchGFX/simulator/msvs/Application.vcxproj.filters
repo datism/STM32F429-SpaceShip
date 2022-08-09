@@ -208,29 +208,32 @@
     <Filter Include="Source Files\generated\gui_generated\menu_screen">
       <UniqueIdentifier>C9CF3250-185D-9C57-EFD2-6AE19C1F3DBC</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\gui\leaderscoreview_screen">
-      <UniqueIdentifier>7D329AB1-1B4B-2385-6A7C-A0AAFF09CECD</UniqueIdentifier>
+    <Filter Include="Header Files\gui\leaderscore_screen">
+      <UniqueIdentifier>A6DDC47D-BAC2-60D6-8282-8FCA9BF850BF</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\gui\leaderscoreview_screen">
-      <UniqueIdentifier>21B00A52-ADB6-FB51-1E94-3F51CFA0D868</UniqueIdentifier>
+    <Filter Include="Source Files\gui\newhighscore_screen">
+      <UniqueIdentifier>18D76FD0-E058-2662-5841-9147B9A76C47</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\gui\newhighscoreview_screen">
-      <UniqueIdentifier>37996CEA-B819-96DF-E8F1-FCD96FB00445</UniqueIdentifier>
+    <Filter Include="Header Files\gui\newhighscore_screen">
+      <UniqueIdentifier>FCF08845-F36A-1E4A-7C2F-21FA21A871CE</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\gui\newhighscoreview_screen">
-      <UniqueIdentifier>5B13FDCD-45FE-5A24-CA0D-F96B26A37E46</UniqueIdentifier>
+    <Filter Include="Header Files\generated\gui_generated\newhighscore_screen">
+      <UniqueIdentifier>29F2F17F-167A-5F1A-9C56-FF748A788922</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\generated\gui_generated\newhighscoreview_screen">
-      <UniqueIdentifier>01B0D9DC-A11E-7A64-855C-9A1F7462BD4E</UniqueIdentifier>
+    <Filter Include="Source Files\generated\gui_generated\newhighscore_screen">
+      <UniqueIdentifier>AA0BE9FD-A277-D0D0-3242-3FC462540895</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\generated\gui_generated\newhighscoreview_screen">
-      <UniqueIdentifier>3A113B83-2C4B-D02D-622B-893B15B43845</UniqueIdentifier>
+    <Filter Include="Header Files\gui\leaderboard_screen">
+      <UniqueIdentifier>B9CDE368-AC7A-E3E4-0950-E3E335D3A769</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\generated\gui_generated\leaderscoreview_screen">
-      <UniqueIdentifier>DAFA85AC-834D-804B-E3DD-271CC2A1A7BB</UniqueIdentifier>
+    <Filter Include="Source Files\gui\leaderboard_screen">
+      <UniqueIdentifier>8D592C0E-F043-F8CE-3DB9-A615C8B6861B</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\generated\gui_generated\leaderscoreview_screen">
-      <UniqueIdentifier>83C24141-5D98-1172-3757-EC9014823B0C</UniqueIdentifier>
+    <Filter Include="Header Files\generated\gui_generated\leaderboard_screen">
+      <UniqueIdentifier>3F4C9F5B-C726-0595-AF18-8EAA907E0F51</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\leaderboard_screen">
+      <UniqueIdentifier>D082D9F8-527D-AF41-903E-0129D114723A</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -257,15 +260,6 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\common\FrontendApplicationBase.cpp">
       <Filter>Source Files\generated\gui_generated\common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\gui\src\main_screen\mainPresenter.cpp">
-      <Filter>Source Files\gui\main_screen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\gui\src\main_screen\mainView.cpp">
-      <Filter>Source Files\gui\main_screen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\generated\gui_generated\src\main_screen\mainViewBase.cpp">
-      <Filter>Source Files\generated\gui_generated\main_screen</Filter>
     </ClCompile>
     <ClCompile Include="..\..\gui\src\model\Model.cpp">
       <Filter>Source Files\gui\model</Filter>
@@ -309,26 +303,35 @@
     <ClCompile Include="..\..\generated\gui_generated\src\menu_screen\MenuViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\menu_screen</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\gui\src\leaderscoreview_screen\LeaderscoreViewPresenter.cpp">
-      <Filter>Source Files\gui\leaderscoreview_screen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\gui\src\leaderscoreview_screen\LeaderscoreViewView.cpp">
-      <Filter>Source Files\gui\leaderscoreview_screen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\generated\gui_generated\src\leaderscoreview_screen\LeaderscoreViewViewBase.cpp">
-      <Filter>Source Files\generated\gui_generated\leaderscoreview_screen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\gui\src\newhighscoreview_screen\NewHighScoreViewPresenter.cpp">
-      <Filter>Source Files\gui\newhighscoreview_screen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\gui\src\newhighscoreview_screen\NewHighScoreViewView.cpp">
-      <Filter>Source Files\gui\newhighscoreview_screen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\generated\gui_generated\src\newhighscoreview_screen\NewHighScoreViewViewBase.cpp">
-      <Filter>Source Files\generated\gui_generated\newhighscoreview_screen</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\gui\src\common\CustomKeyboard.cpp">
       <Filter>Source Files\gui\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\newhighscore_screen\NewHighScorePresenter.cpp">
+      <Filter>Source Files\gui\newhighscore_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\newhighscore_screen\NewHighScoreView.cpp">
+      <Filter>Source Files\gui\newhighscore_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\newhighscore_screen\NewHighScoreViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\newhighscore_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\leaderboard_screen\LeaderboardPresenter.cpp">
+      <Filter>Source Files\gui\leaderboard_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\leaderboard_screen\LeaderboardView.cpp">
+      <Filter>Source Files\gui\leaderboard_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\leaderboard_screen\LeaderboardViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\leaderboard_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\main_screen\MainViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\main_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\main_screen\MainPresenter.cpp">
+      <Filter>Source Files\gui\main_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\main_screen\MainView.cpp">
+      <Filter>Source Files\gui\main_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -757,15 +760,6 @@
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\common\FrontendHeapBase.hpp">
       <Filter>Header Files\generated\gui_generated\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\main_screen\mainPresenter.hpp">
-      <Filter>Header Files\gui\main_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\main_screen\mainView.hpp">
-      <Filter>Header Files\gui\main_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\main_screen\mainViewBase.hpp">
-      <Filter>Header Files\generated\gui_generated\main_screen</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\generated\simulator\include\simulator\video\MJPEGDecoder.hpp">
       <Filter>Header Files\generated\simulator\include\simulator\video</Filter>
     </ClInclude>
@@ -820,24 +814,6 @@
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\menu_screen\MenuViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\menu_screen</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\leaderscoreview_screen\LeaderscoreViewPresenter.hpp">
-      <Filter>Header Files\gui\leaderscoreview_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\leaderscoreview_screen\LeaderscoreViewView.hpp">
-      <Filter>Header Files\gui\leaderscoreview_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\leaderscoreview_screen\LeaderscoreViewViewBase.hpp">
-      <Filter>Header Files\generated\gui_generated\leaderscoreview_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\newhighscoreview_screen\NewHighScoreViewPresenter.hpp">
-      <Filter>Header Files\gui\newhighscoreview_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\newhighscoreview_screen\NewHighScoreViewView.hpp">
-      <Filter>Header Files\gui\newhighscoreview_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\newhighscoreview_screen\NewHighScoreViewViewBase.hpp">
-      <Filter>Header Files\generated\gui_generated\newhighscoreview_screen</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gui\include\gui\common\CustomKeyboard.hpp">
       <Filter>Header Files\gui\common</Filter>
     </ClInclude>
@@ -846,6 +822,36 @@
     </ClInclude>
     <ClInclude Include="..\..\gui\include\gui\common\KeyboardLayout.hpp">
       <Filter>Header Files\gui\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\leaderscore_screen\LeaderscorePresenter.hpp">
+      <Filter>Header Files\gui\leaderscore_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\newhighscore_screen\NewHighScorePresenter.hpp">
+      <Filter>Header Files\gui\newhighscore_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\newhighscore_screen\NewHighScoreView.hpp">
+      <Filter>Header Files\gui\newhighscore_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\newhighscore_screen\NewHighScoreViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\newhighscore_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\leaderboard_screen\LeaderboardPresenter.hpp">
+      <Filter>Header Files\gui\leaderboard_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\leaderboard_screen\LeaderboardView.hpp">
+      <Filter>Header Files\gui\leaderboard_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\leaderboard_screen\LeaderboardViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\leaderboard_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\main_screen\MainViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\main_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\main_screen\MainPresenter.hpp">
+      <Filter>Header Files\gui\main_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\main_screen\MainView.hpp">
+      <Filter>Header Files\gui\main_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

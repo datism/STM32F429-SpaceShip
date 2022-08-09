@@ -1,17 +1,17 @@
-#ifndef NEWHIGHSCOREVIEWPRESENTER_HPP
-#define NEWHIGHSCOREVIEWPRESENTER_HPP
+#ifndef NEWHIGHSCOREPRESENTER_HPP
+#define NEWHIGHSCOREPRESENTER_HPP
 
 #include <gui/model/ModelListener.hpp>
 #include <mvp/Presenter.hpp>
 
 using namespace touchgfx;
 
-class NewHighScoreViewView;
+class NewHighScoreView;
 
-class NewHighScoreViewPresenter : public touchgfx::Presenter, public ModelListener
+class NewHighScorePresenter : public touchgfx::Presenter, public ModelListener
 {
 public:
-    NewHighScoreViewPresenter(NewHighScoreViewView& v);
+    NewHighScorePresenter(NewHighScoreView& v);
 
     /**
      * The activate function is called automatically when this screen is "switched in"
@@ -25,12 +25,14 @@ public:
      */
     virtual void deactivate();
 
-    virtual ~NewHighScoreViewPresenter() {};
+    virtual ~NewHighScorePresenter() {};
 
+    void updateName(touchgfx::Unicode::UnicodeChar n[6]);
+    void saveHighScore();
 private:
-    NewHighScoreViewPresenter();
+    NewHighScorePresenter();
 
-    NewHighScoreViewView& view;
+    NewHighScoreView& view;
 };
 
-#endif // NEWHIGHSCOREVIEWPRESENTER_HPP
+#endif // NEWHIGHSCOREPRESENTER_HPP

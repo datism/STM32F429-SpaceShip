@@ -6,10 +6,6 @@ Enemy::Enemy(int16_t h, uint32_t p)
 void Enemy::handleDamage(uint16_t damage) {
 	health -= damage;
 	damaged = 1;
-
-	if (health <= 0)
-		setState(DEAD);
-
 }
 
 void Enemy::reset() {
@@ -54,4 +50,8 @@ int16_t Enemy::getEndY() {
 
 uint32_t Enemy::getPoint() {
 	return point;
+}
+
+int16_t Enemy::getHealth() {
+	return health;
 }

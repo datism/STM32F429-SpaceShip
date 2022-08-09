@@ -55,7 +55,6 @@ void Enemy1::handleTickEvent() {
 			damaged = 0;
 			animatedImage.setAlpha(255);
 			//Start explode animation
-			cancelMoveAnimation();
 			animatedImage.setBitmaps(BITMAP_EXPLOSION00_ID, BITMAP_EXPLOSION07_ID);
 			animatedImage.setUpdateTicksInterval(5);
 			animatedImage.startAnimation(false, true, false);

@@ -15,8 +15,8 @@ MenuViewBase::MenuViewBase() :
 
     space.setXY(0, 0);
     space.setBitmaps(BITMAP_SPACE01_ID, BITMAP_SPACE06_ID);
-    space.setUpdateTicksInterval(1);
-    space.startAnimation(false, true, false);
+    space.setUpdateTicksInterval(3);
+    space.startAnimation(true, true, true);
 
     startButton.setXY(60, 144);
     startButton.setBitmaps(touchgfx::Bitmap(BITMAP_REDBUTTON_ID), touchgfx::Bitmap(BITMAP_REDBUTTON_ID));
@@ -54,15 +54,15 @@ void MenuViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
     if (&src == &startButton)
     {
         //StartButtonPressedInteraction
-        //When startButton clicked change screen to main
-        //Go to main with no screen transition
-        application().gotomainScreenNoTransition();
+        //When startButton clicked change screen to Main
+        //Go to Main with no screen transition
+        application().gotoMainScreenNoTransition();
     }
     else if (&src == &leaderboardButton)
     {
         //LeaderboardButtonPressedInteraction
-        //When leaderboardButton clicked change screen to NewHighScoreView
-        //Go to NewHighScoreView with no screen transition
-        application().gotoNewHighScoreViewScreenNoTransition();
+        //When leaderboardButton clicked change screen to Leaderboard
+        //Go to Leaderboard with no screen transition
+        application().gotoLeaderboardScreenNoTransition();
     }
 }

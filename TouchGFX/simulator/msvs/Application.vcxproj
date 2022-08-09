@@ -19,9 +19,6 @@
     <ClCompile Include="$(ApplicationRoot)\generated\simulator\src\mainBase.cpp"/>
     <ClCompile Include="..\..\gui\src\common\FrontendApplication.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\common\FrontendApplicationBase.cpp"/>
-    <ClCompile Include="..\..\gui\src\main_screen\mainPresenter.cpp"/>
-    <ClCompile Include="..\..\gui\src\main_screen\mainView.cpp"/>
-    <ClCompile Include="..\..\generated\gui_generated\src\main_screen\mainViewBase.cpp"/>
     <ClCompile Include="..\..\gui\src\model\Model.cpp"/>
     <ClCompile Include="..\..\generated\simulator\src\video\SoftwareMJPEGDecoder.cpp"/>
     <ClCompile Include="..\..\gui\src\containers\Ship.cpp"/>
@@ -36,13 +33,16 @@
     <ClCompile Include="..\..\gui\src\menu_screen\MenuPresenter.cpp"/>
     <ClCompile Include="..\..\gui\src\menu_screen\MenuView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\menu_screen\MenuViewBase.cpp"/>
-    <ClCompile Include="..\..\gui\src\leaderscoreview_screen\LeaderscoreViewPresenter.cpp"/>
-    <ClCompile Include="..\..\gui\src\leaderscoreview_screen\LeaderscoreViewView.cpp"/>
-    <ClCompile Include="..\..\generated\gui_generated\src\leaderscoreview_screen\LeaderscoreViewViewBase.cpp"/>
-    <ClCompile Include="..\..\gui\src\newhighscoreview_screen\NewHighScoreViewPresenter.cpp"/>
-    <ClCompile Include="..\..\gui\src\newhighscoreview_screen\NewHighScoreViewView.cpp"/>
-    <ClCompile Include="..\..\generated\gui_generated\src\newhighscoreview_screen\NewHighScoreViewViewBase.cpp"/>
     <ClCompile Include="..\..\gui\src\common\CustomKeyboard.cpp"/>
+    <ClCompile Include="..\..\gui\src\newhighscore_screen\NewHighScorePresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\newhighscore_screen\NewHighScoreView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\newhighscore_screen\NewHighScoreViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\leaderboard_screen\LeaderboardPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\leaderboard_screen\LeaderboardView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\leaderboard_screen\LeaderboardViewBase.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\main_screen\MainViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\main_screen\MainPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\main_screen\MainView.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -188,9 +188,6 @@
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\common\FrontendApplicationBase.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\common\FrontendHeap.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\common\FrontendHeapBase.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\main_screen\mainPresenter.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\main_screen\mainView.hpp"/>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\main_screen\mainViewBase.hpp"/>
     <ClInclude Include="..\..\generated\simulator\include\simulator\video\MJPEGDecoder.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\model\Model.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\model\ModelListener.hpp"/>
@@ -209,15 +206,19 @@
     <ClInclude Include="..\..\gui\include\gui\menu_screen\MenuPresenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\menu_screen\MenuView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\menu_screen\MenuViewBase.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\leaderscoreview_screen\LeaderscoreViewPresenter.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\leaderscoreview_screen\LeaderscoreViewView.hpp"/>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\leaderscoreview_screen\LeaderscoreViewViewBase.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\newhighscoreview_screen\NewHighScoreViewPresenter.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\newhighscoreview_screen\NewHighScoreViewView.hpp"/>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\newhighscoreview_screen\NewHighScoreViewViewBase.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\common\CustomKeyboard.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\common\KeyboardKeyMapping.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\common\KeyboardLayout.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\leaderscore_screen\LeaderscorePresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\newhighscore_screen\NewHighScorePresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\newhighscore_screen\NewHighScoreView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\newhighscore_screen\NewHighScoreViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\leaderboard_screen\LeaderboardPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\leaderboard_screen\LeaderboardView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\leaderboard_screen\LeaderboardViewBase.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\main_screen\MainViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\main_screen\MainPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\main_screen\MainView.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

@@ -1,13 +1,10 @@
 #include <gui/common/CustomKeyboard.hpp>
 #include <string.h>
-#include <touchgfx/Color.hpp>
 
 CustomKeyboard::CustomKeyboard() : keyboard(),
-    backspacePressed(this, &CustomKeyboard::backspacePressedHandler),
-    enterPressed(this, &CustomKeyboard::enterPressedHandler)
+    backspacePressed(this, &CustomKeyboard::backspacePressedHandler)
 {
-    layout.callbackAreaArray[0].callback = &enterPressed;
-    layout.callbackAreaArray[1].callback = &backspacePressed;
+    layout.callbackAreaArray[0].callback = &backspacePressed;
 
     keyboard.setLayout(&layout);
     keyboard.setPosition(0, 0, 224, 232);
@@ -35,11 +32,6 @@ void CustomKeyboard::backspacePressedHandler()
         buffer[pos - 1] = 0;
         keyboard.setBufferPosition(pos - 1);
     }
-}
-
-void CustomKeyboard::enterPressedHandler()
-{
-
 }
 
 void CustomKeyboard::setTouchable(bool touch)

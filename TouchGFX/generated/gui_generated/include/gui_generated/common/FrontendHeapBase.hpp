@@ -14,12 +14,12 @@
 
 #include <gui/menu_screen/MenuView.hpp>
 #include <gui/menu_screen/MenuPresenter.hpp>
-#include <gui/main_screen/mainView.hpp>
-#include <gui/main_screen/mainPresenter.hpp>
-#include <gui/leaderscoreview_screen/LeaderscoreViewView.hpp>
-#include <gui/leaderscoreview_screen/LeaderscoreViewPresenter.hpp>
-#include <gui/newhighscoreview_screen/NewHighScoreViewView.hpp>
-#include <gui/newhighscoreview_screen/NewHighScoreViewPresenter.hpp>
+#include <gui/main_screen/MainView.hpp>
+#include <gui/main_screen/MainPresenter.hpp>
+#include <gui/leaderboard_screen/LeaderboardView.hpp>
+#include <gui/leaderboard_screen/LeaderboardPresenter.hpp>
+#include <gui/newhighscore_screen/NewHighScoreView.hpp>
+#include <gui/newhighscore_screen/NewHighScorePresenter.hpp>
 
 
 /**
@@ -43,9 +43,9 @@ public:
      * @note All view types used in the application MUST be added to this list!
      */
     typedef touchgfx::meta::TypeList< MenuView,
-            touchgfx::meta::TypeList< mainView,
-            touchgfx::meta::TypeList< LeaderscoreViewView,
-            touchgfx::meta::TypeList< NewHighScoreViewView,
+            touchgfx::meta::TypeList< MainView,
+            touchgfx::meta::TypeList< LeaderboardView,
+            touchgfx::meta::TypeList< NewHighScoreView,
             touchgfx::meta::Nil > > >
             > GeneratedViewTypes;
 
@@ -59,9 +59,9 @@ public:
      * @note All presenter types used in the application MUST be added to this list!
      */
     typedef touchgfx::meta::TypeList< MenuPresenter,
-            touchgfx::meta::TypeList< mainPresenter,
-            touchgfx::meta::TypeList< LeaderscoreViewPresenter,
-            touchgfx::meta::TypeList< NewHighScoreViewPresenter,
+            touchgfx::meta::TypeList< MainPresenter,
+            touchgfx::meta::TypeList< LeaderboardPresenter,
+            touchgfx::meta::TypeList< NewHighScorePresenter,
             touchgfx::meta::Nil > > >
             > GeneratedPresenterTypes;
 

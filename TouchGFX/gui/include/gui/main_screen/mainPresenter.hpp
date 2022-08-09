@@ -3,15 +3,16 @@
 
 #include <gui/model/ModelListener.hpp>
 #include <mvp/Presenter.hpp>
+#include <touchgfx/Unicode.hpp>
 
 using namespace touchgfx;
 
-class mainView;
+class MainView;
 
-class mainPresenter : public touchgfx::Presenter, public ModelListener
+class MainPresenter : public touchgfx::Presenter, public ModelListener
 {
 public:
-    mainPresenter(mainView& v);
+    MainPresenter(MainView& v);
 
     /**
      * The activate function is called automatically when this screen is "switched in"
@@ -25,12 +26,15 @@ public:
      */
     virtual void deactivate();
 
-    virtual ~mainPresenter() {};
+    virtual ~MainPresenter() {};
+
+    void updatePoint(uint32_t p);
+    void getPoints(uint32_t points[5]);
 
 private:
-    mainPresenter();
+    MainPresenter();
 
-    mainView& view;
+    MainView& view;
 };
 
 #endif // MAINPRESENTER_HPP

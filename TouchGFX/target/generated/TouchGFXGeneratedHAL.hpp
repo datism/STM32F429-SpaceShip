@@ -55,7 +55,7 @@ public:
      *
      *        This function is responsible for initializing the entire framework.
      */
-    void initialize();
+    virtual void initialize();
 
     /**
      * @fn virtual void TouchGFXGeneratedHAL::configureInterrupts();

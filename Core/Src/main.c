@@ -82,6 +82,8 @@ I2C_HandleTypeDef hi2c3;
 
 LTDC_HandleTypeDef hltdc;
 
+RTC_HandleTypeDef hrtc;
+
 SPI_HandleTypeDef hspi5;
 
 SDRAM_HandleTypeDef hsdram1;
@@ -120,6 +122,7 @@ static void MX_SPI5_Init(void);
 static void MX_FMC_Init(void);
 static void MX_LTDC_Init(void);
 static void MX_DMA2D_Init(void);
+static void MX_RTC_Init(void);
 void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 
@@ -207,6 +210,7 @@ int main(void)
   MX_FMC_Init();
   MX_LTDC_Init();
   MX_DMA2D_Init();
+  MX_RTC_Init();
   MX_TouchGFX_Init();
   /* USER CODE BEGIN 2 */
   GYRO_Init();
@@ -226,7 +230,6 @@ int main(void)
   /* USER CODE BEGIN RTOS_TIMERS */
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
-
   /* USER CODE BEGIN RTOS_QUEUES */
   /* creation of Queue1 */
   Queue1Handle = osMessageQueueNew (8, sizeof(uint8_t), &Queue1_attributes);
@@ -256,48 +259,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
-}
-
-void GYRO_Init(void) {
-  uint16_t ctrl = 0x0000;
-  GYRO_InitTypeDef         Gyro_InitStructure;
-  GYRO_FilterConfigTypeDef Gyro_FilterStructure = {0,0};
-
-  /* Initialize the gyroscope driver structure */
-  GyroscopeDrv = &I3g4250Drv;
-
-  /* Configure Mems : data rate, power mode, full scale and axes */
-  Gyro_InitStructure.Power_Mode       = I3G4250D_MODE_ACTIVE;
-  Gyro_InitStructure.Output_DataRate  = I3G4250D_OUTPUT_DATARATE_1;
-  Gyro_InitStructure.Axes_Enable      = I3G4250D_AXES_ENABLE;
-  Gyro_InitStructure.Band_Width       = I3G4250D_BANDWIDTH_4;
-  Gyro_InitStructure.BlockData_Update = I3G4250D_BlockDataUpdate_Continous;
-  Gyro_InitStructure.Endianness       = I3G4250D_BLE_LSB;
-  Gyro_InitStructure.Full_Scale       = I3G4250D_FULLSCALE_245;
-
-  /* Configure MEMS: data rate, power mode, full scale and axes */
-  ctrl = (uint16_t) (Gyro_InitStructure.Power_Mode  | Gyro_InitStructure.Output_DataRate | \
-					Gyro_InitStructure.Axes_Enable | Gyro_InitStructure.Band_Width);
-
-  ctrl |= (uint16_t) ((Gyro_InitStructure.BlockData_Update | Gyro_InitStructure.Endianness | \
-					Gyro_InitStructure.Full_Scale) << 8);
-
-  /* Initialize the gyroscope */
-  GyroscopeDrv->Init(ctrl);
-
-  Gyro_FilterStructure.HighPassFilter_Mode_Selection   = I3G4250D_HPM_NORMAL_MODE_RES;
-  Gyro_FilterStructure.HighPassFilter_CutOff_Frequency = I3G4250D_HPFCF_0;
-
-  ctrl = (uint8_t) ((Gyro_FilterStructure.HighPassFilter_Mode_Selection |\
-		  	  	  Gyro_FilterStructure.HighPassFilter_CutOff_Frequency));
-
-  /* Configure the gyroscope main parameters */
-  GyroscopeDrv->FilterConfig(ctrl);
-
-  GyroscopeDrv->FilterCmd(I3G4250D_HIGHPASSFILTER_ENABLE);
 }
 
 /**
@@ -317,8 +282,9 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 8;
@@ -524,6 +490,41 @@ static void MX_LTDC_Init(void)
 }
 
 /**
+  * @brief RTC Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_RTC_Init(void)
+{
+
+  /* USER CODE BEGIN RTC_Init 0 */
+
+  /* USER CODE END RTC_Init 0 */
+
+  /* USER CODE BEGIN RTC_Init 1 */
+
+  /* USER CODE END RTC_Init 1 */
+
+  /** Initialize RTC Only
+  */
+  hrtc.Instance = RTC;
+  hrtc.Init.HourFormat = RTC_HOURFORMAT_24;
+  hrtc.Init.AsynchPrediv = 127;
+  hrtc.Init.SynchPrediv = 255;
+  hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
+  hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
+  hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
+  if (HAL_RTC_Init(&hrtc) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN RTC_Init 2 */
+
+  /* USER CODE END RTC_Init 2 */
+
+}
+
+/**
   * @brief SPI5 Initialization Function
   * @param None
   * @retval None
@@ -550,7 +551,7 @@ static void MX_SPI5_Init(void)
   hspi5.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi5.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi5.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi5.Init.CRCPolynomial = 7;
+  hspi5.Init.CRCPolynomial = 10;
   if (HAL_SPI_Init(&hspi5) != HAL_OK)
   {
     Error_Handler();
@@ -662,12 +663,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PA0 */
-    GPIO_InitStruct.Pin = GPIO_PIN_0;
-    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 }
 
@@ -1007,6 +1002,45 @@ uint32_t LCD_IO_ReadData(uint16_t RegValue, uint8_t ReadSize)
 void LCD_Delay(uint32_t Delay)
 {
   HAL_Delay(Delay);
+}
+
+void GYRO_Init(void) {
+  uint16_t ctrl = 0x0000;
+  GYRO_InitTypeDef         Gyro_InitStructure;
+  GYRO_FilterConfigTypeDef Gyro_FilterStructure = {0,0};
+
+  /* Initialize the gyroscope driver structure */
+  GyroscopeDrv = &I3g4250Drv;
+
+  /* Configure Mems : data rate, power mode, full scale and axes */
+  Gyro_InitStructure.Power_Mode       = I3G4250D_MODE_ACTIVE;
+  Gyro_InitStructure.Output_DataRate  = I3G4250D_OUTPUT_DATARATE_1;
+  Gyro_InitStructure.Axes_Enable      = I3G4250D_AXES_ENABLE;
+  Gyro_InitStructure.Band_Width       = I3G4250D_BANDWIDTH_4;
+  Gyro_InitStructure.BlockData_Update = I3G4250D_BlockDataUpdate_Continous;
+  Gyro_InitStructure.Endianness       = I3G4250D_BLE_LSB;
+  Gyro_InitStructure.Full_Scale       = I3G4250D_FULLSCALE_245;
+
+  /* Configure MEMS: data rate, power mode, full scale and axes */
+  ctrl = (uint16_t) (Gyro_InitStructure.Power_Mode  | Gyro_InitStructure.Output_DataRate | \
+					Gyro_InitStructure.Axes_Enable | Gyro_InitStructure.Band_Width);
+
+  ctrl |= (uint16_t) ((Gyro_InitStructure.BlockData_Update | Gyro_InitStructure.Endianness | \
+					Gyro_InitStructure.Full_Scale) << 8);
+
+  /* Initialize the gyroscope */
+  GyroscopeDrv->Init(ctrl);
+
+  Gyro_FilterStructure.HighPassFilter_Mode_Selection   = I3G4250D_HPM_NORMAL_MODE_RES;
+  Gyro_FilterStructure.HighPassFilter_CutOff_Frequency = I3G4250D_HPFCF_0;
+
+  ctrl = (uint8_t) ((Gyro_FilterStructure.HighPassFilter_Mode_Selection |\
+		  	  	  Gyro_FilterStructure.HighPassFilter_CutOff_Frequency));
+
+  /* Configure the gyroscope main parameters */
+  GyroscopeDrv->FilterConfig(ctrl);
+
+  GyroscopeDrv->FilterCmd(I3G4250D_HIGHPASSFILTER_ENABLE);
 }
 
 /**

@@ -3,7 +3,6 @@
 
 #include <touchgfx/widgets/Keyboard.hpp>
 #include <touchgfx/containers/Container.hpp>
-#include <touchgfx/widgets/Box.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
 #include <gui/common/KeyboardLayout.hpp>
 #include <fonts/ApplicationFontProvider.hpp>
@@ -30,12 +29,15 @@ public:
      */
     void setTouchable(bool touch);
 
+    Unicode::UnicodeChar *getBuffer() {
+    	return buffer;
+    }
 private:
     /*
      * The size of the buffer that is used by the keyboard.
      * The size determines how much text the keyboard can contain in its textfield.
      */
-    static const uint8_t BUFFER_SIZE = 4;
+    static const uint8_t BUFFER_SIZE = 6;
 
     /**
      * The keyboard which this CustomKeyboard wraps.
@@ -52,11 +54,6 @@ private:
      */
     Callback<CustomKeyboard> backspacePressed;
 
-    /**
-     * Callback for the keyboard mode button.
-     */
-    Callback<CustomKeyboard> enterPressed;
-
     /*
      * Sets the correct key mappings of the keyboard according to alpha/numeric and upper-case/lower-case.
      */
@@ -66,11 +63,6 @@ private:
      * Callback handler for the backspace button.
      */
     void backspacePressedHandler();
-
-    /**
-     * Callback handler for the mode button.
-     */
-    void enterPressedHandler();
 };
 
 #endif /* TGFXKEYBOARD_HPP_ */

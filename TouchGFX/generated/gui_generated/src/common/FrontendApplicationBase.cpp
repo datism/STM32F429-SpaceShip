@@ -11,12 +11,12 @@
 #include <platform/driver/lcd/LCD16bpp.hpp>
 #include <gui/menu_screen/MenuView.hpp>
 #include <gui/menu_screen/MenuPresenter.hpp>
-#include <gui/main_screen/mainView.hpp>
-#include <gui/main_screen/mainPresenter.hpp>
-#include <gui/leaderscoreview_screen/LeaderscoreViewView.hpp>
-#include <gui/leaderscoreview_screen/LeaderscoreViewPresenter.hpp>
-#include <gui/newhighscoreview_screen/NewHighScoreViewView.hpp>
-#include <gui/newhighscoreview_screen/NewHighScoreViewPresenter.hpp>
+#include <gui/main_screen/MainView.hpp>
+#include <gui/main_screen/MainPresenter.hpp>
+#include <gui/leaderboard_screen/LeaderboardView.hpp>
+#include <gui/leaderboard_screen/LeaderboardPresenter.hpp>
+#include <gui/newhighscore_screen/NewHighScoreView.hpp>
+#include <gui/newhighscore_screen/NewHighScorePresenter.hpp>
 
 using namespace touchgfx;
 
@@ -48,28 +48,41 @@ void FrontendApplicationBase::gotoMenuScreenNoTransitionImpl()
     touchgfx::makeTransition<MenuView, MenuPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
-// main
+// Main
 
-void FrontendApplicationBase::gotomainScreenNoTransition()
+void FrontendApplicationBase::gotoMainScreenNoTransition()
 {
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotomainScreenNoTransitionImpl);
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotoMainScreenNoTransitionImpl);
     pendingScreenTransitionCallback = &transitionCallback;
 }
 
-void FrontendApplicationBase::gotomainScreenNoTransitionImpl()
+void FrontendApplicationBase::gotoMainScreenNoTransitionImpl()
 {
-    touchgfx::makeTransition<mainView, mainPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+    touchgfx::makeTransition<MainView, MainPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
-// NewHighScoreView
+// Leaderboard
 
-void FrontendApplicationBase::gotoNewHighScoreViewScreenNoTransition()
+void FrontendApplicationBase::gotoLeaderboardScreenNoTransition()
 {
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotoNewHighScoreViewScreenNoTransitionImpl);
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotoLeaderboardScreenNoTransitionImpl);
     pendingScreenTransitionCallback = &transitionCallback;
 }
 
-void FrontendApplicationBase::gotoNewHighScoreViewScreenNoTransitionImpl()
+void FrontendApplicationBase::gotoLeaderboardScreenNoTransitionImpl()
 {
-    touchgfx::makeTransition<NewHighScoreViewView, NewHighScoreViewPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+    touchgfx::makeTransition<LeaderboardView, LeaderboardPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// NewHighScore
+
+void FrontendApplicationBase::gotoNewHighScoreScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotoNewHighScoreScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoNewHighScoreScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<NewHighScoreView, NewHighScorePresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

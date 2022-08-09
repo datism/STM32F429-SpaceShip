@@ -29,6 +29,8 @@ public:
     int16_t getEndY();
     uint32_t getPoint();
 
+    int16_t getHealth();
+
     virtual const touchgfx::Rect& getHitBox() = 0;
 
 protected:

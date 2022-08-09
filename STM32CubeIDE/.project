@@ -165,6 +165,16 @@
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c</locationURI>
 		</link>
 		<link>
+			<name>Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rtc.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rtc_ex.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c</locationURI>
+		</link>
+		<link>
 			<name>Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_sdram.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sdram.c</locationURI>
@@ -330,24 +340,24 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/containers/Ship.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/gui/LeaderscoreViewPresenter.cpp</name>
+			<name>Application/User/gui/LeaderboardPresenter.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/leaderscoreview_screen/LeaderscoreViewPresenter.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/leaderboard_screen/LeaderboardPresenter.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/gui/LeaderscoreViewView.cpp</name>
+			<name>Application/User/gui/LeaderboardView.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/leaderscoreview_screen/LeaderscoreViewView.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/leaderboard_screen/LeaderboardView.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/gui/mainPresenter.cpp</name>
+			<name>Application/User/gui/MainPresenter.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/main_screen/mainPresenter.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/main_screen/MainPresenter.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/gui/mainView.cpp</name>
+			<name>Application/User/gui/MainView.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/main_screen/mainView.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/main_screen/MainView.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/gui/MenuPresenter.cpp</name>
@@ -365,14 +375,14 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/model/Model.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/gui/NewHighScoreViewPresenter.cpp</name>
+			<name>Application/User/gui/NewHighScorePresenter.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/newhighscoreview_screen/NewHighScoreViewPresenter.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/newhighscore_screen/NewHighScorePresenter.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/gui/NewHighScoreViewView.cpp</name>
+			<name>Application/User/gui/NewHighScoreView.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/newhighscoreview_screen/NewHighScoreViewView.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/newhighscore_screen/NewHighScoreView.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/ApplicationFontProvider.cpp</name>
@@ -470,14 +480,14 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/containers/ShipBase.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/LeaderscoreViewViewBase.cpp</name>
+			<name>Application/User/generated/LeaderboardViewBase.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/leaderscoreview_screen/LeaderscoreViewViewBase.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/leaderboard_screen/LeaderboardViewBase.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/mainViewBase.cpp</name>
+			<name>Application/User/generated/MainViewBase.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/main_screen/mainViewBase.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/main_screen/MainViewBase.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/MenuViewBase.cpp</name>
@@ -485,9 +495,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/menu_screen/MenuViewBase.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/NewHighScoreViewViewBase.cpp</name>
+			<name>Application/User/generated/NewHighScoreViewBase.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/newhighscoreview_screen/NewHighScoreViewViewBase.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/newhighscore_screen/NewHighScoreViewBase.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/BitmapDatabase.cpp</name>
@@ -495,9 +505,19 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/BitmapDatabase.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_ControlKeyPressed.cpp</name>
+			<name>Application/User/generated/image_DeleteKeyPressed.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_ControlKeyPressed.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_DeleteKeyPressed.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_EnterKey.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_EnterKey.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_EnterKeyPressed.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_EnterKeyPressed.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_KeyboardLayout.cpp</name>
@@ -633,6 +653,11 @@
 			<name>Application/User/generated/image_keyPressed.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_keyPressed.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_orangeButton.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_orangeButton.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_redButton.cpp</name>

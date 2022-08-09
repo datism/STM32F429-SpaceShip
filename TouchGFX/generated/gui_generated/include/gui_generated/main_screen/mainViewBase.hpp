@@ -6,7 +6,7 @@
 
 #include <gui/common/FrontendApplication.hpp>
 #include <mvp/View.hpp>
-#include <gui/main_screen/mainPresenter.hpp>
+#include <gui/main_screen/MainPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/AnimatedImage.hpp>
 #include <touchgfx/widgets/Image.hpp>
@@ -19,11 +19,11 @@
 #include <touchgfx/mixins/FadeAnimator.hpp>
 #include <touchgfx/mixins/MoveAnimator.hpp>
 
-class mainViewBase : public touchgfx::View<mainPresenter>
+class MainViewBase : public touchgfx::View<MainPresenter>
 {
 public:
-    mainViewBase();
-    virtual ~mainViewBase() {}
+    MainViewBase();
+    virtual ~MainViewBase() {}
     virtual void setupScreen();
 
     /*
@@ -31,27 +31,27 @@ public:
      */
     virtual void bossFireBullet1()
     {
-        // Override and implement this function in main
+        // Override and implement this function in Main
     }
 
     virtual void bossFireBullet0()
     {
-        // Override and implement this function in main
+        // Override and implement this function in Main
     }
 
     virtual void shipFireBullet()
     {
-        // Override and implement this function in main
+        // Override and implement this function in Main
     }
 
     virtual void enmy10FireBullet()
     {
-        // Override and implement this function in main
+        // Override and implement this function in Main
     }
 
     virtual void enmy11FireBullet()
     {
-        // Override and implement this function in main
+        // Override and implement this function in Main
     }
 
 protected:
@@ -94,6 +94,7 @@ protected:
     touchgfx::TextAreaWithOneWildcard pointText;
     touchgfx::TextAreaWithTwoWildcards lives;
     touchgfx::FadeAnimator< touchgfx::TextAreaWithOneWildcard > popUp;
+    touchgfx::FadeAnimator< touchgfx::TextAreaWithOneWildcard > scoreText;
 
     /*
      * Wildcard Buffers
@@ -106,17 +107,19 @@ protected:
     touchgfx::Unicode::UnicodeChar livesBuffer2[LIVESBUFFER2_SIZE];
     static const uint16_t POPUP_SIZE = 10;
     touchgfx::Unicode::UnicodeChar popUpBuffer[POPUP_SIZE];
+    static const uint16_t SCORETEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar scoreTextBuffer[SCORETEXT_SIZE];
 
 private:
 
     /*
      * Callback Declarations
      */
-    touchgfx::Callback<mainViewBase> bossFireBullet1TriggerCallback;
-    touchgfx::Callback<mainViewBase> bossFireBullet0TriggerCallback;
-    touchgfx::Callback<mainViewBase> shipFireBulletTriggerCallback;
-    touchgfx::Callback<mainViewBase> enemy10FireBulletTriggerCallback;
-    touchgfx::Callback<mainViewBase> enemy11FireBulletTriggerCallback;
+    touchgfx::Callback<MainViewBase> bossFireBullet1TriggerCallback;
+    touchgfx::Callback<MainViewBase> bossFireBullet0TriggerCallback;
+    touchgfx::Callback<MainViewBase> shipFireBulletTriggerCallback;
+    touchgfx::Callback<MainViewBase> enemy10FireBulletTriggerCallback;
+    touchgfx::Callback<MainViewBase> enemy11FireBulletTriggerCallback;
 
     /*
      * Callback Handler Declarations

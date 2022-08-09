@@ -1,12 +1,12 @@
 #ifndef MAINVIEW_HPP
 #define MAINVIEW_HPP
 
-#include <gui_generated/main_screen/mainViewBase.hpp>
-#include <gui/main_screen/mainPresenter.hpp>
+#include <gui_generated/Main_screen/MainViewBase.hpp>
+#include <gui/Main_screen/MainPresenter.hpp>
 #include <gui/containers/Enemy.hpp>
 #include <gui/Constraint.hpp>
 
-class mainView : public mainViewBase
+class MainView : public MainViewBase
 {
 public:
 
@@ -17,13 +17,15 @@ public:
 		ENDGAME,
 	};
 
-	mainView();
-    virtual ~mainView() {}
+	MainView();
+    virtual ~MainView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
     virtual void handleTickEvent();
 
 protected:
+    uint32_t localPoint;
+
     uint32_t tickCount;
     //Count of alive, in screen enemies
     uint8_t enemyCount;
@@ -53,6 +55,7 @@ protected:
     void cancelShipBullet();
 
     void handleShipDead();
+    void handleEnemyDead(Enemy &enemy);
 
     void setUpPhase1();
     void setUpPhase2();

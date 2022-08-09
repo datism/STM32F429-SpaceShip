@@ -58,10 +58,9 @@ static const Keyboard::Key keyArray[35] =
 /**
  * Callback areas for the special buttons on the CustomKeyboard.
  */
-static Keyboard::CallbackArea callbackAreas[2] =
+static Keyboard::CallbackArea callbackAreas[1] =
 {
-    {Rect(128, 206, 48, 26), 0, BITMAP_CONTROLKEYPRESSED_ID},   //enter
-    {Rect(176, 206, 48, 26), 0, BITMAP_CONTROLKEYPRESSED_ID}    //delete
+    {Rect(176, 206, 48, 26), 0, BITMAP_DELETEKEYPRESSED_ID}    //delete
 };
 
 /**

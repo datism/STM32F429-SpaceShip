@@ -1,18 +1,26 @@
-#include <gui/main_screen/mainView.hpp>
-#include <gui/main_screen/mainPresenter.hpp>
+#include <gui/Main_screen/MainView.hpp>
+#include <gui/Main_screen/MainPresenter.hpp>
 
-mainPresenter::mainPresenter(mainView& v)
+MainPresenter::MainPresenter(MainView& v)
     : view(v)
 {
 
 }
 
-void mainPresenter::activate()
+void MainPresenter::activate()
 {
 
 }
 
-void mainPresenter::deactivate()
+void MainPresenter::deactivate()
 {
 
+}
+
+void MainPresenter::updatePoint(uint32_t p) {
+	model->updatePoint(p);
+}
+
+void MainPresenter::getPoints(uint32_t points[5]) {
+	model->getPoints(points);
 }
