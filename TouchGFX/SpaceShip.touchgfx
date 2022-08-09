@@ -70,9 +70,8 @@
             "TextId": "gameName",
             "TextRotation": "0",
             "Color": {
-              "Red": 250,
-              "Green": 192,
-              "Blue": 2
+              "Red": 255,
+              "Green": 98
             },
             "AutoSize": true
           }
@@ -554,9 +553,9 @@
             "TextId": "leaderboardheader",
             "TextRotation": "0",
             "Color": {
-              "Red": 250,
-              "Green": 192,
-              "Blue": 2
+              "Red": 252,
+              "Green": 132,
+              "Blue": 4
             },
             "AutoSize": true
           },
@@ -565,13 +564,14 @@
             "Name": "pos1",
             "X": 50,
             "Y": 51,
-            "Width": 37,
+            "Width": 39,
             "Height": 25,
             "TextId": "__SingleUse_75AL",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
-              "Green": 82
+              "Green": 255,
+              "Blue": 255
             },
             "AutoSize": true
           },
@@ -580,14 +580,14 @@
             "Name": "pos2",
             "X": 50,
             "Y": 95,
-            "Width": 37,
+            "Width": 39,
             "Height": 25,
             "TextId": "__SingleUse_FZ8N",
             "TextRotation": "0",
             "Color": {
-              "Red": 250,
-              "Green": 192,
-              "Blue": 2
+              "Red": 252,
+              "Green": 132,
+              "Blue": 4
             },
             "AutoSize": true
           },
@@ -596,29 +596,30 @@
             "Name": "pos3",
             "X": 50,
             "Y": 140,
-            "Width": 37,
+            "Width": 39,
             "Height": 25,
             "TextId": "__SingleUse_4TUW",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
-              "Green": 82
+              "Green": 255,
+              "Blue": 255
             },
             "AutoSize": true
           },
           {
             "Type": "TextArea",
             "Name": "pos4",
-            "X": 51,
+            "X": 50,
             "Y": 185,
-            "Width": 37,
+            "Width": 39,
             "Height": 25,
             "TextId": "__SingleUse_5FKF",
             "TextRotation": "0",
             "Color": {
-              "Red": 250,
-              "Green": 192,
-              "Blue": 2
+              "Red": 252,
+              "Green": 132,
+              "Blue": 4
             },
             "AutoSize": true
           },
@@ -627,13 +628,14 @@
             "Name": "pos5",
             "X": 51,
             "Y": 230,
-            "Width": 37,
+            "Width": 39,
             "Height": 25,
             "TextId": "__SingleUse_LJQM",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
-              "Green": 82
+              "Green": 255,
+              "Blue": 255
             },
             "AutoSize": true
           },
@@ -648,7 +650,8 @@
             "TextRotation": "0",
             "Color": {
               "Red": 255,
-              "Green": 82
+              "Green": 255,
+              "Blue": 255
             },
             "Wildcard1": {
               "UseBuffer": true,
@@ -688,7 +691,8 @@
             "TextRotation": "0",
             "Color": {
               "Red": 255,
-              "Green": 82
+              "Green": 255,
+              "Blue": 255
             },
             "Wildcard1": {
               "UseBuffer": true,
@@ -705,9 +709,9 @@
             "TextId": "leaderboard",
             "TextRotation": "0",
             "Color": {
-              "Red": 250,
-              "Green": 192,
-              "Blue": 2
+              "Red": 252,
+              "Green": 132,
+              "Blue": 4
             },
             "Wildcard1": {
               "UseBuffer": true,
@@ -724,9 +728,9 @@
             "TextId": "leaderboard",
             "TextRotation": "0",
             "Color": {
-              "Red": 250,
-              "Green": 192,
-              "Blue": 2
+              "Red": 252,
+              "Green": 132,
+              "Blue": 4
             },
             "Wildcard1": {
               "UseBuffer": true,
@@ -744,7 +748,8 @@
             "TextRotation": "0",
             "Color": {
               "Red": 255,
-              "Green": 82
+              "Green": 255,
+              "Blue": 255
             },
             "Wildcard1": {
               "UseBuffer": true,
@@ -762,7 +767,8 @@
             "TextRotation": "0",
             "Color": {
               "Red": 255,
-              "Green": 82
+              "Green": 255,
+              "Blue": 255
             },
             "Wildcard1": {
               "UseBuffer": true,
@@ -780,7 +786,8 @@
             "TextRotation": "0",
             "Color": {
               "Red": 255,
-              "Green": 82
+              "Green": 255,
+              "Blue": 255
             },
             "Wildcard1": {
               "UseBuffer": true,
@@ -798,7 +805,8 @@
             "TextRotation": "0",
             "Color": {
               "Red": 255,
-              "Green": 82
+              "Green": 255,
+              "Blue": 255
             },
             "Wildcard1": {
               "UseBuffer": true,
@@ -815,9 +823,9 @@
             "TextId": "leaderboard",
             "TextRotation": "0",
             "Color": {
-              "Red": 250,
-              "Green": 192,
-              "Blue": 2
+              "Red": 252,
+              "Green": 132,
+              "Blue": 4
             },
             "Wildcard1": {
               "UseBuffer": true,
@@ -834,9 +842,9 @@
             "TextId": "leaderboard",
             "TextRotation": "0",
             "Color": {
-              "Red": 250,
-              "Green": 192,
-              "Blue": 2
+              "Red": 252,
+              "Green": 132,
+              "Blue": 4
             },
             "Wildcard1": {
               "UseBuffer": true,

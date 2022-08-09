@@ -1,7 +1,7 @@
-build/MINGW32_NT-6.2/gui/src/main_screen/mainView.o: \
- gui/src/main_screen/mainView.cpp \
- gui/include/gui/main_screen/mainView.hpp \
- generated/gui_generated/include/gui_generated/main_screen/mainViewBase.hpp \
+build/MINGW32_NT-6.2/gui/src/leaderboard_screen/LeaderboardView.o: \
+ gui/src/leaderboard_screen/LeaderboardView.cpp \
+ gui/include/gui/leaderboard_screen/LeaderboardView.hpp \
+ generated/gui_generated/include/gui_generated/leaderboard_screen/LeaderboardViewBase.hpp \
  gui/include/gui/common/FrontendApplication.hpp \
  generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp \
  ../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp \
@@ -39,33 +39,23 @@ build/MINGW32_NT-6.2/gui/src/main_screen/mainView.o: \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/Transition.hpp \
  gui/include/gui/model/Model.hpp \
  ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp \
- gui/include/gui/main_screen/mainPresenter.hpp \
+ gui/include/gui/leaderboard_screen/LeaderboardPresenter.hpp \
  gui/include/gui/model/ModelListener.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AnimatedImage.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp \
- gui/include/gui/containers/Boss.hpp \
- generated/gui_generated/include/gui_generated/containers/BossBase.hpp \
- gui/include/gui/containers/Enemy.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/MoveAnimator.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/EasingEquations.hpp \
- gui/include/gui/containers/Enemy1.hpp \
- generated/gui_generated/include/gui_generated/containers/Enemy1Base.hpp \
- gui/include/gui/containers/Enemy0.hpp \
- generated/gui_generated/include/gui_generated/containers/Enemy0Base.hpp \
- gui/include/gui/containers/Ship.hpp \
- generated/gui_generated/include/gui_generated/containers/ShipBase.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/Texts.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/FadeAnimator.hpp \
- gui/include/gui/Constraint.hpp
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp
 
-gui/include/gui/main_screen/mainView.hpp:
+gui/include/gui/leaderboard_screen/LeaderboardView.hpp:
 
-generated/gui_generated/include/gui_generated/main_screen/mainViewBase.hpp:
+generated/gui_generated/include/gui_generated/leaderboard_screen/LeaderboardViewBase.hpp:
 
 gui/include/gui/common/FrontendApplication.hpp:
 
@@ -141,7 +131,7 @@ gui/include/gui/model/Model.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:
 
-gui/include/gui/main_screen/mainPresenter.hpp:
+gui/include/gui/leaderboard_screen/LeaderboardPresenter.hpp:
 
 gui/include/gui/model/ModelListener.hpp:
 
@@ -153,36 +143,16 @@ gui/include/gui/model/ModelListener.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:
 
-gui/include/gui/containers/Boss.hpp:
-
-generated/gui_generated/include/gui_generated/containers/BossBase.hpp:
-
-gui/include/gui/containers/Enemy.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/MoveAnimator.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/EasingEquations.hpp:
-
-gui/include/gui/containers/Enemy1.hpp:
-
-generated/gui_generated/include/gui_generated/containers/Enemy1Base.hpp:
-
-gui/include/gui/containers/Enemy0.hpp:
-
-generated/gui_generated/include/gui_generated/containers/Enemy0Base.hpp:
-
-gui/include/gui/containers/Ship.hpp:
-
-generated/gui_generated/include/gui_generated/containers/ShipBase.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:
-
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Texts.hpp:
 
-../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/FadeAnimator.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:
 
-gui/include/gui/Constraint.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp:

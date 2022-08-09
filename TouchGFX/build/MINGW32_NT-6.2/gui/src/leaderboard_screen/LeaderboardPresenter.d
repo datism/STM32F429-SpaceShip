@@ -1,7 +1,7 @@
-build/MINGW32_NT-6.2/gui/src/menu_screen/MenuPresenter.o: \
- gui/src/menu_screen/MenuPresenter.cpp \
- gui/include/gui/menu_screen/MenuView.hpp \
- generated/gui_generated/include/gui_generated/menu_screen/MenuViewBase.hpp \
+build/MINGW32_NT-6.2/gui/src/leaderboard_screen/LeaderboardPresenter.o: \
+ gui/src/leaderboard_screen/LeaderboardPresenter.cpp \
+ gui/include/gui/leaderboard_screen/LeaderboardView.hpp \
+ generated/gui_generated/include/gui_generated/leaderboard_screen/LeaderboardViewBase.hpp \
  gui/include/gui/common/FrontendApplication.hpp \
  generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp \
  ../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp \
@@ -39,22 +39,23 @@ build/MINGW32_NT-6.2/gui/src/menu_screen/MenuPresenter.o: \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/Transition.hpp \
  gui/include/gui/model/Model.hpp \
  ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp \
- gui/include/gui/menu_screen/MenuPresenter.hpp \
+ gui/include/gui/leaderboard_screen/LeaderboardPresenter.hpp \
  gui/include/gui/model/ModelListener.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AnimatedImage.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/Texts.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp
 
-gui/include/gui/menu_screen/MenuView.hpp:
+gui/include/gui/leaderboard_screen/LeaderboardView.hpp:
 
-generated/gui_generated/include/gui_generated/menu_screen/MenuViewBase.hpp:
+generated/gui_generated/include/gui_generated/leaderboard_screen/LeaderboardViewBase.hpp:
 
 gui/include/gui/common/FrontendApplication.hpp:
 
@@ -130,7 +131,7 @@ gui/include/gui/model/Model.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:
 
-gui/include/gui/menu_screen/MenuPresenter.hpp:
+gui/include/gui/leaderboard_screen/LeaderboardPresenter.hpp:
 
 gui/include/gui/model/ModelListener.hpp:
 
@@ -142,14 +143,16 @@ gui/include/gui/model/ModelListener.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:
 
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Texts.hpp:
 
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp:
+
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp:

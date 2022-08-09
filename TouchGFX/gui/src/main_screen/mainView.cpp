@@ -82,7 +82,7 @@ void MainView::handleTickEvent() {
 			enemy10.setDirection(-1);
 			enemy10.setState(Enemy::ENTER);
 		}
-		else if (tickCount == 800) {
+		else if (tickCount == 600) {
 			//reMains enemy go straight up
 			for(uint8_t i = 0; i < NBR_ENEMY; ++i) {
 				if(enemies[i]->getState() == Enemy::ENTER) {
@@ -90,7 +90,7 @@ void MainView::handleTickEvent() {
 				}
 			}
 		}
-		else if (tickCount == 800 + ENEMY0_MOVE_DURATION) {
+		else if (tickCount == 600 + ENEMY0_MOVE_DURATION) {
 			//start phase 2 after retreat
 			setState(PHASE2);
 		}
@@ -114,27 +114,27 @@ void MainView::handleTickEvent() {
 			//start phase 3 if there arent any enemies left
 			setState(PHASE3);
 		}
-		else if (tickCount % 500 == 0) {
+		else if (tickCount == 600 || tickCount == 200) {
 
 			//enmy10 fly right to left
 			enemy10.setStartPos(240, ENEMY_LINE4);
 			enemy10.setDirection(-1);
 			enemy10.setState(Enemy::ENTER);
 		}
-		else if (tickCount % 650 == 0) {
+		else if (tickCount == 800) {
 			//enmy11 fly left to right
 			enemy11.setStartPos(0 - enemy11.getWidth(), ENEMY_LINE4);
 			enemy11.setDirection(1);
 			enemy11.setState(Enemy::ENTER);
 		}
-		else if (tickCount == 1200) {
+		else if (tickCount == 1000) {
 			//reMains enemy go straight down
 			for(uint8_t i = 0; i < NBR_ENEMY; ++i) {
 				if(enemies[i]->getState() == Enemy::ENTER)
 					enemies[i]->setState(Enemy::ATTACK);
 			}
 		}
-		else if (tickCount == 1200 + ENEMY0_MOVE_DURATION * 2) {
+		else if (tickCount == 1000 + ENEMY0_MOVE_DURATION * 2) {
 			//start phase 3 after attack
 			setState(PHASE3);
 		}
@@ -169,14 +169,26 @@ void MainView::handleTickEvent() {
 
 	case ENDGAME:
 		if (tickCount == 1) {
-
+			//set point
 			localPoint += ship.getLives() * 100;
 			Unicode::snprintf(scoreTextBuffer, SCORETEXT_SIZE, "%d", localPoint);
 
 			if (ship.getLives() == 0)
+				//ship died
 				Unicode::snprintf(popUpBuffer, POPUP_SIZE, "YOU-LOSE");
-			else
+			else {
+				//win
+				for(uint8_t i = 0; i < NBR_ENEMY; ++i) {
+					if(enemies[i] != &boss)
+					enemies[i]->setState(Enemy::OOB);
+				}
+
+				for(uint8_t i = 0; i < NBR_ENEMY_BULLET; ++i) {
+					enemyBullets[i]->setVisible(false);
+				}
+
 				Unicode::snprintf(popUpBuffer, POPUP_SIZE, "YOU-WIN");
+			}
 
 			popUp.setAlpha(0);
 			popUp.startFadeAnimation(255, 50, EasingEquations::cubicEaseOut);
@@ -184,10 +196,6 @@ void MainView::handleTickEvent() {
 			scoreText.setVisible(1);
 			scoreText.setAlpha(0);
 			scoreText.startFadeAnimation(255, 50, EasingEquations::cubicEaseOut);
-
-			for(uint8_t i = 0; i < NBR_ENEMY; ++i) {
-				enemies[i]->setState(Enemy::OOB);
-			}
 		}
 		else if (tickCount == 100) {
 			uint32_t points[5];
@@ -399,6 +407,7 @@ void MainView::bossFireBullet1() {
 }
 
 void MainView::enmy10FireBullet() {
+	enemy10Bullet.setVisible(true);
 	//move bullet to bottom center of enemy10
 	enemy10Bullet.moveTo(enemy10.getX() + enemy10.getWidth() / 2, enemy10.getY() + enemy10.getHeight());
 	//bullet go straight down 200 pixel
@@ -406,6 +415,7 @@ void MainView::enmy10FireBullet() {
 }
 
 void MainView::enmy11FireBullet() {
+	enemy10Bullet.setVisible(true);
 	//move bullet to bottom center of enemy11
 	enemy11Bullet.moveTo(enemy11.getX() + enemy11.getWidth() / 2, enemy11.getY() + enemy11.getHeight());
 	//bullet go straight down 200 pixel

@@ -33,7 +33,7 @@ MenuViewBase::MenuViewBase() :
     leaderboardButton.setAction(buttonCallback);
 
     gameName.setXY(52, 41);
-    gameName.setColor(touchgfx::Color::getColorFromRGB(250, 192, 2));
+    gameName.setColor(touchgfx::Color::getColorFromRGB(255, 98, 0));
     gameName.setLinespacing(0);
     gameName.setTypedText(touchgfx::TypedText(T_GAMENAME));
 

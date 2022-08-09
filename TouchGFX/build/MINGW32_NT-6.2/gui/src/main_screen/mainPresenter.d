@@ -1,7 +1,7 @@
-build/MINGW32_NT-6.2/gui/src/main_screen/mainPresenter.o: \
- gui/src/main_screen/mainPresenter.cpp \
- gui/include/gui/main_screen/mainView.hpp \
- generated/gui_generated/include/gui_generated/main_screen/mainViewBase.hpp \
+build/MINGW32_NT-6.2/gui/src/main_screen/MainPresenter.o: \
+ gui/src/main_screen/MainPresenter.cpp \
+ gui/include/gui/Main_screen/MainView.hpp \
+ generated/gui_generated/include/gui_generated/Main_screen/MainViewBase.hpp \
  gui/include/gui/common/FrontendApplication.hpp \
  generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp \
  ../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp \
@@ -39,7 +39,7 @@ build/MINGW32_NT-6.2/gui/src/main_screen/mainPresenter.o: \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/Transition.hpp \
  gui/include/gui/model/Model.hpp \
  ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp \
- gui/include/gui/main_screen/mainPresenter.hpp \
+ gui/include/gui/main_screen/MainPresenter.hpp \
  gui/include/gui/model/ModelListener.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp \
@@ -61,11 +61,12 @@ build/MINGW32_NT-6.2/gui/src/main_screen/mainPresenter.o: \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/Texts.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/FadeAnimator.hpp \
+ gui/include/gui/Main_screen/MainPresenter.hpp \
  gui/include/gui/Constraint.hpp
 
-gui/include/gui/main_screen/mainView.hpp:
+gui/include/gui/Main_screen/MainView.hpp:
 
-generated/gui_generated/include/gui_generated/main_screen/mainViewBase.hpp:
+generated/gui_generated/include/gui_generated/Main_screen/MainViewBase.hpp:
 
 gui/include/gui/common/FrontendApplication.hpp:
 
@@ -141,7 +142,7 @@ gui/include/gui/model/Model.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:
 
-gui/include/gui/main_screen/mainPresenter.hpp:
+gui/include/gui/main_screen/MainPresenter.hpp:
 
 gui/include/gui/model/ModelListener.hpp:
 
@@ -184,5 +185,7 @@ generated/gui_generated/include/gui_generated/containers/ShipBase.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Texts.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/FadeAnimator.hpp:
+
+gui/include/gui/Main_screen/MainPresenter.hpp:
 
 gui/include/gui/Constraint.hpp:

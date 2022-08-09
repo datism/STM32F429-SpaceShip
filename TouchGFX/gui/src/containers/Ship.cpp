@@ -56,8 +56,6 @@ void Ship::handleTickEvent() {
 		}
 		else if (tickCounter == EXPLODE_DURATION) {
 			//Restart after explode animation end
-			reset();
-
 			setState(lives == 0 ? OOB : IMMUNE);
 		}
 		return;
