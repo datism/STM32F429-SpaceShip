@@ -36,8 +36,8 @@ MainView::MainView()
 void MainView::setupScreen() {
     MainViewBase::setupScreen();
 
-    Unicode::snprintf(livesBuffer1, 2, "%d", 5);
-    Unicode::snprintf(livesBuffer2, 2, "%d", 5);
+    Unicode::snprintf(livesBuffer1, 3, "%d", SHIP_LIVES);
+    Unicode::snprintf(livesBuffer2, 3, "%d", SHIP_LIVES);
     lives.invalidateContent();
 
     localPoint = 0;
@@ -311,7 +311,7 @@ void MainView::setUpPhase2() {
 	uint16_t eHeight = enemy00.getHeight();
 	uint16_t eWidth = enemy00.getWidth();
 
-	//line1, 4 enemy
+	//line2, 4 enemy
 	for (i = 3; i < 7; i++) {
 		if (i == 3) {
 			enemies[i]->setStartPos(120 - eWidth, -eHeight * (i + 1));
@@ -323,13 +323,13 @@ void MainView::setUpPhase2() {
 		}
 	}
 
-	//line2, 3 enemy
+	//line3, 3 enemy
 	for (i = 0; i < 3; ++i) {
 		enemies[i]->setStartPos(240 - eWidth, -eHeight * (i + 1));
 		enemies[i]->setEndPos(enemies[i + 3]->getEndX() + eWidth + 5, ENEMY_LINE2);
 	}
 
-	//line0, 3 enemy
+	//line1, 3 enemy
 	for (i = 7; i < 10; ++i) {
 		enemies[i]->setStartPos(0, -eHeight * (i + 1));
 		enemies[i]->setEndPos(enemies[i - 7]->getEndX(), ENEMY_LINE0);
