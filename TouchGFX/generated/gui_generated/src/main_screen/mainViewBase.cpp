@@ -29,27 +29,27 @@ MainViewBase::MainViewBase() :
     boss.setFireBullet1TriggerCallback(bossFireBullet1TriggerCallback);
     boss.setFireBullet0TriggerCallback(bossFireBullet0TriggerCallback);
 
-    enemy10.setXY(181, -28);
+    enemy10.setXY(182, -28);
     enemy10.setFireBulletTriggerCallback(enemy10FireBulletTriggerCallback);
 
-    enemy11.setXY(181, -27);
+    enemy11.setXY(181, -28);
     enemy11.setFireBulletTriggerCallback(enemy11FireBulletTriggerCallback);
 
     enemy09.setXY(210, -26);
 
     enemy08.setXY(210, -26);
 
-    enemy07.setXY(210, -26);
+    enemy07.setXY(211, -26);
 
-    enemy06.setXY(210, -26);
+    enemy06.setXY(211, -25);
 
-    enemy05.setXY(210, -26);
+    enemy05.setXY(211, -26);
 
     enemy04.setXY(210, -26);
 
-    enemy03.setXY(210, -26);
+    enemy03.setXY(210, -25);
 
-    enemy02.setXY(210, -26);
+    enemy02.setXY(211, -26);
 
     enemy01.setXY(210, -26);
 
@@ -101,7 +101,7 @@ MainViewBase::MainViewBase() :
     pointText.setWildcard(pointTextBuffer);
     pointText.setTypedText(touchgfx::TypedText(T_POINTTEXT));
 
-    lives.setPosition(17, 3, 26, 11);
+    lives.setPosition(14, 3, 45, 11);
     lives.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     lives.setLinespacing(0);
     livesBuffer1[0] = 0;

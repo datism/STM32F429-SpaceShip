@@ -150,7 +150,7 @@
           {
             "Type": "CustomContainerInstance",
             "Name": "enemy10",
-            "X": 181,
+            "X": 182,
             "Y": -28,
             "Width": 29,
             "Height": 28,
@@ -160,7 +160,7 @@
             "Type": "CustomContainerInstance",
             "Name": "enemy11",
             "X": 181,
-            "Y": -27,
+            "Y": -28,
             "Width": 29,
             "Height": 28,
             "CustomContainerDefinitionName": "Enemy1"
@@ -186,7 +186,7 @@
           {
             "Type": "CustomContainerInstance",
             "Name": "enemy07",
-            "X": 210,
+            "X": 211,
             "Y": -26,
             "Width": 30,
             "Height": 26,
@@ -195,8 +195,8 @@
           {
             "Type": "CustomContainerInstance",
             "Name": "enemy06",
-            "X": 210,
-            "Y": -26,
+            "X": 211,
+            "Y": -25,
             "Width": 30,
             "Height": 26,
             "CustomContainerDefinitionName": "Enemy0"
@@ -204,7 +204,7 @@
           {
             "Type": "CustomContainerInstance",
             "Name": "enemy05",
-            "X": 210,
+            "X": 211,
             "Y": -26,
             "Width": 30,
             "Height": 26,
@@ -223,7 +223,7 @@
             "Type": "CustomContainerInstance",
             "Name": "enemy03",
             "X": 210,
-            "Y": -26,
+            "Y": -25,
             "Width": 30,
             "Height": 26,
             "CustomContainerDefinitionName": "Enemy0"
@@ -231,7 +231,7 @@
           {
             "Type": "CustomContainerInstance",
             "Name": "enemy02",
-            "X": 210,
+            "X": 211,
             "Y": -26,
             "Width": 30,
             "Height": 26,
@@ -404,9 +404,9 @@
           {
             "Type": "TextArea",
             "Name": "lives",
-            "X": 17,
+            "X": 14,
             "Y": 3,
-            "Width": 26,
+            "Width": 45,
             "Height": 11,
             "TextId": "livesText",
             "TextRotation": "0",

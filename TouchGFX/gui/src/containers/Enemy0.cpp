@@ -41,6 +41,7 @@ void Enemy0::handleTickEvent() {
 		if (tickCounter == 1)
 			//go straight up
 			startMoveAnimation(getX(), -getHeight(), ENEMY0_MOVE_DURATION);
+
 		if (tickCounter == ENEMY0_MOVE_DURATION) {
 			reset();
 			setState(OOB);

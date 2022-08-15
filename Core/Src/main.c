@@ -1140,32 +1140,30 @@ void GYRO_IO_Read(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead)
   * @retval None
   */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void *argument)
-{
+void StartDefaultTask(void *argument) {
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
-  for(;;)
-  {
-	GyroscopeDrv->GetXYZ(pfData);
+  for(;;) {
+    GyroscopeDrv->GetXYZ(pfData);
 
-	x = pfData[0];
-	y = pfData[1];
+    x = pfData[0];
+    y = pfData[1];
 
-	if (ABS(pfData[0]) > ABS(pfData[1])) {
-		if (pfData[0] > 50000.0f)
-			c = 'U';
-		else if (pfData[0] < -50000.0f)
-			c = 'D';
-	}
-	else {
-		if (pfData[1] > 50000.0f)
-			c = 'R';
-		else if (pfData[1] < -50000.0f)
-			c = 'L';
-	}
+    if (ABS(pfData[0]) > ABS(pfData[1])) {
+      if (pfData[0] > 40000.0f)
+        c = 'U';
+      else if (pfData[0] < -40000.0f)
+        c = 'D';
+    }
+    else {
+      if (pfData[1] > 40000.0f)
+        c = 'R';
+      else if (pfData[1] < -40000.0f)
+        c = 'L';
+	  }
 
 	if (osMessageQueueGetCount(Queue1Handle) < 2)
-		osMessageQueuePut(Queue1Handle, &c, 0, 200);
+	  osMessageQueuePut(Queue1Handle, &c, 0, 200);
 
     osDelay(1);
   }
